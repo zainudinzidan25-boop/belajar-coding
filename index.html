@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mau Jadi Pacarku?</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div id="heart-container"></div> <div class="container">
         <div id="main-card" class="card">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIycXByZ293Ym9ueW54YXN6Y3R6amZ3amZ3amZ3amZ3amZ3Jm10PXM/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Cat" class="gif">
-            <h1>Kamu mau gak jadi pacarku🥺</h1>
-            <p>Pikirkan baik-baik ya (tapi harus bilang yes sih)...</p>
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIycXByZ293Ym9ueW54YXN6Y3R6amZ3amZ3amZ3amZ3amZ3Jm10PXM/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Cat" class="gif" id="display-gif">
+            <h1 id="question">kamu mau gak jadi pacarku? 🥺</h1>
+            <p id="sub-text">pikirin baik-baik ya (tapi aku maksa si)...</p>
             
             <div class="btn-group">
-                <button id="yesBtn" onclick="nextPage()">Mau Banget!</button>
-                <button id="noBtn">Gamau...</button>
+                <button id="yesBtn" onclick="celebrate()">MAUUUUUUU!</button>
+                <button id="noBtn">gamau ah</button>
             </div>
         </div>
     </div>
