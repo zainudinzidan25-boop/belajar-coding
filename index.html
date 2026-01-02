@@ -3,23 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mau Jadi Pacarku?</title>
-    <link rel="stylesheet" href="style.css">
+    <title>For You ❤️</title>
+    
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        /* CSS DALAM SATU FILE */
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            max-width: 350px;
+        }
+
+        .gif { width: 160px; margin-bottom: 20px; border-radius: 15px; }
+
+        h1 { color: #ff4d6d; font-size: 24px; margin-bottom: 10px; }
+
+        .btn-group {
+            margin-top: 30px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        #yesBtn { background: #ff4d6d; color: white; }
+
+        #noBtn { 
+            background: #adb5bd; 
+            color: white; 
+            position: absolute; /* Tetap absolute agar bisa lari */
+            transition: 0.1s;
+        }
+
+        /* Animasi Hati Jatuh */
+        .heart {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 20px;
+            user-select: none;
+            top: -20px;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-    <div id="heart-container"></div> <div class="container">
+
+    <div class="container">
         <div id="main-card" class="card">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIycXByZ293Ym9ueW54YXN6Y3R6amZ3amZ3amZ3amZ3amZ3Jm10PXM/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Cat" class="gif" id="display-gif">
-            <h1 id="question">kamu mau gak jadi pacarku? 🥺</h1>
-            <p id="sub-text">pikirin baik-baik ya (tapi aku maksa si)...</p>
+            <img id="gif-image" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIycXByZ293Ym9ueW54YXN6Y3R6amZ3amZ3amZ3amZ3amZ3Jm10PXM/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Cat" class="gif">
+            <h1 id="headline">Kamu mau gak jadi pacarku? 🥺</h1>
             
-            <div class="btn-group">
-                <button id="yesBtn" onclick="celebrate()">MAUUUUUUU!</button>
-                <button id="noBtn">gamau ah</button>
+            <div id="button-area" class="btn-group">
+                <button id="yesBtn">Mau!</button>
+                <button id="noBtn">Enggak</button>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const card = document.getElementById('main-card');
+
+        // 1. Logika Tombol No Kabur (Bisa untuk HP & Laptop)
+        const moveButton = () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        };
+
+        noBtn.addEventListener('mouseover', moveButton);
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Mencegah klik di HP
+            moveButton();
+        });
+
+        // 2. Efek Hujan Hati Otomatis
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            heart.style.opacity = Math.random();
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }, 300);
+
+        // 3. Aksi Saat Klik YES
+        yesBtn.addEventListener('click', () => {
+            // Efek Confetti Meriah
+            var end = Date.now() + (3 * 1000);
+            var colors = ['#ff4d6d', '#ffffff', '#ffccd5'];
+
+            (function frame() {
+                confetti({
+                    particleCount: 3,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: colors
+                });
+                confetti({
+                    particleCount: 3,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: colors
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+
+            // Ubah Konten Card
+            card.innerHTML = `
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIycXByZ293Ym9ueW54YXN6Y3R6amZ3amZ3amZ3amZ3amZ3Jm10PXM/KztT2c4u8mYYUiBtIQ/giphy.gif" class="gif">
+                <h1>I Love You! ❤️</h1>
+                <p>Makasih udah mau nerima aku!</p>
+            `;
+        });
+    </script>
 </body>
 </html>
