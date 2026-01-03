@@ -3,27 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Gift for You</title>
+    <title>A Special Journey</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <div id="game-section" class="active">
         <div class="glass-card">
-            <h2>Selesaikan Puzzle Kecil Ini ✨</h2>
-            <p>Klik kotak untuk mencocokkan warna!</p>
-            <div id="game-board"></div>
-            <p id="message">Selesaikan untuk melihat kejutan...</p>
+            <h2>Uji Ingatanmu 🧩</h2>
+            <p>Temukan semua pasangan untuk membuka pesan rahasia!</p>
+            <div id="memory-game"></div>
         </div>
     </div>
 
     <div id="celebration-section">
         <canvas id="confetti-canvas"></canvas>
-        <div class="wish-card">
-            <h1 class="fade-in">Happy Birthday!</h1>
-            <p class="fade-in-delayed">Semoga harimu penuh kebahagiaan dan cinta.</p>
-            <div class="decoration">✨ 🎂 ✨</div>
+        
+        <div class="slider-wrapper">
+            <div class="slide active">
+                <h1 class="glow-text">Happy Birthday!</h1>
+                <p>Klik panah untuk melihat pesan...</p>
+            </div>
+            <div class="slide">
+                <h2>Terima Kasih...</h2>
+                <p>Makasih bun, udah jadi bunda yang terbaik buat aku dan kakak!! doain kita ya biar bisa setulus dan setangguh bunda <3.</p>
+            </div>
+            <div class="slide">
+                <h2>Harapanku ✨</h2>
+                <p>Semoga bunda sehat selalu ya, dilancarkan rezekinya, dimudahkan urusannya, tolong hidup lebih lama ya bun biar bisa menyaksikan anakmu ini meraih kesuksesan.</p>
+            </div>
+
+            <button id="next-btn">Next <i class="fas fa-arrow-right"></i></button>
         </div>
     </div>
 
