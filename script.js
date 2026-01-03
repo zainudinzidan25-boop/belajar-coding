@@ -1,64 +1,96 @@
-const gameBoard = document.getElementById('game-board');
-const gameSection = document.getElementById('game-section');
-const celebrationSection = document.getElementById('celebration-section');
-const tiles = [];
-const gridSize = 3;
+// Game Setup
+const icons = ['❤️', '🎁', '🎂', '🌟', '💎', '🎉', '🎈', '🍫'];
+const gameGrid = [...icons, ...icons].sort(() => 0.5 - Math.random());
+const gameBoard = document.getElementById('memory-game');
 
-// 1. Inisialisasi Game (Simple Pattern Match)
-for (let i = 0; i < gridSize * gridSize; i++) {
-    const tile = document.createElement('div');
-    tile.classList.add('tile');
-    tile.addEventListener('click', () => toggleTile(i));
-    gameBoard.appendChild(tile);
-    tiles.push(tile);
-}
+let flippedCards = [];
+let matchedCount = 0;
 
-function toggleTile(index) {
-    tiles[index].classList.toggle('active');
-    checkWin();
-}
+// Create Cards
+gameGrid.forEach((icon, index) => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.dataset.icon = icon;
+    card.innerHTML = `
+        <div class="card-front">${icon}</div>
+        <div class="card-back"></div>
+    `;
+    card.addEventListener('click', flipCard);
+    gameBoard.appendChild(card);
+});
 
-function checkWin() {
-    const allActive = tiles.every(tile => tile.classList.contains('active'));
-    if (allActive) {
-        setTimeout(showCelebration, 500);
+function flipCard() {
+    if (flippedCards.length < 2 && !this.classList.contains('flipped')) {
+        this.classList.add('flipped');
+        flippedCards.push(this);
+
+        if (flippedCards.length === 2) {
+            setTimeout(checkMatch, 700);
+        }
     }
 }
 
-// 2. Transisi ke Perayaan
-function showCelebration() {
-    gameSection.classList.remove('active');
-    celebrationSection.classList.add('active');
-    startConfetti();
+function checkMatch() {
+    const [card1, card2] = flippedCards;
+    if (card1.dataset.icon === card2.dataset.icon) {
+        matchedCount++;
+        if (matchedCount === icons.length) {
+            setTimeout(startCelebration, 500);
+        }
+    } else {
+        card1.classList.remove('flipped');
+        card2.classList.remove('flipped');
+    }
+    flippedCards = [];
 }
 
-// 3. Efek Confetti Sederhana
-function startConfetti() {
+// Celebration & Slide Logic
+function startCelebration() {
+    document.getElementById('game-section').style.display = 'none';
+    document.getElementById('celebration-section').style.display = 'flex';
+    initConfetti();
+}
+
+const slides = document.querySelectorAll('.slide');
+const nextBtn = document.getElementById('next-btn');
+let currentSlide = 0;
+
+nextBtn.addEventListener('click', () => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide++;
+
+    if (currentSlide < slides.length) {
+        slides[currentSlide].classList.add('active');
+    } else {
+        // Reset ke slide pertama atau beri pesan penutup
+        currentSlide = 0;
+        slides[currentSlide].classList.add('active');
+        alert("Sekali lagi, Selamat Ulang Tahun! ❤️");
+    }
+});
+
+// Simple Confetti
+function initConfetti() {
     const canvas = document.getElementById('confetti-canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    let particles = Array.from({ length: 150 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        v: Math.random() * 2 + 2,
+        c: `hsl(${Math.random() * 360}, 80%, 60%)`
+    }));
 
-    let particles = [];
-    for (let i = 0; i < 150; i++) {
-        particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height - canvas.height,
-            size: Math.random() * 7 + 3,
-            color: `hsl(${Math.random() * 360}, 70%, 60%)`,
-            velocity: Math.random() * 3 + 2
-        });
-    }
-
-    function animate() {
+    function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach(p => {
-            p.y += p.velocity;
+            p.y += p.v;
             if (p.y > canvas.height) p.y = -10;
-            ctx.fillStyle = p.color;
-            ctx.fillRect(p.x, p.y, p.size, p.size);
+            ctx.fillStyle = p.c;
+            ctx.fillRect(p.x, p.y, 5, 5);
         });
-        requestAnimationFrame(animate);
+        requestAnimationFrame(draw);
     }
-    animate();
+    draw();
 }
