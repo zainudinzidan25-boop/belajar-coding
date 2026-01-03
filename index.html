@@ -3,166 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat ulang tahun Bunda</title>
-    <style>
-        /* CSS - Desain Lucu & Gemoy */
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #ffdeeb; /* Pink Pastel */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 400px;
-            height: 500px;
-            position: relative;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
-            transition: transform 0.5s ease-in-out;
-            transform: translateX(100%);
-        }
-
-        .slide.active {
-            transform: translateX(0);
-        }
-
-        .slide.prev {
-            transform: translateX(-100%);
-        }
-
-        h1 { color: #ff4d94; font-size: 24px; }
-        p { color: #555; line-height: 1.6; font-size: 18px; }
-        
-        /* Gambar/Emoji lucu */
-        .emoji {
-            font-size: 80px;
-            margin-bottom: 20px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-20px);}
-            60% {transform: translateY(-10px);}
-        }
-
-        .btn-next {
-            background-color: #ff4d94;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-top: 20px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn-next:hover { background-color: #ff1a75; transform: scale(1.1); }
-
-        /* Confetti Effect */
-        #canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 100;
-        }
-    </style>
+    <title>Special Gift for You</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<canvas id="canvas"></canvas>
-
-<div class="container">
-    <div class="slide active" id="slide1">
-        <div class="emoji">🎁</div>
-        <h1>Ada Paket Buat Bunda!</h1>
-        <p>Coba klik tombol di bawah buat buka...</p>
-        <button class="btn-next" onclick="nextSlide(1)">Buka Paket 📦</button>
+    <div id="game-section" class="active">
+        <div class="glass-card">
+            <h2>Selesaikan Puzzle Kecil Ini ✨</h2>
+            <p>Klik kotak untuk mencocokkan warna!</p>
+            <div id="game-board"></div>
+            <p id="message">Selesaikan untuk melihat kejutan...</p>
+        </div>
     </div>
 
-    <div class="slide" id="slide2">
-        <div class="emoji">🎂</div>
-        <h1>SURPRISE!!</h1>
-        <p>Selamat Ulang Tahun buat Bunda yang paling cantik sedunia!</p>
-        <button class="btn-next" onclick="nextSlide(2)">Terus? 👉</button>
+    <div id="celebration-section">
+        <canvas id="confetti-canvas"></canvas>
+        <div class="wish-card">
+            <h1 class="fade-in">Happy Birthday!</h1>
+            <p class="fade-in-delayed">Semoga harimu penuh kebahagiaan dan cinta.</p>
+            <div class="decoration">✨ 🎂 ✨</div>
+        </div>
     </div>
 
-    <div class="slide" id="slide3">
-        <div class="emoji">👑</div>
-        <h1>Ratu Rumah Tangga</h1>
-        <p>Makasih ya Bun udah sabar ngadepin aku yang gajelas ini. Hehe..</p>
-        <button class="btn-next" onclick="nextSlide(3)">Satu lagi.. ✨</button>
-    </div>
-
-    <div class="slide" id="slide4">
-        <div class="emoji">💖</div>
-        <h1>I Love You, Bun!</h1>
-        <p>Semoga Bunda sehat terus, banyak rezeki, dan makin sayang sama aku!</p>
-        <button class="btn-next" onclick="resetSlide()">Ulangi Pelukan 🤗</button>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script>
-    // JS - Logika Slide & Animasi
-    function nextSlide(current) {
-        const currentSlide = document.getElementById('slide' + current);
-        const nextSlide = document.getElementById('slide' + (current + 1));
-
-        if (nextSlide) {
-            currentSlide.classList.remove('active');
-            currentSlide.classList.add('prev');
-            nextSlide.classList.add('active');
-            
-            // Efek konfeti setiap pindah slide
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 },
-                colors: ['#ff4d94', '#ffdeeb', '#ffffff']
-            });
-        }
-    }
-
-    function resetSlide() {
-        // Balik ke slide awal
-        location.reload();
-    }
-
-    // Jalankan konfeti otomatis saat buka
-    window.onload = () => {
-        confetti({
-            particleCount: 150,
-            origin: { y: 0.8 }
-        });
-    };
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
