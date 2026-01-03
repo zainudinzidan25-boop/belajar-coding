@@ -1,60 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    overflow: hidden; /* Supaya hati tidak buat scrollbar */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 30px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    text-align: center;
-    z-index: 10;
-    position: relative;
-}
-
-.gif { width: 180px; margin-bottom: 20px; border-radius: 15px; }
-
-h1 { color: #ff4d6d; margin-bottom: 10px; }
-
-.btn-group {
-    margin-top: 30px;
-    height: 60px;
-    display: flex;
+/* Container Settings */
+#game-section, #celebration-section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    flex-direction: column;
 }
 
-button {
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 50px;
+#game-section.active { display: flex; }
+#celebration-section.active { display: flex; animation: fadeInScreen 1.5s forwards; }
+
+/* Glassmorphism Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Game Logic Visuals */
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.tile {
+    width: 80px;
+    height: 80px;
+    background: #4e4e4e;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: transform 0.2s, background 0.3s;
 }
 
-#yesBtn { background: #ff4d6d; color: white; box-shadow: 0 5px 15px rgba(255,77,109,0.4); }
+.tile.active {
+    background: #ffd700; /* Gold color */
+    box-shadow: 0 0 15px #ffd700;
+}
 
-#noBtn { background: #adb5bd; color: white; position: absolute; }
+/* Wish Card */
+.wish-card h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
 
-/* Animasi Hujan Hati */
-.heart {
+/* Animations */
+@keyframes fadeInScreen {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.fade-in { animation: fadeIn 2s ease-in; }
+.fade-in-delayed { animation: fadeIn 4s ease-in; }
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+#confetti-canvas {
     position: absolute;
-    color: #ff4d6d;
-    font-size: 20px;
-    user-select: none;
-    animation: fall linear forwards;
-}
-
-@keyframes fall {
-    to { transform: translateY(100vh) rotate(360deg); }
+    top: 0; left: 0;
+    pointer-events: none;
 }
