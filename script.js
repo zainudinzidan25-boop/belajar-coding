@@ -1,68 +1,64 @@
-const noBtn = document.getElementById('noBtn');
-const yesBtn = document.getElementById('yesBtn');
-const card = document.getElementById('main-card');
+const gameBoard = document.getElementById('game-board');
+const gameSection = document.getElementById('game-section');
+const celebrationSection = document.getElementById('celebration-section');
+const tiles = [];
+const gridSize = 3;
 
-// 1. Logika Tombol No Kabur
-noBtn.addEventListener('mouseover', () => {
-    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-    
-    noBtn.style.left = x + 'px';
-    noBtn.style.top = y + 'px';
-});
-
-// 2. Efek Hujan Hati di Background
-function createHeart() {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.innerHTML = '❤️';
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.animationDuration = Math.random() * 2 + 3 + 's';
-    document.body.appendChild(heart);
-    
-    setTimeout(() => { heart.remove(); }, 5000);
+// 1. Inisialisasi Game (Simple Pattern Match)
+for (let i = 0; i < gridSize * gridSize; i++) {
+    const tile = document.createElement('div');
+    tile.classList.add('tile');
+    tile.addEventListener('click', () => toggleTile(i));
+    gameBoard.appendChild(tile);
+    tiles.push(tile);
 }
-setInterval(createHeart, 300);
 
-// 3. Fungsi Perayaan saat Klik YES
-function celebrate() {
-    // Jalankan Confetti
-    confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#ff4d6d', '#ff758f', '#ffccd5', '#ffffff']
-    });
+function toggleTile(index) {
+    tiles[index].classList.toggle('active');
+    checkWin();
+}
 
-    // Ubah Isi Card
-    card.innerHTML = `
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIycXByZ293Ym9ueW54YXN6Y3R6amZ3amZ3amZ3amZ3amZ3Jm10PXM/KztT2c4u8mYYUiBtIQ/giphy.gif" class="gif">
-        <h1 style="font-size: 2.5rem;">YEEAYYY! ❤️</h1>
-        <p style="font-size: 1.2rem;">i think I'm the happiest person in the world <br> I Love You So Much! 🥰</p>
-    `;
-    
-    // Ledakan confetti berulang
-    let duration = 3 * 1000;
-    let end = Date.now() + duration;
+function checkWin() {
+    const allActive = tiles.every(tile => tile.classList.contains('active'));
+    if (allActive) {
+        setTimeout(showCelebration, 500);
+    }
+}
 
-    (function frame() {
-        confetti({
-            particleCount: 5,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 },
-            colors: ['#ff4d6d', '#ffb3c1']
+// 2. Transisi ke Perayaan
+function showCelebration() {
+    gameSection.classList.remove('active');
+    celebrationSection.classList.add('active');
+    startConfetti();
+}
+
+// 3. Efek Confetti Sederhana
+function startConfetti() {
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+    for (let i = 0; i < 150; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height - canvas.height,
+            size: Math.random() * 7 + 3,
+            color: `hsl(${Math.random() * 360}, 70%, 60%)`,
+            velocity: Math.random() * 3 + 2
         });
-        confetti({
-            particleCount: 5,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 },
-            colors: ['#ff4d6d', '#ffb3c1']
-        });
+    }
 
-        if (Date.now() < end) {
-            requestAnimationFrame(frame);
-        }
-    }());
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.y += p.velocity;
+            if (p.y > canvas.height) p.y = -10;
+            ctx.fillStyle = p.color;
+            ctx.fillRect(p.x, p.y, p.size, p.size);
+        });
+        requestAnimationFrame(animate);
+    }
+    animate();
 }
