@@ -3,230 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ÉLÉGANCE | Premium Muslimah Boutique</title>
+    <title>Luxury Boutique | Ultimate Edition ✨</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <style>
         :root {
-            --cream: #F5F1ED;
-            --dark-cream: #E5DED4;
-            --luxury-brown: #3D3630;
-            --accent-gold: #C5A059;
-            --white: #FFFFFF;
+            --primary: #1a1a1a;
+            --accent: #c5a059;
+            --bg: #fdfbf9;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.9);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body, html { height: 100%; background-color: var(--cream); color: var(--luxury-brown); font-family: 'Montserrat', sans-serif; overflow: hidden; }
+        * { font-family: 'Plus Jakarta Sans', sans-serif; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body, html { margin: 0; padding: 0; background: var(--bg); color: var(--primary); overflow: hidden; height: 100%; }
 
-        h1, h2, h3, .nav-logo { font-family: 'Tenor Sans', sans-serif; text-transform: uppercase; letter-spacing: 3px; }
+        /* PRELOADER */
+        #loader { position: fixed; inset: 0; background: var(--primary); z-index: 9999; display: flex; justify-content: center; align-items: center; color: var(--accent); font-family: 'Playfair Display'; font-size: 2rem; }
 
-        /* --- BACKGROUND DECORATION --- */
-        .bg-ornament {
-            position: fixed; width: 400px; height: 400px; border: 1px solid var(--dark-cream);
-            border-radius: 50%; z-index: -1; opacity: 0.5; animation: rotate 20s linear infinite;
+        /* NAVIGATION */
+        .top-nav {
+            position: fixed; top: 25px; left: 50%; transform: translateX(-50%);
+            z-index: 1000; background: var(--glass); backdrop-filter: blur(15px);
+            padding: 10px 30px; border-radius: 50px; display: flex; gap: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.5);
         }
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .nav-link { text-decoration: none; color: var(--primary); font-size: 10px; font-weight: 800; letter-spacing: 2px; cursor: pointer; opacity: 0.4; text-transform: uppercase; }
+        .nav-link.active { opacity: 1; color: var(--accent); }
 
-        /* --- NAVIGATION --- */
-        .nav-logo { position: fixed; top: 30px; left: 50px; z-index: 1000; font-size: 24px; font-weight: bold; text-decoration: none; color: var(--luxury-brown); }
-        
-        .nav-controls { position: fixed; top: 30px; right: 50px; z-index: 1000; display: flex; gap: 30px; align-items: center; }
-        .cart-icon { position: relative; cursor: pointer; font-size: 20px; transition: 0.3s; }
-        .cart-count { 
-            position: absolute; top: -10px; right: -10px; background: var(--accent-gold); 
-            color: white; font-size: 10px; width: 18px; height: 18px; 
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-        }
+        .swiper { width: 100%; height: 100vh; }
 
-        /* --- MARQUEE (Promo Text) --- */
-        .promo-banner {
-            position: fixed; bottom: 0; width: 100%; background: var(--luxury-brown);
-            color: var(--white); padding: 10px 0; z-index: 900; overflow: hidden;
-            font-size: 10px; letter-spacing: 2px; font-weight: bold;
-        }
-        .marquee { display: flex; gap: 50px; animation: marquee 20s linear infinite; width: max-content; }
-        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        /* SLIDE CONTENT */
+        .slide-container { padding: 110px 20px 140px; max-width: 1200px; margin: 0 auto; height: 100%; overflow-y: auto; scrollbar-width: none; }
+        .slide-container::-webkit-scrollbar { display: none; }
 
-        /* --- BENTO GRID & BADGES --- */
-        .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; max-width: 1100px; }
-        .bento-item { background: var(--white); border-radius: 4px; overflow: hidden; position: relative; height: 400px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
-        .badge { 
-            position: absolute; top: 15px; left: 15px; background: var(--accent-gold); 
-            color: white; padding: 5px 12px; font-size: 9px; font-weight: bold; letter-spacing: 1px;
-            z-index: 10;
-        }
+        .hero-text { text-align: center; margin-bottom: 50px; opacity: 0; transform: translateY(30px); }
+        .hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4.5rem); margin: 0; line-height: 1.1; }
+        .hero-text span { color: var(--accent); font-style: italic; }
 
-        /* --- SHOPPING CART DRAWER --- */
-        .cart-drawer {
-            position: fixed; top: 0; right: -400px; width: 400px; height: 100%;
-            background: var(--white); z-index: 2000; transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-            box-shadow: -10px 0 50px rgba(0,0,0,0.1); padding: 40px;
-        }
-        .cart-drawer.active { right: 0; }
-        .cart-items-list { margin-top: 30px; max-height: 60vh; overflow-y: auto; }
-        .cart-item { display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid var(--cream); padding-bottom: 15px; }
-        .cart-item img { width: 60px; height: 60px; object-fit: cover; }
-        .checkout-btn { 
-            width: 100%; padding: 20px; background: var(--luxury-brown); 
-            color: white; border: none; margin-top: 20px; cursor: pointer;
-            font-weight: bold; letter-spacing: 2px;
+        /* PRODUCT GRID */
+        .modern-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        @media (min-width: 768px) { .modern-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 35px; } }
+
+        .modern-card { background: var(--white); border-radius: 30px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.02); opacity: 0; transform: scale(0.9); }
+        .img-wrapper { border-radius: 22px; overflow: hidden; aspect-ratio: 3/4; margin-bottom: 15px; position: relative; }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .modern-card:hover img { transform: scale(1.1); }
+
+        .size-btn { border: 1px solid #eee; background: #f9f9f9; width: 38px; height: 38px; border-radius: 12px; cursor: pointer; font-size: 12px; font-weight: 700; }
+        .size-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        .buy-btn { background: var(--primary); color: white; border: none; width: 100%; padding: 16px; border-radius: 20px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .buy-btn:hover { background: var(--accent); }
+
+        /* BENTO & TESTIMONI */
+        .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .bento-card { background: white; border-radius: 35px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.02); }
+        .testi-card { border-left: 4px solid var(--accent); padding-left: 20px; margin-bottom: 20px; }
+
+        /* FLOATING CART */
+        .cart-bar {
+            position: fixed; bottom: 35px; left: 50%; transform: translateX(-50%);
+            background: var(--primary); padding: 16px 35px; border-radius: 60px;
+            color: white; display: flex; align-items: center; gap: 20px; z-index: 1000;
+            cursor: pointer; box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
 
-        /* --- ANIMATIONS --- */
-        .animate-text { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.2, 1, 0.3, 1); }
-        .swiper-slide-active .animate-text { opacity: 1; transform: translateY(0); }
-        .delay-1 { transition-delay: 0.2s; }
-        .delay-2 { transition-delay: 0.4s; }
-
-        /* MOBILE */
-        @media (max-width: 768px) {
-            .nav-logo { left: 20px; font-size: 18px; }
-            .nav-controls { right: 20px; }
-            .cart-drawer { width: 100%; right: -100%; }
-            .bento-grid { grid-template-columns: 1fr; overflow-y: auto; height: 60vh; }
-        }
+        /* MODAL */
+        #cart-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(15px); z-index: 2000; justify-content: center; align-items: flex-end; }
+        .modal-card { background: white; width: 100%; max-width: 500px; padding: 40px; border-radius: 45px 45px 0 0; }
     </style>
 </head>
 <body>
 
-    <div class="bg-ornament" style="top: -100px; right: -100px;"></div>
-    <div class="bg-ornament" style="bottom: -100px; left: -100px; width: 200px; height: 200px;"></div>
+    <div id="loader">L O A D I N G</div>
 
-    <a href="#" class="nav-logo">ÉLÉGANCE</a>
+    <nav class="top-nav">
+        <a class="nav-link active" onclick="mSwiper.slideTo(0)">Shop</a>
+        <a class="nav-link" onclick="mSwiper.slideTo(1)">Stories</a>
+        <a class="nav-link" onclick="mSwiper.slideTo(2)">Connect</a>
+    </nav>
 
-    <div class="nav-controls">
-        <div class="cart-icon" onclick="toggleCart()">
-            <i class="fa-solid fa-bag-shopping"></i>
-            <span class="cart-count" id="cart-count">0</span>
-        </div>
-    </div>
-
-    <div class="swiper main-swiper">
+    <div class="swiper mainSwiper">
         <div class="swiper-wrapper">
             
             <div class="swiper-slide">
-                <div style="text-align: center; padding: 0 10%;">
-                    <h1 class="animate-text" style="font-size: clamp(40px, 8vw, 100px);">New <br><span>Collection</span></h1>
-                    <p class="animate-text delay-1" style="margin: 20px 0 40px; opacity: 0.6; letter-spacing: 2px;">ESTABLISHED IN JAKARTA • 2026</p>
-                    <button class="animate-text delay-2" style="background:none; border: 1px solid var(--luxury-brown); padding: 15px 40px; cursor:pointer; font-weight:bold;" onclick="swiper.slideTo(1)">VIEW CATALOG</button>
+                <div class="slide-container">
+                    <div class="hero-text" id="hero-1">
+                        <p style="letter-spacing: 5px; font-size: 10px; font-weight: 700; margin-bottom: 15px;">NEW SEASON 2026</p>
+                        <h1>Graceful <span>Movement</span></h1>
+                    </div>
+                    <div class="modern-grid" id="product-list"></div>
                 </div>
             </div>
 
             <div class="swiper-slide">
-                <div style="padding: 0 10%; width: 100%;">
-                    <h2 class="animate-text" style="margin-bottom: 40px; text-align: center;">Must Haves</h2>
-                    <div class="bento-grid animate-text delay-1">
-                        <div class="bento-item">
-                            <div class="badge">TRENDING</div>
-                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=600">
-                            <div style="padding: 20px; background: var(--white);">
-                                <h4 style="font-size: 12px;">Silk Gamis - Mauve</h4>
-                                <p style="color: var(--accent-gold); font-weight: bold; margin-top: 5px;">Rp 850.000</p>
-                                <button onclick="addToCart('Silk Gamis', 850000)" style="margin-top: 15px; width: 100%; padding: 10px; border: 1px solid var(--luxury-brown); background: none; cursor: pointer; font-size: 10px; font-weight: bold;">ADD TO BAG</button>
+                <div class="slide-container">
+                    <div class="hero-text">
+                        <h1>Our <span>Stories</span></h1>
+                    </div>
+                    <div class="bento-grid">
+                        <div class="bento-card" style="grid-column: span 2; background: var(--primary); color: white;">
+                            <h2 style="font-family:'Playfair Display'; font-size: 2rem;">"The best quality I've ever wore."</h2>
+                            <p style="opacity: 0.6;">— Sarah J., Verified Buyer</p>
+                        </div>
+                        <div class="bento-card">
+                            <div class="testi-card">
+                                <p><b>Pashmina Glow</b></p>
+                                <p style="font-size: 13px; opacity:0.7;">Bahannya sangat jatuh dan mewah untuk acara formal.</p>
+                            </div>
+                            <div class="testi-card">
+                                <p><b>Amani Silk</b></p>
+                                <p style="font-size: 13px; opacity:0.7;">Warna aslinya jauh lebih cantik dari foto!</p>
                             </div>
                         </div>
-                        <div class="bento-item">
-                            <div class="badge">LIMITED</div>
-                            <img src="https://images.unsplash.com/photo-1601006543884-a14a29a0f44e?q=80&w=600">
-                            <div style="padding: 20px; background: var(--white);">
-                                <h4 style="font-size: 12px;">Desert Abaya - Sand</h4>
-                                <p style="color: var(--accent-gold); font-weight: bold; margin-top: 5px;">Rp 1.200.000</p>
-                                <button onclick="addToCart('Desert Abaya', 1200000)" style="margin-top: 15px; width: 100%; padding: 10px; border: 1px solid var(--luxury-brown); background: none; cursor: pointer; font-size: 10px; font-weight: bold;">ADD TO BAG</button>
-                            </div>
-                        </div>
-                        <div class="bento-item">
-                            <div class="badge">NEW</div>
-                            <img src="https://images.unsplash.com/photo-1599814352520-22c9e787e91d?q=80&w=600">
-                            <div style="padding: 20px; background: var(--white);">
-                                <h4 style="font-size: 12px;">Luxe Scarf - Gold</h4>
-                                <p style="color: var(--accent-gold); font-weight: bold; margin-top: 5px;">Rp 250.000</p>
-                                <button onclick="addToCart('Luxe Scarf', 250000)" style="margin-top: 15px; width: 100%; padding: 10px; border: 1px solid var(--luxury-brown); background: none; cursor: pointer; font-size: 10px; font-weight: bold;">ADD TO BAG</button>
+                        <div class="bento-card" style="display: flex; align-items: center; justify-content: center; background: var(--accent); color: white;">
+                            <div style="text-align: center;">
+                                <h3 style="font-size: 2.5rem; margin: 0;">4.9/5</h3>
+                                <p>Customer Rating</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="swiper-slide">
+                <div class="slide-container">
+                    <div class="hero-text">
+                        <h1>Get <span>Intimate</span></h1>
+                    </div>
+                    <div class="bento-grid">
+                        <div class="bento-card" style="grid-column: span 2; background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1000') center; background-size: cover; height: 200px; position: relative; overflow: hidden;">
+                            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center;">
+                                <h2 style="color: white; font-family: 'Playfair Display';">Visit Our Studio</h2>
+                            </div>
+                        </div>
+                        <a href="#" id="link-ig" class="bento-card" style="background: #f09433; color: white; text-decoration: none; text-align: center;">
+                            <i class="fab fa-instagram fa-2x"></i><br><br><b>Instagram</b>
+                        </a>
+                        <a href="#" id="link-wa" class="bento-card" style="background: #25D366; color: white; text-decoration: none; text-align: center;">
+                            <i class="fab fa-whatsapp fa-2x"></i><br><br><b>WhatsApp</b>
+                        </a>
+                        <div class="bento-card" style="grid-column: span 2; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+                            <div>
+                                <p style="margin: 0; font-weight: 700;">Customer Support</p>
+                                <p style="margin: 0; font-size: 12px; opacity: 0.5;">Senin - Minggu (09.00 - 21.00)</p>
+                            </div>
+                            <a href="#" id="link-email" style="color: var(--primary);"><i class="fas fa-envelope fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="swiper-pagination"></div>
     </div>
 
-    <div class="promo-banner">
-        <div class="marquee">
-            <span>FREE SHIPPING WORLDWIDE</span>
-            <span>NEW DROP EVERY FRIDAY</span>
-            <span>CASH ON DELIVERY AVAILABLE</span>
-            <span>FREE SHIPPING WORLDWIDE</span>
-            <span>NEW DROP EVERY FRIDAY</span>
-            <span>CASH ON DELIVERY AVAILABLE</span>
-        </div>
+    <div class="cart-bar" onclick="toggleCart()">
+        <i class="fas fa-shopping-bag"></i>
+        <span id="cart-info">0 Items • Rp 0</span>
     </div>
 
-    <div class="cart-drawer" id="cart-drawer">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h3>YOUR BAG</h3>
-            <i class="fa-solid fa-xmark" onclick="toggleCart()" style="cursor: pointer;"></i>
-        </div>
-        <div class="cart-items-list" id="cart-items">
+    <div id="cart-modal" onclick="if(event.target==this) toggleCart()">
+        <div class="modal-card">
+            <h2 style="font-family:'Playfair Display'; margin:0 0 20px;">Your Selection</h2>
+            <div id="cart-items" style="max-height: 300px; overflow-y: auto;"></div>
+            <div style="display:flex; justify-content:space-between; margin: 25px 0; border-top: 1px solid #eee; padding-top: 20px;">
+                <b>Total</b>
+                <b id="total-price" style="color:var(--accent); font-size: 1.5rem;">Rp 0</b>
             </div>
-        <div style="position: absolute; bottom: 40px; left: 40px; right: 40px;">
-            <div style="display: flex; justify-content: space-between; font-weight: bold;">
-                <span>TOTAL</span>
-                <span id="cart-total">Rp 0</span>
-            </div>
-            <button class="checkout-btn" onclick="checkoutWA()">CHECKOUT VIA WHATSAPP</button>
+            <button class="buy-btn" onclick="checkout()">CHECKOUT VIA WHATSAPP</button>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        const swiper = new Swiper('.main-swiper', { direction: 'vertical', mousewheel: true, speed: 1000 });
+        const CONFIG = {
+            instagram_username: "official_boutique", 
+            whatsapp_number: "6281234567890",    
+            email_address: "contact@boutique.com"
+        };
+
+        const products = [
+            { id: 1, name: "Amani Silk Dress", img: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?q=80&w=400", prices: { S: 549000, M: 569000, L: 589000 } },
+            { id: 2, name: "Khadijah Abaya", img: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=400", prices: { S: 720000, M: 720000, L: 750000 } },
+            { id: 3, name: "Pashmina Glow", img: "https://images.unsplash.com/photo-1583391733956-6c78276477e2?q=80&w=400", prices: { S: 125000, M: 125000, L: 135000 } },
+            { id: 4, name: "Premium Mukena", img: "https://images.unsplash.com/photo-1621330396173-e41b1cafd17f?q=80&w=400", prices: { S: 450000, M: 475000, L: 500000 } }
+        ];
+
+        window.addEventListener('load', () => {
+            gsap.to("#loader", { opacity: 0, duration: 1, onComplete: () => {
+                document.getElementById('loader').style.display = 'none';
+                animateCurrentSlide(0);
+            }});
+        });
+
+        const mSwiper = new Swiper(".mainSwiper", {
+            direction: "vertical", mousewheel: true, speed: 1000,
+            on: {
+                slideChangeTransitionStart: function() {
+                    const navs = document.querySelectorAll('.nav-link');
+                    navs.forEach(n => n.classList.remove('active'));
+                    navs[this.activeIndex].classList.add('active');
+                    animateCurrentSlide(this.activeIndex);
+                }
+            }
+        });
+
+        function animateCurrentSlide(index) {
+            const container = document.querySelectorAll('.slide-container')[index];
+            const hero = container.querySelector('.hero-text');
+            const cards = container.querySelectorAll('.modern-card, .bento-card');
+
+            gsap.fromTo(hero, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power4.out" });
+            gsap.fromTo(cards, { y: 60, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 0.8, stagger: 0.1, ease: "back.out(1.7)" });
+        }
+
+        // App Logic
+        document.getElementById('link-ig').href = `https://instagram.com/${CONFIG.instagram_username}`;
+        document.getElementById('link-wa').href = `https://wa.me/${CONFIG.whatsapp_number}`;
+        document.getElementById('link-email').href = `mailto:${CONFIG.email_address}`;
 
         let cart = [];
+        let activeSelection = {};
 
-        function toggleCart() {
-            document.getElementById('cart-drawer').classList.toggle('active');
-        }
-
-        function addToCart(name, price) {
-            cart.push({name, price});
-            updateCart();
-            if(!document.getElementById('cart-drawer').classList.contains('active')) toggleCart();
-        }
-
-        function updateCart() {
-            document.getElementById('cart-count').innerText = cart.length;
-            const container = document.getElementById('cart-items');
-            container.innerHTML = '';
-            let total = 0;
-            
-            cart.forEach((item, index) => {
-                total += item.price;
-                container.innerHTML += `
-                    <div class="cart-item">
-                        <div style="flex:1">
-                            <h5 style="font-size:12px">${item.name}</h5>
-                            <p style="font-size:10px; color:var(--accent-gold)">Rp ${item.price.toLocaleString()}</p>
-                        </div>
-                        <i class="fa-solid fa-trash" style="font-size:10px; cursor:pointer" onclick="removeItem(${index})"></i>
+        const grid = document.getElementById('product-list');
+        products.forEach(p => {
+            activeSelection[p.id] = 'M';
+            grid.innerHTML += `
+                <div class="modern-card">
+                    <div class="img-wrapper"><img src="${p.img}"></div>
+                    <div class="size-selector">
+                        <button class="size-btn" onclick="updateSelection(${p.id}, 'S', this)">S</button>
+                        <button class="size-btn active" onclick="updateSelection(${p.id}, 'M', this)">M</button>
+                        <button class="size-btn" onclick="updateSelection(${p.id}, 'L', this)">L</button>
                     </div>
-                `;
-            });
-            document.getElementById('cart-total').innerText = 'Rp ' + total.toLocaleString();
+                    <h3 style="margin: 0 0 5px; font-size: 1rem;">${p.name}</h3>
+                    <span class="price-display" style="color:var(--accent); font-weight:700; display:block; margin-bottom:15px;" id="price-${p.id}">Rp ${p.prices.M.toLocaleString()}</span>
+                    <button class="buy-btn" onclick="addToCart(${p.id})">ADD TO BAG</button>
+                </div>
+            `;
+        });
+
+        function updateSelection(productId, size, btn) {
+            activeSelection[productId] = size;
+            const p = products.find(i => i.id === productId);
+            document.getElementById(`price-${productId}`).innerText = `Rp ${p.prices[size].toLocaleString()}`;
+            btn.parentElement.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
         }
 
-        function removeItem(index) {
-            cart.splice(index, 1);
-            updateCart();
+        function addToCart(id) {
+            const p = products.find(i => i.id === id);
+            const size = activeSelection[id];
+            cart.push({ name: p.name, size: size, price: p.prices[size] });
+            updateCartUI();
+            gsap.from(".cart-bar", { scale: 1.2, duration: 0.3, yoyo: true, repeat: 1 });
         }
 
-        function checkoutWA() {
-            if(cart.length === 0) return alert("Keranjang kosong!");
-            let text = "Halo Admin ÉLÉGANCE, saya ingin order:\n\n";
-            cart.forEach(item => text += `- ${item.name} (Rp ${item.price.toLocaleString()})\n`);
-            window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(text)}`);
+        function updateCartUI() {
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            document.getElementById('cart-info').innerText = `${cart.length} Items • Rp ${total.toLocaleString()}`;
+            document.getElementById('total-price').innerText = `Rp ${total.toLocaleString()}`;
+            document.getElementById('cart-items').innerHTML = cart.map((i, idx) => `
+                <div style="display:flex; justify-content:space-between; margin-bottom:15px; background:#f9f9f9; padding:15px; border-radius:15px;">
+                    <div><b>${i.name}</b><br><small>Size ${i.size}</small></div>
+                    <div style="text-align:right">
+                        <span style="color:var(--accent); font-weight:700;">Rp ${i.price.toLocaleString()}</span><br>
+                        <small style="color:red; cursor:pointer;" onclick="removeItem(${idx})">Hapus</small>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function removeItem(idx) { cart.splice(idx, 1); updateCartUI(); }
+        function toggleCart() {
+            const m = document.getElementById('cart-modal');
+            const isOpen = m.style.display === 'flex';
+            m.style.display = isOpen ? 'none' : 'flex';
+            if(!isOpen) gsap.from(".modal-card", { y: 500, duration: 0.5, ease: "power3.out" });
+        }
+
+        function checkout() {
+            if (cart.length === 0) return alert("Bag is empty");
+            let msg = "*NEW ORDER*\n\n";
+            cart.forEach(i => msg += `• ${i.name} (${i.size}) - Rp ${i.price.toLocaleString()}\n`);
+            msg += `\n*TOTAL: Rp ${document.getElementById('total-price').innerText}*`;
+            window.open(`https://wa.me/${CONFIG.whatsapp_number}?text=${encodeURIComponent(msg)}`);
         }
     </script>
 </body>
