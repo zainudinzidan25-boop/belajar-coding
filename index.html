@@ -169,7 +169,7 @@
             animation: loading 1.5s infinite ease-in-out;
         }
 
-        /* =========== FIXED NAVIGATION - DIPERBAIKI =========== */
+        /* =========== FIXED NAVIGATION - DENGAN TOGGLE =========== */
         .header {
             position: fixed;
             top: 0;
@@ -187,6 +187,12 @@
             border-bottom: 1px solid rgba(139, 69, 19, 0.1);
             height: 70px;
             max-height: 70px;
+            transform: translateY(0);
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .header.hidden {
+            transform: translateY(-100%);
         }
 
         .header.scrolled {
@@ -238,6 +244,82 @@
             font-style: italic;
         }
 
+        /* =========== TOMBOL TOGGLE SEMUA =========== */
+        .global-controls {
+            position: fixed;
+            top: 85px;
+            right: 20px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .header.scrolled ~ .global-controls {
+            top: 75px;
+        }
+
+        .header.hidden ~ .global-controls {
+            top: 20px;
+        }
+
+        .control-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(218, 165, 32, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .control-btn:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(218, 165, 32, 0.4);
+        }
+
+        .control-btn.active {
+            background: var(--primary);
+            transform: rotate(180deg);
+        }
+
+        .control-btn.active:hover {
+            transform: rotate(180deg) scale(1.1);
+        }
+
+        .control-btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: var(--transition);
+        }
+
+        .control-btn:active::after {
+            transform: scale(1);
+        }
+
+        .control-btn.header-toggle {
+            background: linear-gradient(135deg, #4A90E2, #357ABD);
+        }
+
+        .control-btn.header-toggle.active {
+            background: #2C3E50;
+        }
+
+        /* =========== MENU HAMBURGER MOBILE =========== */
         .mobile-menu-btn {
             display: none;
             flex-direction: column;
@@ -383,7 +465,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 0 40px; /* Dikurangi dari 120px */
+            padding: 80px 0 40px;
             position: relative;
             z-index: 1;
         }
@@ -418,7 +500,7 @@
             transform: scale(1);
         }
 
-        /* =========== SLIDE 1: HERO - DIPERBAIKI =========== */
+        /* =========== SLIDE 1: HERO =========== */
         .hero-content {
             text-align: center;
             max-width: 1000px;
@@ -588,7 +670,7 @@
             box-shadow: 0 25px 45px rgba(139, 69, 19, 0.35);
         }
 
-        /* =========== SLIDE 2: PRODUCTS - DIPERBAIKI =========== */
+        /* =========== SLIDE 2: PRODUCTS =========== */
         .products-slide {
             background: linear-gradient(135deg, #FFFCF8 0%, #FFF8F0 100%);
             position: relative;
@@ -838,7 +920,7 @@
             box-shadow: 0 10px 25px rgba(139, 69, 19, 0.3);
         }
 
-        /* =========== SLIDE 3: STORY - DIPERBAIKI =========== */
+        /* =========== SLIDE 3: STORY =========== */
         .story-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1012,7 +1094,7 @@
             box-shadow: 0 15px 35px rgba(218, 165, 32, 0.2);
         }
 
-        /* =========== SLIDE 4: CONTACT MODERN - DIPERBAIKI =========== */
+        /* =========== SLIDE 4: CONTACT =========== */
         .contact-slide {
             background: var(--gradient-light);
             position: relative;
@@ -1604,7 +1686,7 @@
             transform: translateY(-5px);
         }
 
-        /* =========== MARQUEE - DIPERBAIKI =========== */
+        /* =========== MARQUEE - DENGAN TOGGLE =========== */
         .marquee-container {
             position: fixed;
             bottom: 0;
@@ -1617,6 +1699,12 @@
             z-index: 998;
             box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.15);
             border-top: 3px solid rgba(218, 165, 32, 0.4);
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(0);
+        }
+
+        .marquee-container.hidden {
+            transform: translateY(100%);
         }
 
         .marquee-content {
@@ -1638,7 +1726,7 @@
             font-size: 1.1rem;
         }
 
-        /* =========== SWIPER PAGINATION - DIPERBAIKI =========== */
+        /* =========== SWIPER PAGINATION =========== */
         .swiper-pagination {
             position: fixed !important;
             right: 20px !important;
@@ -1694,7 +1782,7 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* =========== MOBILE RESPONSIVE - DIPERBAIKI =========== */
+        /* =========== MOBILE RESPONSIVE =========== */
         @media (max-width: 768px) {
             .header {
                 padding: 12px 15px;
@@ -1706,6 +1794,25 @@
                 padding: 10px 15px;
                 height: 55px;
                 max-height: 55px;
+            }
+            
+            .global-controls {
+                top: 70px;
+                right: 15px;
+            }
+            
+            .header.scrolled ~ .global-controls {
+                top: 65px;
+            }
+            
+            .header.hidden ~ .global-controls {
+                top: 20px;
+            }
+            
+            .control-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 1.1rem;
             }
             
             .brand-name {
@@ -1901,6 +2008,19 @@
                 padding: 15px 25px;
             }
             
+            .global-controls {
+                top: 90px;
+                right: 25px;
+            }
+            
+            .header.scrolled ~ .global-controls {
+                top: 80px;
+            }
+            
+            .header.hidden ~ .global-controls {
+                top: 25px;
+            }
+            
             .hero-title {
                 font-size: 3.2rem;
             }
@@ -1927,7 +2047,8 @@
             .social-icon:hover,
             .cart-btn:hover,
             .submit-button:hover,
-            .nav-link:hover {
+            .nav-link:hover,
+            .control-btn:hover {
                 transform: none !important;
             }
             
@@ -1950,6 +2071,18 @@
             .header {
                 padding-top: max(15px, env(safe-area-inset-top));
                 padding-bottom: 15px;
+            }
+            
+            .global-controls {
+                top: calc(85px + env(safe-area-inset-top));
+            }
+            
+            .header.scrolled ~ .global-controls {
+                top: calc(75px + env(safe-area-inset-top));
+            }
+            
+            .header.hidden ~ .global-controls {
+                top: calc(20px + env(safe-area-inset-top));
             }
             
             .swiper-slide {
@@ -1983,7 +2116,7 @@
     </div>
 
     <!-- Header Navigation -->
-    <header class="header">
+    <header class="header" id="mainHeader">
         <a href="#" class="brand-container">
             <div class="brand-logo"></div>
             <div class="brand-name">Mukena <span>Hasfita</span></div>
@@ -2018,6 +2151,16 @@
             </div>
         </nav>
     </header>
+
+    <!-- Global Controls -->
+    <div class="global-controls">
+        <button class="control-btn header-toggle" id="toggleHeader" title="Sembunyikan/Tampilkan Header">
+            <i class="fas fa-bars"></i>
+        </button>
+        <button class="control-btn" id="toggleTaskbar" title="Sembunyikan/Tampilkan Promo">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
 
     <!-- Horizontal Swiper -->
     <div class="main-swiper">
@@ -2418,7 +2561,7 @@
     </div>
 
     <!-- Marquee -->
-    <div class="marquee-container">
+    <div class="marquee-container" id="marqueeContainer">
         <div class="marquee-content">
             <div class="marquee-item">
                 <i class="fas fa-shipping-fast marquee-icon"></i>
@@ -2480,9 +2623,16 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navContainer = document.getElementById('navContainer');
         const navLinks = document.querySelectorAll('.nav-link');
-        const header = document.querySelector('.header');
+        const header = document.getElementById('mainHeader');
         const ctaButtons = document.querySelectorAll('.cta-button');
         const contactForm = document.getElementById('contactForm');
+        const marqueeContainer = document.getElementById('marqueeContainer');
+        const toggleTaskbarBtn = document.getElementById('toggleTaskbar');
+        const toggleHeaderBtn = document.getElementById('toggleHeader');
+
+        // Status kontrol
+        let headerVisible = true;
+        let taskbarVisible = true;
 
         // Inisialisasi Swiper Horizontal
         const swiper = new Swiper('.main-swiper', {
@@ -2548,6 +2698,56 @@
                     link.classList.remove('active');
                 }
             });
+        }
+
+        // Fungsi toggle header
+        function toggleHeader() {
+            headerVisible = !headerVisible;
+            
+            if (headerVisible) {
+                // Tampilkan header
+                header.classList.remove('hidden');
+                toggleHeaderBtn.classList.remove('active');
+                toggleHeaderBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                toggleHeaderBtn.title = "Sembunyikan Header";
+                
+                // Simpan status ke localStorage
+                localStorage.setItem('headerVisible', 'true');
+            } else {
+                // Sembunyikan header
+                header.classList.add('hidden');
+                toggleHeaderBtn.classList.add('active');
+                toggleHeaderBtn.innerHTML = '<i class="fas fa-eye"></i>';
+                toggleHeaderBtn.title = "Tampilkan Header";
+                
+                // Simpan status ke localStorage
+                localStorage.setItem('headerVisible', 'false');
+            }
+        }
+
+        // Fungsi toggle taskbar
+        function toggleTaskbar() {
+            taskbarVisible = !taskbarVisible;
+            
+            if (taskbarVisible) {
+                // Tampilkan taskbar
+                marqueeContainer.classList.remove('hidden');
+                toggleTaskbarBtn.classList.remove('active');
+                toggleTaskbarBtn.innerHTML = '<i class="fas fa-chevron-down"></i>';
+                toggleTaskbarBtn.title = "Sembunyikan Promo";
+                
+                // Simpan status ke localStorage
+                localStorage.setItem('taskbarVisible', 'true');
+            } else {
+                // Sembunyikan taskbar
+                marqueeContainer.classList.add('hidden');
+                toggleTaskbarBtn.classList.add('active');
+                toggleTaskbarBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+                toggleTaskbarBtn.title = "Tampilkan Promo";
+                
+                // Simpan status ke localStorage
+                localStorage.setItem('taskbarVisible', 'false');
+            }
         }
 
         // Setup aplikasi
@@ -2648,6 +2848,36 @@
                 });
             }
 
+            // Setup toggle header
+            if (toggleHeaderBtn && header) {
+                toggleHeaderBtn.addEventListener('click', toggleHeader);
+                
+                // Load status header dari localStorage
+                const savedHeaderStatus = localStorage.getItem('headerVisible');
+                if (savedHeaderStatus === 'false') {
+                    headerVisible = false;
+                    header.classList.add('hidden');
+                    toggleHeaderBtn.classList.add('active');
+                    toggleHeaderBtn.innerHTML = '<i class="fas fa-eye"></i>';
+                    toggleHeaderBtn.title = "Tampilkan Header";
+                }
+            }
+
+            // Setup toggle taskbar
+            if (toggleTaskbarBtn && marqueeContainer) {
+                toggleTaskbarBtn.addEventListener('click', toggleTaskbar);
+                
+                // Load status taskbar dari localStorage
+                const savedTaskbarStatus = localStorage.getItem('taskbarVisible');
+                if (savedTaskbarStatus === 'false') {
+                    taskbarVisible = false;
+                    marqueeContainer.classList.add('hidden');
+                    toggleTaskbarBtn.classList.add('active');
+                    toggleTaskbarBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+                    toggleTaskbarBtn.title = "Tampilkan Promo";
+                }
+            }
+
             // Update keranjang dari localStorage jika ada
             const savedCart = localStorage.getItem('mukenaHasfitaCart');
             if (savedCart) {
@@ -2705,6 +2935,18 @@
                     closeCartOverlay();
                 }
             });
+
+            // Show controls on hover
+            const globalControls = document.querySelector('.global-controls');
+            if (globalControls) {
+                globalControls.addEventListener('mouseenter', function() {
+                    this.style.opacity = '1';
+                });
+                
+                globalControls.addEventListener('mouseleave', function() {
+                    this.style.opacity = '0.9';
+                });
+            }
         });
 
         // Fungsi keranjang belanja
