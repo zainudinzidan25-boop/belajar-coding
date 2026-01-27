@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mukena Hasfita | Mukena Premium Berkualitas</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,8 +20,8 @@
             --dark: #2C1810;
             --light: #FFFFFF;
             --gray: #8B7355;
-            --shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            --transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             --gradient-light: linear-gradient(135deg, var(--secondary) 0%, #FFF8ED 100%);
             --gold-gradient: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
@@ -36,6 +36,8 @@
 
         html {
             scroll-behavior: smooth;
+            height: 100%;
+            font-size: 13px; /* Lebih kecil lagi */
         }
 
         body {
@@ -44,9 +46,12 @@
             color: var(--dark);
             overflow-x: hidden;
             width: 100%;
-            min-height: 100vh;
+            height: 100vh;
+            height: 100dvh;
             position: relative;
-            padding-top: 0 !important;
+            padding: 0;
+            margin: 0;
+            font-size: 0.85rem; /* Lebih kecil lagi */
         }
 
         body::before {
@@ -82,78 +87,71 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            animation: fadeOut 1s ease 2s forwards;
+            animation: fadeOut 1s ease 1.2s forwards;
         }
 
         .welcome-logo-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 12px;
             opacity: 0;
-            transform: translateY(30px);
-            animation: slideUp 0.8s ease 0.3s forwards;
+            transform: translateY(15px);
+            animation: slideUp 0.6s ease 0.3s forwards;
         }
 
         .logo-circle {
-            width: 120px;
-            height: 120px;
+            width: 70px; /* Lebih kecil */
+            height: 70px; /* Lebih kecil */
             background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
             position: relative;
             overflow: hidden;
         }
 
-        .logo-circle::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: var(--gold-gradient);
-            opacity: 0.1;
-        }
-
         .logo-circle i {
-            font-size: 4rem;
+            font-size: 2rem; /* Lebih kecil */
             color: var(--primary);
             position: relative;
             z-index: 1;
         }
 
         .welcome-logo {
-            font-size: 3.5rem;
+            font-size: 1.6rem; /* Lebih kecil */
             font-weight: 700;
             color: white;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            letter-spacing: 0.8px;
+            text-align: center;
+            padding: 0 12px;
         }
 
         .welcome-subtitle {
-            font-size: 1.2rem;
+            font-size: 0.75rem; /* Lebih kecil */
             color: rgba(255, 255, 255, 0.9);
             opacity: 0;
-            transform: translateY(30px);
-            animation: slideUp 0.8s ease 0.6s forwards;
-            letter-spacing: 3px;
+            transform: translateY(15px);
+            animation: slideUp 0.6s ease 0.5s forwards;
+            letter-spacing: 1.5px;
             text-align: center;
-            padding: 0 20px;
+            padding: 0 12px;
             font-weight: 300;
             text-transform: uppercase;
         }
 
         .loader {
-            width: 150px;
-            height: 4px;
+            width: 80px; /* Lebih kecil */
+            height: 2.5px; /* Lebih kecil */
             background: rgba(255,255,255,0.3);
-            margin-top: 40px;
-            border-radius: 10px;
+            margin-top: 20px;
+            border-radius: 4px;
             overflow: hidden;
             opacity: 0;
-            animation: slideUp 0.8s ease 0.9s forwards;
+            animation: slideUp 0.6s ease 0.7s forwards;
             position: relative;
         }
 
@@ -165,30 +163,29 @@
             width: 40%;
             height: 100%;
             background: var(--gold-gradient);
-            border-radius: 10px;
-            animation: loading 1.5s infinite ease-in-out;
+            border-radius: 4px;
+            animation: loading 1.2s infinite ease-in-out;
         }
 
-        /* =========== FIXED NAVIGATION - DENGAN TOGGLE =========== */
+        /* =========== HEADER =========== */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 15px 20px;
+            padding: 10px 12px; /* Lebih kecil */
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
             background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
             transition: var(--transition);
-            border-bottom: 1px solid rgba(139, 69, 19, 0.1);
-            height: 70px;
-            max-height: 70px;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.08);
+            height: 55px; /* Lebih kecil */
+            max-height: 55px; /* Lebih kecil */
             transform: translateY(0);
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .header.hidden {
@@ -196,47 +193,47 @@
         }
 
         .header.scrolled {
-            padding: 12px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-            height: 65px;
-            max-height: 65px;
+            padding: 8px 12px; /* Lebih kecil */
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+            height: 50px; /* Lebih kecil */
+            max-height: 50px; /* Lebih kecil */
         }
 
         .brand-container {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 6px; /* Lebih kecil */
             text-decoration: none;
         }
 
         .brand-logo {
-            width: 40px;
-            height: 40px;
+            width: 28px; /* Lebih kecil */
+            height: 28px; /* Lebih kecil */
             background: var(--gold-gradient);
-            border-radius: 10px;
+            border-radius: 6px; /* Lebih kecil */
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(218, 165, 32, 0.3);
+            box-shadow: 0 2px 8px rgba(218, 165, 32, 0.15);
         }
 
         .brand-logo::before {
             content: '\f6c0';
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
-            font-size: 1.3rem;
+            font-size: 0.85rem; /* Lebih kecil */
             color: white;
             position: relative;
             z-index: 1;
         }
 
         .brand-name {
-            font-size: 1.5rem;
+            font-size: 1rem; /* Lebih kecil */
             font-weight: 700;
             color: var(--primary);
-            letter-spacing: -0.5px;
+            letter-spacing: -0.2px;
         }
 
         .brand-name span {
@@ -244,47 +241,49 @@
             font-style: italic;
         }
 
-        /* =========== TOMBOL TOGGLE SEMUA =========== */
+        /* =========== GLOBAL CONTROLS =========== */
         .global-controls {
             position: fixed;
-            top: 85px;
-            right: 20px;
+            top: 65px; /* Lebih kecil */
+            right: 12px;
             z-index: 999;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 6px; /* Lebih kecil */
             transition: var(--transition);
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .header.scrolled ~ .global-controls {
-            top: 75px;
+            top: 60px; /* Lebih kecil */
         }
 
         .header.hidden ~ .global-controls {
-            top: 20px;
+            top: 12px; /* Lebih kecil */
         }
 
         .control-btn {
-            width: 40px;
-            height: 40px;
+            width: 32px; /* Lebih kecil */
+            height: 32px; /* Lebih kecil */
             border-radius: 50%;
             background: var(--gold-gradient);
             border: none;
             color: white;
-            font-size: 1.2rem;
+            font-size: 0.85rem; /* Lebih kecil */
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(218, 165, 32, 0.3);
+            box-shadow: 0 2px 8px rgba(218, 165, 32, 0.15);
             position: relative;
             overflow: hidden;
         }
 
         .control-btn:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 20px rgba(218, 165, 32, 0.4);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 12px rgba(218, 165, 32, 0.2);
         }
 
         .control-btn.active {
@@ -292,40 +291,17 @@
             transform: rotate(180deg);
         }
 
-        .control-btn.active:hover {
-            transform: rotate(180deg) scale(1.1);
-        }
-
-        .control-btn::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transform: scale(0);
-            transition: var(--transition);
-        }
-
-        .control-btn:active::after {
-            transform: scale(1);
-        }
-
         .control-btn.header-toggle {
             background: linear-gradient(135deg, #4A90E2, #357ABD);
         }
 
-        .control-btn.header-toggle.active {
-            background: #2C3E50;
-        }
-
-        /* =========== MENU HAMBURGER MOBILE =========== */
+        /* =========== MOBILE MENU =========== */
         .mobile-menu-btn {
             display: none;
             flex-direction: column;
             justify-content: space-between;
-            width: 28px;
-            height: 20px;
+            width: 22px; /* Lebih kecil */
+            height: 16px; /* Lebih kecil */
             background: transparent;
             border: none;
             cursor: pointer;
@@ -336,14 +312,14 @@
         .mobile-menu-btn span {
             display: block;
             width: 100%;
-            height: 3px;
+            height: 2px; /* Lebih kecil */
             background: var(--primary);
-            border-radius: 3px;
+            border-radius: 1px;
             transition: var(--transition);
         }
 
         .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
+            transform: rotate(45deg) translate(4px, 4px);
         }
 
         .mobile-menu-btn.active span:nth-child(2) {
@@ -351,31 +327,31 @@
         }
 
         .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
+            transform: rotate(-45deg) translate(4px, -4px);
         }
 
         .nav-container {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 15px; /* Lebih kecil */
         }
 
         .nav-link {
             text-decoration: none;
             color: var(--dark);
-            font-size: 0.95rem;
+            font-size: 0.75rem; /* Lebih kecil */
             font-weight: 500;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.2px;
             position: relative;
-            padding: 8px 0;
+            padding: 5px 0; /* Lebih kecil */
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px; /* Lebih kecil */
         }
 
         .nav-link i {
-            font-size: 0.85rem;
+            font-size: 0.7rem; /* Lebih kecil */
             color: var(--accent);
         }
 
@@ -385,10 +361,10 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
+            height: 1.5px;
             background: var(--gold-gradient);
-            transition: width 0.4s ease;
-            border-radius: 2px;
+            transition: width 0.25s ease;
+            border-radius: 1px;
         }
 
         .nav-link:hover::after,
@@ -403,69 +379,78 @@
 
         .cart-icon {
             position: relative;
-            font-size: 1.3rem;
+            font-size: 1rem; /* Lebih kecil */
             color: var(--primary);
             cursor: pointer;
             transition: var(--transition);
-            width: 45px;
-            height: 45px;
+            width: 36px; /* Lebih kecil */
+            height: 36px; /* Lebih kecil */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             background: var(--secondary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
         .cart-icon:hover {
-            transform: translateY(-3px) scale(1.05);
+            transform: translateY(-2px) scale(1.05);
             color: var(--accent);
-            box-shadow: 0 10px 25px rgba(218, 165, 32, 0.2);
+            box-shadow: 0 4px 12px rgba(218, 165, 32, 0.12);
         }
 
         .cart-count {
             position: absolute;
-            top: -5px;
-            right: -5px;
+            top: -4px;
+            right: -4px;
             background: var(--gold-gradient);
             color: var(--dark);
-            font-size: 0.75rem;
-            width: 22px;
-            height: 22px;
+            font-size: 0.65rem; /* Lebih kecil */
+            width: 16px; /* Lebih kecil */
+            height: 16px; /* Lebih kecil */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            box-shadow: 0 3px 10px rgba(218, 165, 32, 0.3);
+            box-shadow: 0 1px 4px rgba(218, 165, 32, 0.15);
         }
 
-        /* =========== SWIPER - DIPERBAIKI =========== */
+        /* =========== SWIPER =========== */
         .main-swiper {
             width: 100%;
-            height: 100vh;
-            margin-top: 0;
+            height: calc(100vh - 55px); /* Lebih kecil */
+            height: calc(100dvh - 55px);
+            margin-top: 55px; /* Sesuai header height */
             padding-top: 0;
+        }
+
+        .swiper-wrapper {
+            height: 100%;
         }
 
         .swiper-slide {
             width: 100%;
             height: 100%;
-            padding: 20px;
+            padding: 12px; /* Lebih kecil */
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .slide-inner {
             width: 100%;
-            max-width: 1400px;
+            max-width: 1100px; /* Lebih kecil */
             margin: 0 auto;
-            height: 100%;
+            height: auto;
+            min-height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 0 40px;
+            padding: 15px 12px 30px; /* Lebih kecil */
             position: relative;
             z-index: 1;
         }
@@ -473,8 +458,8 @@
         /* =========== ANIMATIONS =========== */
         .animate-text {
             opacity: 0;
-            transform: translateY(30px);
-            transition: 1s cubic-bezier(0.2, 1, 0.3, 1);
+            transform: translateY(15px);
+            transition: 0.6s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
         .swiper-slide-active .animate-text {
@@ -482,18 +467,19 @@
             transform: translateY(0);
         }
 
-        .delay-1 { transition-delay: 0.2s; }
-        .delay-2 { transition-delay: 0.4s; }
-        .delay-3 { transition-delay: 0.6s; }
-        .delay-4 { transition-delay: 0.8s; }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
 
         .image-reveal {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transform: scale(1.15);
-            transition: 1.5s cubic-bezier(0.2, 1, 0.3, 1);
-            filter: brightness(1.05) saturate(1.1);
+            object-fit: contain;
+            transform: scale(1.08);
+            transition: 1s cubic-bezier(0.2, 1, 0.3, 1);
+            filter: brightness(1.03) saturate(1.03);
+            max-height: 100%;
         }
 
         .swiper-slide-active .image-reveal {
@@ -503,7 +489,7 @@
         /* =========== SLIDE 1: HERO =========== */
         .hero-content {
             text-align: center;
-            max-width: 1000px;
+            max-width: 800px; /* Lebih kecil */
             width: 100%;
             position: relative;
             margin-top: 0;
@@ -512,31 +498,31 @@
 
         .hero-badge {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 6px 14px; /* Lebih kecil */
             background: var(--gold-gradient);
             color: var(--dark);
-            border-radius: 50px;
-            font-size: 0.85rem;
+            border-radius: 35px; /* Lebih kecil */
+            font-size: 0.7rem; /* Lebih kecil */
             font-weight: 600;
-            letter-spacing: 1.5px;
-            margin-bottom: 25px;
-            box-shadow: 0 8px 15px rgba(218, 165, 32, 0.2);
+            letter-spacing: 0.8px; /* Lebih kecil */
+            margin-bottom: 15px; /* Lebih kecil */
+            box-shadow: 0 3px 10px rgba(218, 165, 32, 0.12);
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.02); }
             100% { transform: scale(1); }
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(1.6rem, 4vw, 2.5rem); /* Lebih kecil */
             font-weight: 700;
             line-height: 1.1;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.8rem; /* Lebih kecil */
             color: var(--dark);
-            letter-spacing: -1px;
+            letter-spacing: -0.3px;
         }
 
         .hero-title span {
@@ -548,67 +534,67 @@
         .hero-title span::after {
             content: '';
             position: absolute;
-            bottom: 8px;
+            bottom: 4px; /* Lebih kecil */
             left: 0;
             width: 100%;
-            height: 8px;
-            background: rgba(218, 165, 32, 0.2);
+            height: 4px; /* Lebih kecil */
+            background: rgba(218, 165, 32, 0.12);
             z-index: -1;
-            border-radius: 5px;
+            border-radius: 2px;
         }
 
         .hero-subtitle {
-            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-size: clamp(0.8rem, 2vw, 0.9rem); /* Lebih kecil */
             color: var(--gray);
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
-            max-width: 800px;
+            margin-bottom: 1.5rem; /* Lebih kecil */
+            line-height: 1.5;
+            max-width: 600px; /* Lebih kecil */
             margin-left: auto;
             margin-right: auto;
-            padding: 0 20px;
+            padding: 0 12px;
             font-weight: 300;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.2px;
         }
 
         .intro-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin-bottom: 3rem;
-            max-width: 1000px;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Lebih kecil */
+            gap: 12px; /* Lebih kecil */
+            margin-bottom: 1.5rem; /* Lebih kecil */
+            max-width: 700px; /* Lebih kecil */
             margin-left: auto;
             margin-right: auto;
         }
 
         .feature {
             background: white;
-            padding: 25px 20px;
-            border-radius: 18px;
+            padding: 16px 12px; /* Lebih kecil */
+            border-radius: 12px; /* Lebih kecil */
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
-            border: 2px solid transparent;
+            border: 1px solid transparent;
         }
 
         .feature:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-            border-color: rgba(218, 165, 32, 0.3);
+            transform: translateY(-3px); /* Lebih kecil */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+            border-color: rgba(218, 165, 32, 0.15);
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
+            width: 42px; /* Lebih kecil */
+            height: 42px; /* Lebih kecil */
             background: var(--secondary);
-            border-radius: 15px;
+            border-radius: 10px; /* Lebih kecil */
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
+            margin: 0 auto 10px; /* Lebih kecil */
             color: var(--primary);
-            font-size: 1.5rem;
+            font-size: 1rem; /* Lebih kecil */
             transition: var(--transition);
             position: relative;
         }
@@ -616,13 +602,13 @@
         .feature:hover .feature-icon {
             background: var(--gold-gradient);
             color: white;
-            transform: rotateY(180deg);
+            transform: rotateY(180deg) scale(0.95);
         }
 
         .feature-text {
             font-weight: 600;
             color: var(--dark);
-            font-size: 1rem;
+            font-size: 0.75rem; /* Lebih kecil */
             position: relative;
             z-index: 1;
         }
@@ -630,19 +616,19 @@
         .cta-button {
             background: var(--gradient);
             color: white;
-            padding: 16px 40px;
+            padding: 12px 25px; /* Lebih kecil */
             border: none;
-            border-radius: 50px;
-            font-size: 1rem;
+            border-radius: 35px; /* Lebih kecil */
+            font-size: 0.8rem; /* Lebih kecil */
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 6px; /* Lebih kecil */
             margin: 0 auto;
-            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.25);
-            letter-spacing: 1px;
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.15);
+            letter-spacing: 0.3px;
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -666,8 +652,8 @@
         }
 
         .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 25px 45px rgba(139, 69, 19, 0.35);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(139, 69, 19, 0.2);
         }
 
         /* =========== SLIDE 2: PRODUCTS =========== */
@@ -676,27 +662,17 @@
             position: relative;
         }
 
-        .products-slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238B4513' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            pointer-events: none;
-        }
-
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem; /* Lebih kecil */
             position: relative;
+            width: 100%;
         }
 
         .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(1.5rem, 3.5vw, 2rem); /* Lebih kecil */
             color: var(--dark);
-            margin-bottom: 1rem;
+            margin-bottom: 0.6rem; /* Lebih kecil */
             position: relative;
             display: inline-block;
         }
@@ -704,47 +680,51 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -12px;
+            bottom: -8px; /* Lebih kecil */
             left: 50%;
             transform: translateX(-50%);
-            width: 70px;
-            height: 4px;
+            width: 50px; /* Lebih kecil */
+            height: 2.5px; /* Lebih kecil */
             background: var(--gold-gradient);
-            border-radius: 2px;
+            border-radius: 1px;
         }
 
         .section-subtitle {
             color: var(--gray);
-            font-size: clamp(0.95rem, 2vw, 1.1rem);
-            max-width: 800px;
-            margin: 1.5rem auto 0;
-            padding: 0 20px;
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem); /* Lebih kecil */
+            max-width: 600px; /* Lebih kecil */
+            margin: 0.8rem auto 0; /* Lebih kecil */
+            padding: 0 12px;
             font-weight: 300;
-            line-height: 1.7;
+            line-height: 1.5;
         }
 
+        /* =========== PRODUK LEBIH KECIL =========== */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Lebih kecil */
+            gap: 1.2rem; /* Lebih kecil */
+            max-width: 1000px; /* Lebih kecil */
             margin: 0 auto;
+            width: 100%;
+            padding: 0 8px;
         }
 
         .product-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 12px; /* Lebih kecil */
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.06);
             transition: var(--transition);
             position: relative;
-            border: 2px solid rgba(250, 243, 233, 0.5);
+            border: 1px solid rgba(250, 243, 233, 0.5);
+            height: auto;
         }
 
         .product-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-            border-color: rgba(218, 165, 32, 0.3);
+            transform: translateY(-8px) scale(1.01); /* Lebih kecil */
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
+            border-color: rgba(218, 165, 32, 0.15);
         }
 
         .product-card::before {
@@ -753,92 +733,94 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 3px; /* Lebih kecil */
             background: var(--gold-gradient);
             z-index: 2;
         }
 
         .product-image {
-            height: 250px;
+            height: 180px; /* Lebih kecil lagi */
             background: var(--secondary);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
         }
 
-        .product-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
+        .product-image img {
             width: 100%;
-            height: 40%;
-            background: linear-gradient(to top, rgba(255,255,255,0.9), transparent);
-            pointer-events: none;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 4px;
         }
 
         .product-badge {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 10px; /* Lebih kecil */
+            right: 10px; /* Lebih kecil */
             background: var(--gold-gradient);
             color: var(--dark);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            padding: 4px 10px; /* Lebih kecil */
+            border-radius: 12px; /* Lebih kecil */
+            font-size: 0.7rem; /* Lebih kecil */
             font-weight: 700;
             z-index: 3;
-            box-shadow: 0 5px 15px rgba(218, 165, 32, 0.3);
+            box-shadow: 0 2px 6px rgba(218, 165, 32, 0.15);
         }
 
+        /* =========== PRODUCT CONTENT LEBIH KECIL =========== */
         .product-content {
-            padding: 2rem;
+            padding: 1.2rem; /* Lebih kecil */
         }
 
         .product-name {
-            font-size: 1.3rem;
+            font-size: 1rem; /* Lebih kecil */
             font-weight: 600;
             color: var(--dark);
-            margin-bottom: 0.8rem;
-            letter-spacing: -0.3px;
+            margin-bottom: 0.5rem; /* Lebih kecil */
+            letter-spacing: -0.1px;
         }
 
         .product-description {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+            color: var(--dark);
+            opacity: 0.8;
+            font-size: 0.75rem; /* Lebih kecil */
+            margin-bottom: 1rem; /* Lebih kecil */
+            line-height: 1.4;
             font-weight: 300;
         }
 
         .size-selector {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem; /* Lebih kecil */
         }
 
         .size-label {
             display: block;
-            font-size: 0.95rem;
+            font-size: 0.75rem; /* Lebih kecil */
             color: var(--dark);
-            margin-bottom: 1rem;
+            margin-bottom: 0.6rem; /* Lebih kecil */
             font-weight: 500;
         }
 
         .size-options {
             display: flex;
-            gap: 0.8rem;
+            gap: 0.5rem; /* Lebih kecil */
         }
 
         .size-option {
-            width: 45px;
-            height: 45px;
-            border: 2px solid var(--secondary);
-            border-radius: 12px;
+            width: 35px; /* Lebih kecil */
+            height: 35px; /* Lebih kecil */
+            border: 1.5px solid var(--secondary);
+            border-radius: 8px; /* Lebih kecil */
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
-            font-size: 1rem;
+            font-size: 0.8rem; /* Lebih kecil */
             background: white;
         }
 
@@ -846,13 +828,13 @@
             background: var(--gradient);
             color: white;
             border-color: transparent;
-            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
+            box-shadow: 0 2px 6px rgba(139, 69, 19, 0.12);
         }
 
         .size-option:hover:not(.active) {
             border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
         }
 
         .product-footer {
@@ -862,11 +844,11 @@
         }
 
         .product-price {
-            font-size: 1.5rem;
+            font-size: 1.1rem; /* Lebih kecil */
             font-weight: 700;
             color: var(--primary);
             position: relative;
-            padding-left: 25px;
+            padding-left: 18px; /* Lebih kecil */
         }
 
         .product-price::before {
@@ -875,24 +857,24 @@
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 0.9rem;
+            font-size: 0.75rem; /* Lebih kecil */
             color: var(--gray);
             font-weight: 400;
         }
 
         .add-to-cart-btn {
-            padding: 12px 25px;
+            padding: 8px 16px; /* Lebih kecil */
             background: var(--gradient);
             color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 8px; /* Lebih kecil */
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
+            gap: 5px; /* Lebih kecil */
+            font-size: 0.75rem; /* Lebih kecil */
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -916,38 +898,32 @@
         }
 
         .add-to-cart-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(139, 69, 19, 0.3);
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.15);
         }
 
         /* =========== SLIDE 3: STORY =========== */
         .story-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            max-width: 1200px;
+            gap: 2rem; /* Lebih kecil */
+            max-width: 900px; /* Lebih kecil */
             width: 100%;
             align-items: center;
         }
 
         .story-img {
-            height: 400px;
-            border-radius: 25px;
+            height: 280px; /* Lebih kecil */
+            border-radius: 16px; /* Lebih kecil */
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
             position: relative;
         }
 
-        .story-img::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .story-img img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(139, 69, 19, 0.1), transparent);
-            z-index: 1;
-            pointer-events: none;
+            object-fit: cover;
         }
 
         .story-content {
@@ -955,9 +931,9 @@
         }
 
         .story-title {
-            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-size: clamp(1.5rem, 3.5vw, 2rem); /* Lebih kecil */
             color: var(--dark);
-            margin-bottom: 2rem;
+            margin-bottom: 1.2rem; /* Lebih kecil */
             position: relative;
             display: inline-block;
         }
@@ -965,106 +941,107 @@
         .story-title::after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -10px; /* Lebih kecil */
             left: 0;
-            width: 70px;
-            height: 4px;
+            width: 50px; /* Lebih kecil */
+            height: 2.5px; /* Lebih kecil */
             background: var(--gold-gradient);
-            border-radius: 2px;
+            border-radius: 1px;
         }
 
         .story-text {
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: var(--gray);
-            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem; /* Lebih kecil */
+            color: var(--dark);
+            opacity: 0.8;
+            font-size: 0.8rem; /* Lebih kecil */
             font-weight: 300;
         }
 
         .story-features {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.2rem;
-            margin: 2.5rem 0;
+            gap: 0.8rem; /* Lebih kecil */
+            margin: 1.5rem 0; /* Lebih kecil */
         }
 
         .story-feature {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 18px;
+            gap: 8px; /* Lebih kecil */
+            padding: 12px; /* Lebih kecil */
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 10px; /* Lebih kecil */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.03);
         }
 
         .story-feature i {
-            width: 45px;
-            height: 45px;
+            width: 35px; /* Lebih kecil */
+            height: 35px; /* Lebih kecil */
             background: var(--gold-gradient);
-            border-radius: 10px;
+            border-radius: 6px; /* Lebih kecil */
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 0.9rem; /* Lebih kecil */
         }
 
         .story-feature-text {
             font-weight: 500;
             color: var(--dark);
-            font-size: 0.95rem;
+            font-size: 0.75rem; /* Lebih kecil */
         }
 
         .rating-section {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin: 2.5rem 0;
-            padding: 20px 25px;
+            gap: 12px; /* Lebih kecil */
+            margin: 1.5rem 0; /* Lebih kecil */
+            padding: 14px 18px; /* Lebih kecil */
             background: white;
-            border-radius: 18px;
+            border-radius: 12px; /* Lebih kecil */
             width: fit-content;
-            border: 2px solid rgba(250, 243, 233, 0.5);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border: 1px solid rgba(250, 243, 233, 0.5);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
         }
 
         .rating-stars {
             display: flex;
-            gap: 5px;
+            gap: 2px; /* Lebih kecil */
         }
 
         .rating-stars i {
             color: var(--accent);
-            font-size: 1.5rem;
-            text-shadow: 0 2px 5px rgba(218, 165, 32, 0.3);
+            font-size: 1rem; /* Lebih kecil */
+            text-shadow: 0 1px 2px rgba(218, 165, 32, 0.15);
         }
 
         .rating-text {
             font-weight: 700;
             color: var(--dark);
-            font-size: 1.3rem;
+            font-size: 1rem; /* Lebih kecil */
         }
 
         .rating-source {
             color: var(--gray);
-            font-size: 0.95rem;
+            font-size: 0.75rem; /* Lebih kecil */
             font-weight: 300;
         }
 
         .story-tagline {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 6px; /* Lebih kecil */
             color: var(--primary);
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 0.85rem; /* Lebih kecil */
             background: white;
-            padding: 18px 30px;
-            border-radius: 50px;
-            margin-top: 1rem;
+            padding: 12px 20px; /* Lebih kecil */
+            border-radius: 35px; /* Lebih kecil */
+            margin-top: 0.6rem; /* Lebih kecil */
             transition: var(--transition);
-            border: 2px solid transparent;
+            border: 1px solid transparent;
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -1089,183 +1066,156 @@
 
         .story-tagline:hover {
             color: var(--dark);
-            transform: translateY(-5px);
+            transform: translateY(-2px);
             border-color: var(--accent);
-            box-shadow: 0 15px 35px rgba(218, 165, 32, 0.2);
+            box-shadow: 0 8px 20px rgba(218, 165, 32, 0.12);
         }
 
-        /* =========== SLIDE 4: CONTACT =========== */
+        /* =========== SLIDE 4: CONTACT LEBIH KECIL =========== */
         .contact-slide {
             background: var(--gradient-light);
             position: relative;
         }
 
-        .contact-slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%238B4513' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E"),
-                radial-gradient(circle at 80% 20%, rgba(218, 165, 32, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
         .contact-container {
-            max-width: 1200px;
+            max-width: 900px; /* Lebih kecil */
             width: 100%;
         }
 
         .contact-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem; /* Lebih kecil */
         }
 
         .contact-title {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(1.5rem, 3.5vw, 2rem); /* Lebih kecil */
             color: var(--dark);
-            margin-bottom: 1rem;
+            margin-bottom: 0.6rem; /* Lebih kecil */
         }
 
         .contact-subtitle {
-            color: var(--gray);
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            max-width: 700px;
+            color: var(--dark);
+            opacity: 0.8;
+            font-size: clamp(0.8rem, 1.8vw, 0.9rem); /* Lebih kecil */
+            max-width: 500px; /* Lebih kecil */
             margin: 0 auto;
             font-weight: 300;
-            line-height: 1.7;
+            line-height: 1.5;
         }
 
+        /* =========== CONTACT GRID LEBIH KECIL =========== */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 1.5rem; /* Lebih kecil */
+            margin-bottom: 2rem; /* Lebih kecil */
         }
 
-        .contact-info {
+        .contact-info, .contact-form-container {
             background: white;
-            padding: 2.5rem;
-            border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem; /* Lebih kecil */
+            border-radius: 16px; /* Lebih kecil */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
             position: relative;
-            border: 2px solid rgba(250, 243, 233, 0.5);
+            border: 1px solid rgba(250, 243, 233, 0.5);
         }
 
-        .contact-info::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gold-gradient);
-            border-radius: 25px 25px 0 0;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.2rem;
-            padding: 20px;
-            margin-bottom: 1.2rem;
-            border-radius: 15px;
-            transition: var(--transition);
-            border: 2px solid transparent;
-        }
-
-        .contact-item:hover {
-            border-color: rgba(218, 165, 32, 0.3);
-            background: rgba(250, 243, 233, 0.3);
-            transform: translateX(8px);
-        }
-
-        .contact-icon {
-            width: 55px;
-            height: 55px;
-            background: var(--gold-gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-            transition: var(--transition);
-        }
-
-        .contact-item:hover .contact-icon {
-            transform: rotateY(180deg) scale(1.1);
-        }
-
-        .contact-details h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.6rem;
-            color: var(--dark);
-        }
-
-        .contact-details p, .contact-details a {
-            color: var(--gray);
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
-        .contact-details a:hover {
-            color: var(--primary);
-            text-decoration: underline;
-        }
-
-        .contact-form-container {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            position: relative;
-            border: 2px solid rgba(250, 243, 233, 0.5);
-        }
-
+        .contact-info::before,
         .contact-form-container::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 3px; /* Lebih kecil */
             background: var(--gold-gradient);
-            border-radius: 25px 25px 0 0;
+            border-radius: 16px 16px 0 0;
         }
 
-        .form-title {
-            font-size: 1.8rem;
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem; /* Lebih kecil */
+            padding: 14px; /* Lebih kecil */
+            margin-bottom: 0.8rem; /* Lebih kecil */
+            border-radius: 10px; /* Lebih kecil */
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .contact-item:hover {
+            border-color: rgba(218, 165, 32, 0.15);
+            background: rgba(250, 243, 233, 0.3);
+            transform: translateX(4px); /* Lebih kecil */
+        }
+
+        .contact-icon {
+            width: 40px; /* Lebih kecil */
+            height: 40px; /* Lebih kecil */
+            background: var(--gold-gradient);
+            border-radius: 8px; /* Lebih kecil */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem; /* Lebih kecil */
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: rotateY(180deg) scale(1.03);
+        }
+
+        .contact-details h4 {
+            font-size: 0.9rem; /* Lebih kecil */
+            font-weight: 600;
+            margin-bottom: 0.4rem; /* Lebih kecil */
             color: var(--dark);
-            margin-bottom: 1.8rem;
+        }
+
+        .contact-details p, .contact-details a {
+            color: var(--dark);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.75rem; /* Lebih kecil */
+            line-height: 1.4;
+            font-weight: 300;
+        }
+
+        .contact-details a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+            opacity: 1;
+        }
+
+        /* =========== FORM LEBIH KECIL =========== */
+        .form-title {
+            font-size: 1.3rem; /* Lebih kecil */
+            color: var(--dark);
+            margin-bottom: 1.2rem; /* Lebih kecil */
             text-align: center;
         }
 
         .form-group {
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.2rem; /* Lebih kecil */
         }
 
         .form-label {
             display: block;
-            font-size: 0.95rem;
+            font-size: 0.75rem; /* Lebih kecil */
             color: var(--dark);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.4rem; /* Lebih kecil */
             font-weight: 500;
         }
 
         .form-input, .form-textarea {
             width: 100%;
-            padding: 16px 18px;
-            border: 2px solid rgba(250, 243, 233, 0.8);
-            border-radius: 12px;
-            font-size: 1rem;
+            padding: 12px 14px; /* Lebih kecil */
+            border: 1px solid rgba(250, 243, 233, 0.8);
+            border-radius: 8px; /* Lebih kecil */
+            font-size: 0.8rem; /* Lebih kecil */
             font-family: 'Poppins', sans-serif;
             transition: var(--transition);
             background: var(--secondary);
@@ -1275,30 +1225,30 @@
             outline: none;
             border-color: var(--accent);
             background: white;
-            box-shadow: 0 5px 15px rgba(218, 165, 32, 0.1);
+            box-shadow: 0 2px 8px rgba(218, 165, 32, 0.08);
         }
 
         .form-textarea {
-            min-height: 140px;
+            min-height: 100px; /* Lebih kecil */
             resize: vertical;
         }
 
         .submit-button {
             width: 100%;
-            padding: 18px;
+            padding: 14px; /* Lebih kecil */
             background: var(--gradient);
             color: white;
             border: none;
-            border-radius: 15px;
-            font-size: 1rem;
+            border-radius: 10px; /* Lebih kecil */
+            font-size: 0.8rem; /* Lebih kecil */
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            box-shadow: 0 15px 30px rgba(139, 69, 19, 0.2);
+            gap: 6px; /* Lebih kecil */
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.12);
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -1322,19 +1272,20 @@
         }
 
         .submit-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 35px rgba(139, 69, 19, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(139, 69, 19, 0.15);
         }
 
+        /* =========== SOCIAL SECTION LEBIH KECIL =========== */
         .social-section {
             text-align: center;
-            margin-top: 3rem;
-            padding: 2.5rem;
+            margin-top: 2rem; /* Lebih kecil */
+            padding: 1.5rem; /* Lebih kecil */
             background: white;
-            border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-radius: 16px; /* Lebih kecil */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
             position: relative;
-            border: 2px solid rgba(250, 243, 233, 0.5);
+            border: 1px solid rgba(250, 243, 233, 0.5);
         }
 
         .social-section::before {
@@ -1343,76 +1294,76 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 3px; /* Lebih kecil */
             background: var(--gold-gradient);
-            border-radius: 25px 25px 0 0;
+            border-radius: 16px 16px 0 0;
         }
 
         .social-title {
-            font-size: 1.8rem;
+            font-size: 1.3rem; /* Lebih kecil */
             color: var(--dark);
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.2rem; /* Lebih kecil */
         }
 
         .social-media {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 0.8rem; /* Lebih kecil */
             flex-wrap: wrap;
         }
 
         .social-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
+            width: 45px; /* Lebih kecil */
+            height: 45px; /* Lebih kecil */
+            border-radius: 10px; /* Lebih kecil */
             background: var(--secondary);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary);
-            font-size: 1.5rem;
+            font-size: 1.1rem; /* Lebih kecil */
             transition: var(--transition);
             text-decoration: none;
-            border: 2px solid transparent;
+            border: 1px solid transparent;
         }
 
         .social-icon:hover {
             background: var(--gold-gradient);
             color: white;
-            transform: translateY(-8px) scale(1.1);
+            transform: translateY(-4px) scale(1.03);
             border-color: var(--accent);
-            box-shadow: 0 15px 35px rgba(218, 165, 32, 0.2);
+            box-shadow: 0 8px 15px rgba(218, 165, 32, 0.12);
         }
 
         .social-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
-            padding: 18px 35px;
-            border-radius: 50px;
+            padding: 12px 25px; /* Lebih kecil */
+            border-radius: 35px; /* Lebih kecil */
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 6px; /* Lebih kecil */
             font-weight: 600;
-            font-size: 1.1rem;
-            margin-top: 2.5rem;
+            font-size: 0.85rem; /* Lebih kecil */
+            margin-top: 1.5rem; /* Lebih kecil */
             transition: var(--transition);
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.2);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.12);
         }
 
         .social-whatsapp:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 35px rgba(37, 211, 102, 0.3);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 20px rgba(37, 211, 102, 0.15);
         }
 
-        /* =========== CART OVERLAY =========== */
+        /* =========== CART OVERLAY LEBIH KECIL =========== */
         .cart-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.8);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1420,8 +1371,8 @@
             opacity: 0;
             visibility: hidden;
             transition: var(--transition);
-            backdrop-filter: blur(10px);
-            padding: 20px;
+            backdrop-filter: blur(6px);
+            padding: 12px;
         }
 
         .cart-overlay.active {
@@ -1431,15 +1382,15 @@
 
         .cart-container {
             background: white;
-            border-radius: 25px;
+            border-radius: 16px; /* Lebih kecil */
             width: 100%;
-            max-width: 550px;
-            max-height: 80vh;
+            max-width: 450px; /* Lebih kecil */
+            max-height: 65vh; /* Lebih kecil */
             overflow: hidden;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
-            transform: translateY(30px) scale(0.95);
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            transform: translateY(15px) scale(0.95);
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .cart-overlay.active .cart-container {
@@ -1448,41 +1399,41 @@
 
         .cart-header {
             background: var(--gradient);
-            padding: 1.8rem 2.5rem;
+            padding: 1.2rem 1.5rem; /* Lebih kecil */
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .cart-title {
-            font-size: 1.6rem;
+            font-size: 1.2rem; /* Lebih kecil */
             color: white;
             font-weight: 600;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.2px;
         }
 
         .close-cart {
             color: white;
-            font-size: 1.6rem;
+            font-size: 1.2rem; /* Lebih kecil */
             cursor: pointer;
             transition: var(--transition);
-            width: 40px;
-            height: 40px;
+            width: 32px; /* Lebih kecil */
+            height: 32px; /* Lebih kecil */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.12);
         }
 
         .close-cart:hover {
-            transform: rotate(90deg) scale(1.1);
-            background: rgba(255, 255, 255, 0.25);
+            transform: rotate(90deg) scale(1.03);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .cart-body {
-            padding: 2rem;
-            max-height: 350px;
+            padding: 1.2rem; /* Lebih kecil */
+            max-height: 250px; /* Lebih kecil */
             overflow-y: auto;
         }
 
@@ -1490,8 +1441,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
-            border-bottom: 2px solid var(--secondary);
+            padding: 1rem 0; /* Lebih kecil */
+            border-bottom: 1px solid var(--secondary);
         }
 
         .cart-item:last-child {
@@ -1499,46 +1450,46 @@
         }
 
         .item-info h4 {
-            font-size: 1.1rem;
+            font-size: 0.9rem; /* Lebih kecil */
             font-weight: 600;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.4rem; /* Lebih kecil */
             color: var(--dark);
         }
 
         .item-info p {
             color: var(--gray);
-            font-size: 0.95rem;
+            font-size: 0.75rem; /* Lebih kecil */
             font-weight: 300;
         }
 
         .item-actions {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem; /* Lebih kecil */
         }
 
         .item-quantity {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.5rem; /* Lebih kecil */
             background: var(--secondary);
-            padding: 8px 12px;
-            border-radius: 12px;
+            padding: 5px 8px; /* Lebih kecil */
+            border-radius: 8px; /* Lebih kecil */
         }
 
         .quantity-btn {
-            width: 32px;
-            height: 32px;
+            width: 25px; /* Lebih kecil */
+            height: 25px; /* Lebih kecil */
             border-radius: 50%;
             background: white;
-            border: 2px solid var(--secondary);
+            border: 1px solid var(--secondary);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             color: var(--dark);
             transition: var(--transition);
-            font-size: 0.95rem;
+            font-size: 0.8rem; /* Lebih kecil */
         }
 
         .quantity-btn:hover {
@@ -1549,100 +1500,100 @@
 
         .quantity {
             font-weight: 700;
-            min-width: 32px;
+            min-width: 25px;
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 0.85rem; /* Lebih kecil */
             color: var(--dark);
         }
 
         .item-price {
             font-weight: 700;
             color: var(--primary);
-            min-width: 120px;
+            min-width: 90px; /* Lebih kecil */
             text-align: right;
-            font-size: 1.2rem;
+            font-size: 1rem; /* Lebih kecil */
         }
 
         .remove-item {
             color: #ff6b6b;
             cursor: pointer;
-            font-size: 1.3rem;
+            font-size: 1rem; /* Lebih kecil */
             transition: var(--transition);
-            width: 35px;
-            height: 35px;
+            width: 28px; /* Lebih kecil */
+            height: 28px; /* Lebih kecil */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 107, 107, 0.1);
+            background: rgba(255, 107, 107, 0.08);
         }
 
         .remove-item:hover {
-            transform: scale(1.2);
-            background: rgba(255, 107, 107, 0.2);
+            transform: scale(1.08);
+            background: rgba(255, 107, 107, 0.15);
         }
 
         .cart-empty {
             text-align: center;
-            padding: 4rem 0;
+            padding: 2.5rem 0; /* Lebih kecil */
             color: var(--gray);
         }
 
         .cart-empty i {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2rem; /* Lebih kecil */
+            margin-bottom: 0.8rem; /* Lebih kecil */
             color: var(--secondary);
             opacity: 0.5;
         }
 
         .cart-empty p {
-            font-size: 1.2rem;
+            font-size: 0.9rem; /* Lebih kecil */
             font-weight: 300;
         }
 
         .cart-footer {
-            padding: 2rem;
-            border-top: 3px solid var(--secondary);
+            padding: 1.2rem; /* Lebih kecil */
+            border-top: 1.5px solid var(--secondary);
         }
 
         .cart-total {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
-            padding: 0 0.5rem;
+            margin-bottom: 1.2rem; /* Lebih kecil */
+            padding: 0 0.4rem;
         }
 
         .total-label {
-            font-size: 1.3rem;
+            font-size: 1rem; /* Lebih kecil */
             color: var(--dark);
             font-weight: 500;
         }
 
         .total-amount {
-            font-size: 2rem;
+            font-size: 1.4rem; /* Lebih kecil */
             font-weight: 700;
             color: var(--primary);
         }
 
         .cart-actions {
             display: flex;
-            gap: 1.2rem;
+            gap: 0.8rem; /* Lebih kecil */
         }
 
         .cart-btn {
             flex: 1;
-            padding: 1.2rem;
+            padding: 0.9rem; /* Lebih kecil */
             border: none;
-            border-radius: 15px;
+            border-radius: 10px; /* Lebih kecil */
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            font-size: 1rem;
+            gap: 5px; /* Lebih kecil */
+            font-size: 0.8rem; /* Lebih kecil */
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -1671,22 +1622,22 @@
         }
 
         .checkout-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(139, 69, 19, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.15);
         }
 
         .clear-btn {
             background: var(--secondary);
             color: var(--dark);
-            border: 2px solid rgba(139, 69, 19, 0.1);
+            border: 1px solid rgba(139, 69, 19, 0.08);
         }
 
         .clear-btn:hover {
-            background: rgba(139, 69, 19, 0.05);
-            transform: translateY(-5px);
+            background: rgba(139, 69, 19, 0.04);
+            transform: translateY(-2px);
         }
 
-        /* =========== MARQUEE - DENGAN TOGGLE =========== */
+        /* =========== MARQUEE LEBIH KECIL =========== */
         .marquee-container {
             position: fixed;
             bottom: 0;
@@ -1694,12 +1645,12 @@
             width: 100%;
             background: var(--gradient);
             color: white;
-            padding: 15px 0;
+            padding: 10px 0; /* Lebih kecil */
             overflow: hidden;
             z-index: 998;
-            box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.15);
-            border-top: 3px solid rgba(218, 165, 32, 0.4);
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.1);
+            border-top: 2px solid rgba(218, 165, 32, 0.25);
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             transform: translateY(0);
         }
 
@@ -1715,44 +1666,44 @@
         .marquee-item {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 6px; /* Lebih kecil */
             white-space: nowrap;
-            padding: 0 2.5rem;
-            font-size: 0.95rem;
+            padding: 0 1.5rem; /* Lebih kecil */
+            font-size: 0.75rem; /* Lebih kecil */
         }
 
         .marquee-icon {
             color: var(--accent-light);
-            font-size: 1.1rem;
+            font-size: 0.9rem; /* Lebih kecil */
         }
 
-        /* =========== SWIPER PAGINATION =========== */
+        /* =========== SWIPER PAGINATION LEBIH KECIL =========== */
         .swiper-pagination {
             position: fixed !important;
-            right: 20px !important;
+            right: 12px !important; /* Lebih kecil */
             top: 50% !important;
             transform: translateY(-50%) !important;
             left: auto !important;
             width: auto !important;
             display: flex !important;
             flex-direction: column !important;
-            gap: 20px !important;
+            gap: 12px !important; /* Lebih kecil */
             z-index: 999 !important;
         }
 
         .swiper-pagination-bullet {
-            width: 14px !important;
-            height: 14px !important;
-            background: rgba(139, 69, 19, 0.2) !important;
+            width: 10px !important; /* Lebih kecil */
+            height: 10px !important; /* Lebih kecil */
+            background: rgba(139, 69, 19, 0.15) !important;
             opacity: 1 !important;
             transition: var(--transition) !important;
-            border: 2px solid transparent;
+            border: 1px solid transparent;
         }
 
         .swiper-pagination-bullet-active {
             background: var(--gold-gradient) !important;
-            transform: scale(1.5) !important;
-            box-shadow: 0 0 20px rgba(218, 165, 32, 0.6);
+            transform: scale(1.2) !important; /* Lebih kecil */
+            box-shadow: 0 0 12px rgba(218, 165, 32, 0.3);
             border-color: white;
         }
 
@@ -1782,70 +1733,133 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* =========== MOBILE RESPONSIVE =========== */
-        @media (max-width: 768px) {
+        /* =========== RESPONSIVE =========== */
+        @media (min-width: 1025px) {
+            html {
+                font-size: 14px;
+            }
+            
             .header {
-                padding: 12px 15px;
+                padding: 12px 25px;
                 height: 60px;
                 max-height: 60px;
             }
             
             .header.scrolled {
-                padding: 10px 15px;
+                padding: 10px 25px;
                 height: 55px;
                 max-height: 55px;
             }
             
+            .main-swiper {
+                height: calc(100vh - 60px);
+                margin-top: 60px;
+            }
+            
             .global-controls {
-                top: 70px;
-                right: 15px;
+                right: 20px;
+                top: 75px;
             }
             
             .header.scrolled ~ .global-controls {
-                top: 65px;
+                top: 70px;
             }
             
             .header.hidden ~ .global-controls {
-                top: 20px;
+                top: 15px;
             }
             
             .control-btn {
                 width: 36px;
                 height: 36px;
-                font-size: 1.1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            
+            .story-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .story-img {
+                height: 220px;
+                order: -1;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 12px;
+            }
+            
+            .header {
+                padding: 8px 10px;
+                height: 50px;
+                max-height: 50px;
+            }
+            
+            .header.scrolled {
+                padding: 6px 10px;
+                height: 46px;
+                max-height: 46px;
+            }
+            
+            .global-controls {
+                top: 55px;
+                right: 8px;
+            }
+            
+            .header.scrolled ~ .global-controls {
+                top: 51px;
+            }
+            
+            .header.hidden ~ .global-controls {
+                top: 8px;
             }
             
             .brand-name {
-                font-size: 1.3rem;
+                font-size: 0.9rem;
             }
             
             .brand-logo {
-                width: 35px;
-                height: 35px;
-                font-size: 1.1rem;
+                width: 26px;
+                height: 26px;
+                font-size: 0.8rem;
             }
             
             .mobile-menu-btn {
                 display: flex;
-                width: 25px;
-                height: 18px;
             }
             
             .nav-container {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 280px;
+                width: 220px;
                 height: 100vh;
+                height: 100dvh;
                 background: white;
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: flex-start;
-                padding: 100px 25px 40px;
-                gap: 20px;
-                box-shadow: -10px 0 40px rgba(0,0,0,0.15);
-                transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                padding: 70px 15px 25px;
+                gap: 12px;
+                box-shadow: -6px 0 25px rgba(0,0,0,0.1);
+                transition: right 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
                 z-index: 1000;
+                overflow-y: auto;
             }
             
             .nav-container.active {
@@ -1853,11 +1867,11 @@
             }
             
             .nav-link {
-                font-size: 1.1rem;
-                padding: 15px 20px;
+                font-size: 0.9rem;
+                padding: 10px 14px;
                 width: 100%;
-                border-radius: 12px;
-                gap: 10px;
+                border-radius: 8px;
+                gap: 6px;
             }
             
             .nav-link:hover {
@@ -1869,80 +1883,96 @@
             }
             
             .cart-icon {
-                margin-top: 30px;
-                font-size: 1.5rem;
-                width: 50px;
-                height: 50px;
+                margin-top: 15px;
+                font-size: 1.1rem;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .main-swiper {
+                height: calc(100vh - 50px);
+                margin-top: 50px;
             }
             
             .swiper-slide {
-                padding: 15px;
+                padding: 8px;
             }
             
             .slide-inner {
-                padding: 70px 0 30px;
+                padding: 12px 8px 25px;
+                align-items: flex-start;
+            }
+            
+            .hero-content {
+                padding-top: 5px;
             }
             
             .hero-title {
-                font-size: 2.2rem;
-                margin-bottom: 1.2rem;
+                font-size: 1.4rem;
+                margin-bottom: 0.8rem;
             }
             
             .hero-subtitle {
-                font-size: 1rem;
-                margin-bottom: 2rem;
+                font-size: 0.8rem;
+                margin-bottom: 1.2rem;
             }
             
             .intro-features {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
+                gap: 10px;
+                margin-bottom: 1.2rem;
             }
             
             .feature {
-                padding: 20px 15px;
+                padding: 12px 10px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 0 4px;
+            }
+            
+            .product-card {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            
+            .product-image {
+                height: 150px;
             }
             
             .story-container {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-                text-align: center;
-            }
-            
-            .story-title::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .story-img {
-                height: 300px;
-                order: -1;
+                padding: 8px 0;
             }
             
             .story-features {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 10px;
+                margin: 1.2rem 0;
             }
             
             .rating-section {
-                margin: 2rem auto;
+                margin: 1.2rem auto;
                 flex-direction: column;
                 text-align: center;
-                gap: 15px;
-                padding: 20px;
+                gap: 10px;
+                padding: 12px;
+                width: 100%;
             }
             
             .swiper-pagination {
-                right: 15px !important;
-                gap: 15px !important;
+                right: 8px !important;
+                gap: 10px !important;
             }
             
             .swiper-pagination-bullet {
-                width: 12px !important;
-                height: 12px !important;
+                width: 8px !important;
+                height: 8px !important;
             }
             
             .swiper-pagination-bullet-active {
-                transform: scale(1.3) !important;
+                transform: scale(1.1) !important;
             }
             
             .cart-overlay {
@@ -1951,152 +1981,117 @@
             }
             
             .cart-container {
-                border-radius: 20px 20px 0 0;
+                border-radius: 12px 12px 0 0;
                 max-width: 100%;
                 transform: translateY(100%);
-                max-height: 85vh;
+                max-height: 75vh;
             }
             
             .cart-overlay.active .cart-container {
                 transform: translateY(0);
             }
             
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                max-width: 400px;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
             .contact-info, .contact-form-container {
-                padding: 1.8rem;
+                padding: 1.2rem;
             }
             
             .social-section {
-                padding: 1.8rem;
-                margin-top: 2rem;
+                padding: 1.2rem;
+                margin-top: 1.2rem;
             }
             
             .social-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-            }
-            
-            .social-whatsapp {
-                padding: 15px 25px;
+                width: 40px;
+                height: 40px;
                 font-size: 1rem;
             }
             
+            .social-whatsapp {
+                padding: 10px 18px;
+                font-size: 0.8rem;
+                margin-top: 1.2rem;
+            }
+            
             .marquee-container {
-                padding: 12px 0;
+                padding: 8px 0;
             }
             
             .marquee-item {
-                padding: 0 1.5rem;
-                font-size: 0.85rem;
+                padding: 0 1rem;
+                font-size: 0.7rem;
             }
         }
 
-        /* =========== TABLET OPTIMIZATION =========== */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .header {
-                padding: 15px 25px;
+        @media (max-width: 480px) {
+            .intro-features {
+                grid-template-columns: 1fr;
             }
             
-            .global-controls {
-                top: 90px;
-                right: 25px;
+            .product-image {
+                height: 130px;
             }
             
-            .header.scrolled ~ .global-controls {
-                top: 80px;
+            .product-content {
+                padding: 1rem;
             }
             
-            .header.hidden ~ .global-controls {
-                top: 25px;
+            .product-footer {
+                flex-direction: column;
+                gap: 12px;
+                align-items: stretch;
             }
             
-            .hero-title {
-                font-size: 3.2rem;
+            .add-to-cart-btn {
+                width: 100%;
+                justify-content: center;
             }
             
-            .section-title, .story-title, .contact-title {
-                font-size: 2.5rem;
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
             }
             
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .contact-grid {
-                gap: 2.5rem;
+            .contact-details {
+                text-align: center;
             }
         }
 
-        /* =========== TOUCH DEVICE OPTIMIZATIONS =========== */
-        @media (hover: none) and (pointer: coarse) {
-            .product-card:hover,
-            .feature:hover,
-            .contact-item:hover,
-            .story-tagline:hover,
-            .social-icon:hover,
-            .cart-btn:hover,
-            .submit-button:hover,
-            .nav-link:hover,
-            .control-btn:hover {
-                transform: none !important;
+        @media (min-width: 1440px) {
+            .slide-inner {
+                max-width: 1200px;
             }
             
-            .feature:hover .feature-icon {
-                transform: none;
-            }
-            
-            .contact-item:hover .contact-icon {
-                transform: none;
-            }
-            
-            .size-option:hover:not(.active) {
-                transform: none;
-                border-color: var(--secondary);
+            .hero-content {
+                max-width: 900px;
             }
         }
 
         /* =========== SAFARI FIX =========== */
         @supports (-webkit-touch-callout: none) {
+            body, .main-swiper {
+                height: 100vh;
+                height: -webkit-fill-available;
+            }
+            
             .header {
-                padding-top: max(15px, env(safe-area-inset-top));
-                padding-bottom: 15px;
+                padding-top: max(10px, env(safe-area-inset-top));
             }
             
             .global-controls {
-                top: calc(85px + env(safe-area-inset-top));
+                top: calc(65px + env(safe-area-inset-top));
             }
             
             .header.scrolled ~ .global-controls {
-                top: calc(75px + env(safe-area-inset-top));
+                top: calc(60px + env(safe-area-inset-top));
             }
             
             .header.hidden ~ .global-controls {
-                top: calc(20px + env(safe-area-inset-top));
-            }
-            
-            .swiper-slide {
-                padding-top: max(20px, env(safe-area-inset-top));
-                padding-bottom: max(20px, env(safe-area-inset-bottom));
+                top: calc(12px + env(safe-area-inset-top));
             }
             
             .marquee-container {
-                padding-bottom: max(15px, env(safe-area-inset-bottom));
-            }
-            
-            .cart-overlay {
-                padding-top: env(safe-area-inset-top);
-                padding-bottom: env(safe-area-inset-bottom);
+                padding-bottom: max(10px, env(safe-area-inset-bottom));
             }
         }
     </style>
@@ -2173,7 +2168,7 @@
                         <div class="hero-badge animate-text">PREMIUM QUALITY</div>
                         <h1 class="hero-title animate-text delay-1">Mukena <span>Hasfita</span></h1>
                         <p class="hero-subtitle animate-text delay-2">
-                            Menyediakan mukena berkualitas tinggi dengan bahan premium dan desain modern untuk melengkapi ibadah Anda dengan penuh kenyamanan dan keanggunan. Setiap jahitan dibuat dengan ketelitian untuk memberikan pengalaman ibadah yang sempurna.
+                            Menyediakan mukena berkualitas tinggi dengan bahan premium dan desain modern untuk melengkapi ibadah Anda.
                         </p>
                         
                         <div class="intro-features">
@@ -2211,25 +2206,25 @@
                 </div>
             </div>
 
-            <!-- Slide 2: Products -->
+            <!-- Slide 2: Products (UKURAN DIPERKECIL) -->
             <div class="swiper-slide products-slide">
                 <div class="slide-inner">
                     <div style="width: 100%;">
                         <div class="section-header">
                             <h2 class="section-title animate-text">Koleksi Eksklusif</h2>
-                            <p class="section-subtitle animate-text delay-1">Temukan koleksi mukena premium kami yang dibuat dengan perhatian pada detail dan kenyamanan maksimal untuk pengalaman ibadah yang sempurna</p>
+                            <p class="section-subtitle animate-text delay-1">Temukan koleksi mukena premium kami</p>
                         </div>
                         
                         <div class="products-grid">
-                            <!-- Product 1 -->
+                            <!-- Product 1: Zafira -->
                             <div class="product-card animate-text delay-1">
                                 <div class="product-badge">BEST SELLER</div>
                                 <div class="product-image">
-                                    <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=600" class="image-reveal" alt="Mukena Zafira">
+                                    <img src="https://i.ibb.co/39JFFGrH/mukena1.jpg" class="image-reveal" alt="Mukena Zafira" onerror="this.src='https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=600'">
                                 </div>
                                 <div class="product-content">
                                     <h3 class="product-name">Mukena Zafira</h3>
-                                    <p class="product-description">Mukena katun premium dengan bordir tangan eksklusif, nyaman untuk ibadah sehari-hari dengan sentuhan elegan.</p>
+                                    <p class="product-description">Mukena katun premium dengan bordir tangan eksklusif.</p>
                                     
                                     <div class="size-selector">
                                         <div class="size-label">Pilih Ukuran:</div>
@@ -2251,14 +2246,14 @@
                                 </div>
                             </div>
 
-                            <!-- Product 2 -->
+                            <!-- Product 2: Aliya -->
                             <div class="product-card animate-text delay-2">
                                 <div class="product-image">
-                                    <img src="https://images.unsplash.com/photo-1601006543884-a14a29a0f44e?q=80&w=600" class="image-reveal" alt="Mukena Aliya">
+                                    <img src="https://i.ibb.co/gZ1V4N1G/mukena2.jpg" class="image-reveal" alt="Mukena Aliya" onerror="this.src='https://images.unsplash.com/photo-1601006543884-a14a29a0f44e?q=80&w=600'">
                                 </div>
                                 <div class="product-content">
                                     <h3 class="product-name">Mukena Aliya</h3>
-                                    <p class="product-description">Mukena satin dengan motif bunga halus yang elegan, memberikan tampilan yang anggun dan mewah.</p>
+                                    <p class="product-description">Mukena satin dengan motif bunga halus yang elegan.</p>
                                     
                                     <div class="size-selector">
                                         <div class="size-label">Pilih Ukuran:</div>
@@ -2280,15 +2275,15 @@
                                 </div>
                             </div>
 
-                            <!-- Product 3 -->
+                            <!-- Product 3: Safiya -->
                             <div class="product-card animate-text delay-3">
                                 <div class="product-badge">NEW ARRIVAL</div>
                                 <div class="product-image">
-                                    <img src="https://images.unsplash.com/photo-1599814352520-22c9e787e91d?q=80&w=600" class="image-reveal" alt="Mukena Safiya">
+                                    <img src="https://i.ibb.co/0VGprGnx/mukena3.jpg" class="image-reveal" alt="Mukena Safiya" onerror="this.src='https://images.unsplash.com/photo-1599814352520-22c9e787e91d?q=80&w=600'">
                                 </div>
                                 <div class="product-content">
                                     <h3 class="product-name">Mukena Safiya</h3>
-                                    <p class="product-description">Mukena brokat mewah dengan aksen payet kristal, cocok untuk hari raya dan acara spesial.</p>
+                                    <p class="product-description">Mukena brokat mewah dengan aksen payet kristal.</p>
                                     
                                     <div class="size-selector">
                                         <div class="size-label">Pilih Ukuran:</div>
@@ -2310,14 +2305,14 @@
                                 </div>
                             </div>
 
-                            <!-- Product 4 -->
+                            <!-- Product 4: Nayla -->
                             <div class="product-card animate-text delay-2">
                                 <div class="product-image">
-                                    <img src="https://images.unsplash.com/photo-1565299543923-37dd37887442?q=80&w=600" class="image-reveal" alt="Mukena Nayla">
+                                    <img src="https://i.ibb.co/S4YtJJ4j/mukena4.jpg" class="image-reveal" alt="Mukena Nayla" onerror="this.src='https://images.unsplash.com/photo-1565299543923-37dd37887442?q=80&w=600'">
                                 </div>
                                 <div class="product-content">
                                     <h3 class="product-name">Mukena Nayla</h3>
-                                    <p class="product-description">Mukena katun jepang dengan desain modern minimalis, menyerap keringat dengan baik dan nyaman dipakai.</p>
+                                    <p class="product-description">Mukena katun jepang dengan desain modern minimalis.</p>
                                     
                                     <div class="size-selector">
                                         <div class="size-label">Pilih Ukuran:</div>
@@ -2353,16 +2348,16 @@
                         <div class="story-content">
                             <h2 class="story-title animate-text delay-1">Kisah Mukena Hasfita</h2>
                             <p class="story-text animate-text delay-2">
-                                Mukena Hasfita hadir sejak 2019 dengan komitmen untuk menyediakan mukena berkualitas tinggi yang tidak hanya nyaman dipakai tetapi juga memperhatikan aspek estetika. Kami percaya bahwa ibadah yang khusyuk dimulai dari kenyamanan dan penampilan yang anggun.
+                                Mukena Hasfita hadir sejak 2019 dengan komitmen untuk menyediakan mukena berkualitas tinggi yang nyaman dan elegan.
                             </p>
                             <p class="story-text animate-text delay-2">
-                                Setiap produk dikerjakan oleh penjahit profesional dengan bahan pilihan terbaik. Kami memastikan setiap detail diperhatikan, dari pemilihan kain, proses penjahitan, hingga finishing untuk memberikan produk terbaik bagi pelanggan kami.
+                                Setiap produk dikerjakan dengan bahan pilihan terbaik untuk memberikan pengalaman ibadah yang sempurna.
                             </p>
                             
                             <div class="story-features">
                                 <div class="story-feature">
                                     <i class="fas fa-check"></i>
-                                    <div class="story-feature-text">Bahan Premium Import</div>
+                                    <div class="story-feature-text">Bahan Premium</div>
                                 </div>
                                 <div class="story-feature">
                                     <i class="fas fa-check"></i>
@@ -2388,7 +2383,7 @@
                                 </div>
                                 <div>
                                     <div class="rating-text">4.9/5.0 Rating</div>
-                                    <div class="rating-source">500+ Ulasan Pelanggan</div>
+                                    <div class="rating-source">500+ Ulasan</div>
                                 </div>
                             </div>
                             
@@ -2401,13 +2396,13 @@
                 </div>
             </div>
 
-            <!-- Slide 4: Modern Contact -->
+            <!-- Slide 4: Contact (UKURAN DIPERKECIL) -->
             <div class="swiper-slide contact-slide">
                 <div class="slide-inner">
                     <div class="contact-container">
                         <div class="contact-header animate-text">
                             <h2 class="contact-title">Hubungi Kami</h2>
-                            <p class="contact-subtitle">Kami siap membantu Anda mendapatkan mukena terbaik. Hubungi kami untuk konsultasi atau pemesanan.</p>
+                            <p class="contact-subtitle">Kami siap membantu Anda mendapatkan mukena terbaik.</p>
                         </div>
                         
                         <div class="contact-grid">
@@ -2421,7 +2416,7 @@
                                     <div class="contact-details">
                                         <h4>Nama Toko</h4>
                                         <p>Mukena Hasfita</p>
-                                        <p style="color: var(--accent); font-weight: 500;">Toko Mukena Premium</p>
+                                        <p style="color: var(--accent); font-weight: 500; font-size: 0.7rem;">Toko Mukena Premium</p>
                                     </div>
                                 </div>
                                 
@@ -2442,7 +2437,7 @@
                                     <div class="contact-details">
                                         <h4>Jam Operasional</h4>
                                         <p>Senin - Minggu: 08:00 - 20:00 WIB</p>
-                                        <p style="font-size: 0.9rem; color: var(--accent);">Buka Setiap Hari</p>
+                                        <p style="font-size: 0.7rem; color: var(--accent);">Buka Setiap Hari</p>
                                     </div>
                                 </div>
                                 
@@ -2453,7 +2448,7 @@
                                     <div class="contact-details">
                                         <h4>Telepon & WhatsApp</h4>
                                         <a href="https://wa.me/6282240409293" target="_blank">0822-4040-9293</a>
-                                        <p style="font-size: 0.9rem;">Respon Cepat via WhatsApp</p>
+                                        <p style="font-size: 0.7rem;">Respon Cepat via WhatsApp</p>
                                     </div>
                                 </div>
                             </div>
@@ -2490,7 +2485,7 @@
                         </div>
                         
                         <div class="social-section animate-text delay-3">
-                            <h3 class="social-title">Ikuti Kami di Media Sosial</h3>
+                            <h3 class="social-title">Ikuti Kami</h3>
                             <div class="social-media">
                                 <a href="https://instagram.com/mukenahasfita.id" class="social-icon" target="_blank">
                                     <i class="fab fa-instagram"></i>
@@ -2637,12 +2632,12 @@
         // Inisialisasi Swiper Horizontal
         const swiper = new Swiper('.main-swiper', {
             direction: 'horizontal',
-            speed: 800,
+            speed: 600,
             slidesPerView: 1,
             spaceBetween: 0,
             mousewheel: {
                 forceToAxis: true,
-                sensitivity: 0.8
+                sensitivity: window.innerWidth >= 1025 ? 0.5 : 0.8
             },
             touchRatio: 1,
             simulateTouch: true,
@@ -2664,7 +2659,7 @@
                     // Reset animasi untuk slide baru
                     document.querySelectorAll('.animate-text').forEach(el => {
                         el.style.opacity = '0';
-                        el.style.transform = 'translateY(30px)';
+                        el.style.transform = 'translateY(15px)';
                     });
                     
                     // Trigger animasi untuk slide aktif
@@ -2675,7 +2670,7 @@
                                 setTimeout(() => {
                                     el.style.opacity = '1';
                                     el.style.transform = 'translateY(0)';
-                                }, index * 200);
+                                }, index * 120);
                             });
                         }
                     }, 100);
@@ -2705,22 +2700,16 @@
             headerVisible = !headerVisible;
             
             if (headerVisible) {
-                // Tampilkan header
                 header.classList.remove('hidden');
                 toggleHeaderBtn.classList.remove('active');
                 toggleHeaderBtn.innerHTML = '<i class="fas fa-bars"></i>';
                 toggleHeaderBtn.title = "Sembunyikan Header";
-                
-                // Simpan status ke localStorage
                 localStorage.setItem('headerVisible', 'true');
             } else {
-                // Sembunyikan header
                 header.classList.add('hidden');
                 toggleHeaderBtn.classList.add('active');
                 toggleHeaderBtn.innerHTML = '<i class="fas fa-eye"></i>';
                 toggleHeaderBtn.title = "Tampilkan Header";
-                
-                // Simpan status ke localStorage
                 localStorage.setItem('headerVisible', 'false');
             }
         }
@@ -2730,22 +2719,16 @@
             taskbarVisible = !taskbarVisible;
             
             if (taskbarVisible) {
-                // Tampilkan taskbar
                 marqueeContainer.classList.remove('hidden');
                 toggleTaskbarBtn.classList.remove('active');
                 toggleTaskbarBtn.innerHTML = '<i class="fas fa-chevron-down"></i>';
                 toggleTaskbarBtn.title = "Sembunyikan Promo";
-                
-                // Simpan status ke localStorage
                 localStorage.setItem('taskbarVisible', 'true');
             } else {
-                // Sembunyikan taskbar
                 marqueeContainer.classList.add('hidden');
                 toggleTaskbarBtn.classList.add('active');
                 toggleTaskbarBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
                 toggleTaskbarBtn.title = "Tampilkan Promo";
-                
-                // Simpan status ke localStorage
                 localStorage.setItem('taskbarVisible', 'false');
             }
         }
@@ -2780,13 +2763,13 @@
                     addToCart(productName, selectedSize, price);
                     
                     // Animasi konfirmasi
-                    this.innerHTML = '<i class="fas fa-check"></i> Ditambahkan ke Keranjang';
+                    this.innerHTML = '<i class="fas fa-check"></i> Ditambahkan';
                     this.style.background = '#27ae60';
                     
                     setTimeout(() => {
                         this.innerHTML = '<i class="fas fa-plus"></i> Tambah ke Keranjang';
                         this.style.background = '';
-                    }, 2000);
+                    }, 1200);
                 });
             });
 
@@ -2887,7 +2870,7 @@
 
             // Setup scroll untuk header
             window.addEventListener('scroll', function() {
-                if (window.scrollY > 30) {
+                if (window.scrollY > 15) {
                     header.classList.add('scrolled');
                 } else {
                     header.classList.remove('scrolled');
@@ -2897,7 +2880,7 @@
             // Setup touch gesture untuk mobile
             let touchStartX = 0;
             let touchEndX = 0;
-            const touchThreshold = 50;
+            const touchThreshold = 40;
 
             document.addEventListener('touchstart', function(e) {
                 touchStartX = e.changedTouches[0].screenX;
@@ -2913,10 +2896,8 @@
                 
                 if (Math.abs(diff) > touchThreshold) {
                     if (diff > 0 && swiper.activeIndex < swiper.slides.length - 1) {
-                        // Swipe kiri - ke slide berikutnya
                         swiper.slideNext();
                     } else if (diff < 0 && swiper.activeIndex > 0) {
-                        // Swipe kanan - ke slide sebelumnya
                         swiper.slidePrev();
                     }
                 }
@@ -2936,29 +2917,19 @@
                 }
             });
 
-            // Show controls on hover
-            const globalControls = document.querySelector('.global-controls');
-            if (globalControls) {
-                globalControls.addEventListener('mouseenter', function() {
-                    this.style.opacity = '1';
-                });
-                
-                globalControls.addEventListener('mouseleave', function() {
-                    this.style.opacity = '0.9';
-                });
-            }
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                swiper.update();
+            });
         });
 
         // Fungsi keranjang belanja
         function addToCart(name, size, price) {
-            // Cek apakah produk sudah ada di keranjang
             const existingItemIndex = cart.findIndex(item => item.name === name && item.size === size);
             
             if (existingItemIndex !== -1) {
-                // Update quantity jika sudah ada
                 cart[existingItemIndex].quantity += 1;
             } else {
-                // Tambah item baru
                 cart.push({
                     name: name,
                     size: size,
@@ -2967,17 +2938,14 @@
                 });
             }
             
-            // Simpan ke localStorage
             localStorage.setItem('mukenaHasfitaCart', JSON.stringify(cart));
-            
-            // Update tampilan keranjang
             updateCartDisplay();
             
             // Animasi cart icon
-            cartIcon.style.transform = 'scale(1.2)';
+            cartIcon.style.transform = 'scale(1.08)';
             setTimeout(() => {
                 cartIcon.style.transform = '';
-            }, 300);
+            }, 250);
         }
 
         function updateQuantity(index, change) {
@@ -3000,11 +2968,9 @@
         }
 
         function updateCartDisplay() {
-            // Update jumlah item di ikon keranjang
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCount.textContent = totalItems;
             
-            // Update daftar item di keranjang
             cartItems.innerHTML = '';
             
             if (cart.length === 0) {
@@ -3048,7 +3014,6 @@
                 cartItems.appendChild(cartItemElement);
             });
             
-            // Update total harga
             cartTotal.textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
         }
 
@@ -3056,7 +3021,6 @@
             cartOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
             
-            // Tutup mobile menu jika terbuka
             if (window.innerWidth <= 768) {
                 navContainer.classList.remove('active');
                 mobileMenuBtn.classList.remove('active');
@@ -3102,14 +3066,11 @@
             
             message += `%0A%0ANama: %0AAlamat Lengkap: %0ANomor HP: %0AMetode Pembayaran:`;
             
-            // Buka WhatsApp dengan pesan yang sudah disiapkan
             window.open(`https://wa.me/6282240409293?text=${message}`, '_blank');
-            
-            // Tutup cart overlay
             closeCartOverlay();
         }
 
-        // Ekspos fungsi ke global scope untuk onclick events
+        // Ekspos fungsi ke global scope
         window.updateQuantity = updateQuantity;
         window.removeFromCart = removeFromCart;
     </script>
