@@ -6,7 +6,6 @@
     <title>Mukena Hasfita | Mukena Premium Berkualitas</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -37,7 +36,7 @@
         html {
             scroll-behavior: smooth;
             height: 100%;
-            font-size: 13px; /* Lebih kecil lagi */
+            font-size: 13px;
         }
 
         body {
@@ -46,12 +45,10 @@
             color: var(--dark);
             overflow-x: hidden;
             width: 100%;
-            height: 100vh;
-            height: 100dvh;
             position: relative;
             padding: 0;
             margin: 0;
-            font-size: 0.85rem; /* Lebih kecil lagi */
+            font-size: 0.85rem;
         }
 
         body::before {
@@ -101,8 +98,8 @@
         }
 
         .logo-circle {
-            width: 70px; /* Lebih kecil */
-            height: 70px; /* Lebih kecil */
+            width: 70px;
+            height: 70px;
             background: white;
             border-radius: 50%;
             display: flex;
@@ -114,14 +111,14 @@
         }
 
         .logo-circle i {
-            font-size: 2rem; /* Lebih kecil */
+            font-size: 2rem;
             color: var(--primary);
             position: relative;
             z-index: 1;
         }
 
         .welcome-logo {
-            font-size: 1.6rem; /* Lebih kecil */
+            font-size: 1.6rem;
             font-weight: 700;
             color: white;
             text-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -131,7 +128,7 @@
         }
 
         .welcome-subtitle {
-            font-size: 0.75rem; /* Lebih kecil */
+            font-size: 0.75rem;
             color: rgba(255, 255, 255, 0.9);
             opacity: 0;
             transform: translateY(15px);
@@ -144,8 +141,8 @@
         }
 
         .loader {
-            width: 80px; /* Lebih kecil */
-            height: 2.5px; /* Lebih kecil */
+            width: 80px;
+            height: 2.5px;
             background: rgba(255,255,255,0.3);
             margin-top: 20px;
             border-radius: 4px;
@@ -173,7 +170,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 10px 12px; /* Lebih kecil */
+            padding: 10px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -183,8 +180,8 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.05);
             transition: var(--transition);
             border-bottom: 1px solid rgba(139, 69, 19, 0.08);
-            height: 55px; /* Lebih kecil */
-            max-height: 55px; /* Lebih kecil */
+            height: 55px;
+            max-height: 55px;
             transform: translateY(0);
         }
 
@@ -193,24 +190,24 @@
         }
 
         .header.scrolled {
-            padding: 8px 12px; /* Lebih kecil */
+            padding: 8px 12px;
             box-shadow: 0 3px 15px rgba(0,0,0,0.06);
-            height: 50px; /* Lebih kecil */
-            max-height: 50px; /* Lebih kecil */
+            height: 50px;
+            max-height: 50px;
         }
 
         .brand-container {
             display: flex;
             align-items: center;
-            gap: 6px; /* Lebih kecil */
+            gap: 6px;
             text-decoration: none;
         }
 
         .brand-logo {
-            width: 28px; /* Lebih kecil */
-            height: 28px; /* Lebih kecil */
+            width: 28px;
+            height: 28px;
             background: var(--gold-gradient);
-            border-radius: 6px; /* Lebih kecil */
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -223,14 +220,14 @@
             content: '\f6c0';
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
-            font-size: 0.85rem; /* Lebih kecil */
+            font-size: 0.85rem;
             color: white;
             position: relative;
             z-index: 1;
         }
 
         .brand-name {
-            font-size: 1rem; /* Lebih kecil */
+            font-size: 1rem;
             font-weight: 700;
             color: var(--primary);
             letter-spacing: -0.2px;
@@ -244,33 +241,33 @@
         /* =========== GLOBAL CONTROLS =========== */
         .global-controls {
             position: fixed;
-            top: 65px; /* Lebih kecil */
+            top: 65px;
             right: 12px;
             z-index: 999;
             display: flex;
             flex-direction: column;
-            gap: 6px; /* Lebih kecil */
+            gap: 6px;
             transition: var(--transition);
             opacity: 1;
             transform: translateX(0);
         }
 
         .header.scrolled ~ .global-controls {
-            top: 60px; /* Lebih kecil */
+            top: 60px;
         }
 
         .header.hidden ~ .global-controls {
-            top: 12px; /* Lebih kecil */
+            top: 12px;
         }
 
         .control-btn {
-            width: 32px; /* Lebih kecil */
-            height: 32px; /* Lebih kecil */
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background: var(--gold-gradient);
             border: none;
             color: white;
-            font-size: 0.85rem; /* Lebih kecil */
+            font-size: 0.85rem;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -300,8 +297,8 @@
             display: none;
             flex-direction: column;
             justify-content: space-between;
-            width: 22px; /* Lebih kecil */
-            height: 16px; /* Lebih kecil */
+            width: 22px;
+            height: 16px;
             background: transparent;
             border: none;
             cursor: pointer;
@@ -312,7 +309,7 @@
         .mobile-menu-btn span {
             display: block;
             width: 100%;
-            height: 2px; /* Lebih kecil */
+            height: 2px;
             background: var(--primary);
             border-radius: 1px;
             transition: var(--transition);
@@ -333,25 +330,25 @@
         .nav-container {
             display: flex;
             align-items: center;
-            gap: 15px; /* Lebih kecil */
+            gap: 15px;
         }
 
         .nav-link {
             text-decoration: none;
             color: var(--dark);
-            font-size: 0.75rem; /* Lebih kecil */
+            font-size: 0.75rem;
             font-weight: 500;
             letter-spacing: 0.2px;
             position: relative;
-            padding: 5px 0; /* Lebih kecil */
+            padding: 5px 0;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 4px; /* Lebih kecil */
+            gap: 4px;
         }
 
         .nav-link i {
-            font-size: 0.7rem; /* Lebih kecil */
+            font-size: 0.7rem;
             color: var(--accent);
         }
 
@@ -379,12 +376,12 @@
 
         .cart-icon {
             position: relative;
-            font-size: 1rem; /* Lebih kecil */
+            font-size: 1rem;
             color: var(--primary);
             cursor: pointer;
             transition: var(--transition);
-            width: 36px; /* Lebih kecil */
-            height: 36px; /* Lebih kecil */
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -405,9 +402,9 @@
             right: -4px;
             background: var(--gold-gradient);
             color: var(--dark);
-            font-size: 0.65rem; /* Lebih kecil */
-            width: 16px; /* Lebih kecil */
-            height: 16px; /* Lebih kecil */
+            font-size: 0.65rem;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -416,43 +413,25 @@
             box-shadow: 0 1px 4px rgba(218, 165, 32, 0.15);
         }
 
-        /* =========== SWIPER =========== */
-        .main-swiper {
-            width: 100%;
-            height: calc(100vh - 55px); /* Lebih kecil */
-            height: calc(100dvh - 55px);
-            margin-top: 55px; /* Sesuai header height */
-            padding-top: 0;
+        /* =========== MAIN CONTENT (SCROLL VERTICAL) =========== */
+        .main-content {
+            padding-top: 55px;
+            overflow-x: hidden;
         }
 
-        .swiper-wrapper {
-            height: 100%;
-        }
-
-        .swiper-slide {
-            width: 100%;
-            height: 100%;
-            padding: 12px; /* Lebih kecil */
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            position: relative;
+        .section {
+            min-height: 100vh;
+            padding: 60px 15px 40px;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
 
-        .slide-inner {
+        .section-inner {
             width: 100%;
-            max-width: 1100px; /* Lebih kecil */
+            max-width: 1100px;
             margin: 0 auto;
-            height: auto;
-            min-height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px 12px 30px; /* Lebih kecil */
-            position: relative;
-            z-index: 1;
         }
 
         /* =========== ANIMATIONS =========== */
@@ -462,7 +441,7 @@
             transition: 0.6s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
-        .swiper-slide-active .animate-text {
+        .animate-visible .animate-text {
             opacity: 1;
             transform: translateY(0);
         }
@@ -482,14 +461,14 @@
             max-height: 100%;
         }
 
-        .swiper-slide-active .image-reveal {
-            transform: scale(1);
+        /* =========== SLIDE 1: HERO =========== */
+        .hero-section {
+            background: linear-gradient(135deg, var(--secondary) 0%, #FFF8F0 100%);
         }
 
-        /* =========== SLIDE 1: HERO =========== */
         .hero-content {
             text-align: center;
-            max-width: 800px; /* Lebih kecil */
+            max-width: 800px;
             width: 100%;
             position: relative;
             margin-top: 0;
@@ -498,14 +477,14 @@
 
         .hero-badge {
             display: inline-block;
-            padding: 6px 14px; /* Lebih kecil */
+            padding: 6px 14px;
             background: var(--gold-gradient);
             color: var(--dark);
-            border-radius: 35px; /* Lebih kecil */
-            font-size: 0.7rem; /* Lebih kecil */
+            border-radius: 35px;
+            font-size: 0.7rem;
             font-weight: 600;
-            letter-spacing: 0.8px; /* Lebih kecil */
-            margin-bottom: 15px; /* Lebih kecil */
+            letter-spacing: 0.8px;
+            margin-bottom: 15px;
             box-shadow: 0 3px 10px rgba(218, 165, 32, 0.12);
             animation: pulse 2s infinite;
         }
@@ -517,10 +496,10 @@
         }
 
         .hero-title {
-            font-size: clamp(1.6rem, 4vw, 2.5rem); /* Lebih kecil */
+            font-size: clamp(1.6rem, 4vw, 2.5rem);
             font-weight: 700;
             line-height: 1.1;
-            margin-bottom: 0.8rem; /* Lebih kecil */
+            margin-bottom: 0.8rem;
             color: var(--dark);
             letter-spacing: -0.3px;
         }
@@ -534,21 +513,21 @@
         .hero-title span::after {
             content: '';
             position: absolute;
-            bottom: 4px; /* Lebih kecil */
+            bottom: 4px;
             left: 0;
             width: 100%;
-            height: 4px; /* Lebih kecil */
+            height: 4px;
             background: rgba(218, 165, 32, 0.12);
             z-index: -1;
             border-radius: 2px;
         }
 
         .hero-subtitle {
-            font-size: clamp(0.8rem, 2vw, 0.9rem); /* Lebih kecil */
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             color: var(--gray);
-            margin-bottom: 1.5rem; /* Lebih kecil */
+            margin-bottom: 1.5rem;
             line-height: 1.5;
-            max-width: 600px; /* Lebih kecil */
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
             padding: 0 12px;
@@ -558,18 +537,18 @@
 
         .intro-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Lebih kecil */
-            gap: 12px; /* Lebih kecil */
-            margin-bottom: 1.5rem; /* Lebih kecil */
-            max-width: 700px; /* Lebih kecil */
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .feature {
             background: white;
-            padding: 16px 12px; /* Lebih kecil */
-            border-radius: 12px; /* Lebih kecil */
+            padding: 16px 12px;
+            border-radius: 12px;
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
@@ -579,22 +558,22 @@
         }
 
         .feature:hover {
-            transform: translateY(-3px); /* Lebih kecil */
+            transform: translateY(-3px);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
             border-color: rgba(218, 165, 32, 0.15);
         }
 
         .feature-icon {
-            width: 42px; /* Lebih kecil */
-            height: 42px; /* Lebih kecil */
+            width: 42px;
+            height: 42px;
             background: var(--secondary);
-            border-radius: 10px; /* Lebih kecil */
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 10px; /* Lebih kecil */
+            margin: 0 auto 10px;
             color: var(--primary);
-            font-size: 1rem; /* Lebih kecil */
+            font-size: 1rem;
             transition: var(--transition);
             position: relative;
         }
@@ -608,7 +587,7 @@
         .feature-text {
             font-weight: 600;
             color: var(--dark);
-            font-size: 0.75rem; /* Lebih kecil */
+            font-size: 0.75rem;
             position: relative;
             z-index: 1;
         }
@@ -616,16 +595,16 @@
         .cta-button {
             background: var(--gradient);
             color: white;
-            padding: 12px 25px; /* Lebih kecil */
+            padding: 12px 25px;
             border: none;
-            border-radius: 35px; /* Lebih kecil */
-            font-size: 0.8rem; /* Lebih kecil */
+            border-radius: 35px;
+            font-size: 0.8rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 6px; /* Lebih kecil */
+            gap: 6px;
             margin: 0 auto;
             box-shadow: 0 8px 20px rgba(139, 69, 19, 0.15);
             letter-spacing: 0.3px;
@@ -657,22 +636,22 @@
         }
 
         /* =========== SLIDE 2: PRODUCTS =========== */
-        .products-slide {
+        .products-section {
             background: linear-gradient(135deg, #FFFCF8 0%, #FFF8F0 100%);
             position: relative;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 2rem; /* Lebih kecil */
+            margin-bottom: 2rem;
             position: relative;
             width: 100%;
         }
 
         .section-title {
-            font-size: clamp(1.5rem, 3.5vw, 2rem); /* Lebih kecil */
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
             color: var(--dark);
-            margin-bottom: 0.6rem; /* Lebih kecil */
+            margin-bottom: 0.6rem;
             position: relative;
             display: inline-block;
         }
@@ -680,31 +659,31 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -8px; /* Lebih kecil */
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px; /* Lebih kecil */
-            height: 2.5px; /* Lebih kecil */
+            width: 50px;
+            height: 2.5px;
             background: var(--gold-gradient);
             border-radius: 1px;
         }
 
         .section-subtitle {
             color: var(--gray);
-            font-size: clamp(0.75rem, 1.8vw, 0.85rem); /* Lebih kecil */
-            max-width: 600px; /* Lebih kecil */
-            margin: 0.8rem auto 0; /* Lebih kecil */
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            max-width: 600px;
+            margin: 0.8rem auto 0;
             padding: 0 12px;
             font-weight: 300;
             line-height: 1.5;
         }
 
-        /* =========== PRODUK LEBIH KECIL =========== */
+        /* =========== PRODUK =========== */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Lebih kecil */
-            gap: 1.2rem; /* Lebih kecil */
-            max-width: 1000px; /* Lebih kecil */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
+            max-width: 1000px;
             margin: 0 auto;
             width: 100%;
             padding: 0 8px;
@@ -712,7 +691,7 @@
 
         .product-card {
             background: white;
-            border-radius: 12px; /* Lebih kecil */
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.06);
             transition: var(--transition);
@@ -722,7 +701,7 @@
         }
 
         .product-card:hover {
-            transform: translateY(-8px) scale(1.01); /* Lebih kecil */
+            transform: translateY(-8px) scale(1.01);
             box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
             border-color: rgba(218, 165, 32, 0.15);
         }
@@ -733,13 +712,13 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 3px; /* Lebih kecil */
+            height: 3px;
             background: var(--gold-gradient);
             z-index: 2;
         }
 
         .product-image {
-            height: 180px; /* Lebih kecil lagi */
+            height: 180px;
             background: var(--secondary);
             position: relative;
             overflow: hidden;
@@ -758,70 +737,73 @@
 
         .product-badge {
             position: absolute;
-            top: 10px; /* Lebih kecil */
-            right: 10px; /* Lebih kecil */
+            top: 10px;
+            right: 10px;
             background: var(--gold-gradient);
             color: var(--dark);
-            padding: 4px 10px; /* Lebih kecil */
-            border-radius: 12px; /* Lebih kecil */
-            font-size: 0.7rem; /* Lebih kecil */
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
             font-weight: 700;
             z-index: 3;
             box-shadow: 0 2px 6px rgba(218, 165, 32, 0.15);
         }
 
-        /* =========== PRODUCT CONTENT LEBIH KECIL =========== */
+        /* =========== PRODUCT CONTENT =========== */
         .product-content {
-            padding: 1.2rem; /* Lebih kecil */
+            padding: 1.2rem;
         }
 
         .product-name {
-            font-size: 1rem; /* Lebih kecil */
+            font-size: 1rem;
             font-weight: 600;
             color: var(--dark);
-            margin-bottom: 0.5rem; /* Lebih kecil */
+            margin-bottom: 0.5rem;
             letter-spacing: -0.1px;
         }
 
         .product-description {
             color: var(--dark);
             opacity: 0.8;
-            font-size: 0.75rem; /* Lebih kecil */
-            margin-bottom: 1rem; /* Lebih kecil */
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
             line-height: 1.4;
             font-weight: 300;
         }
 
         .size-selector {
-            margin-bottom: 1rem; /* Lebih kecil */
+            margin-bottom: 1rem;
         }
 
         .size-label {
             display: block;
-            font-size: 0.75rem; /* Lebih kecil */
+            font-size: 0.75rem;
             color: var(--dark);
-            margin-bottom: 0.6rem; /* Lebih kecil */
+            margin-bottom: 0.6rem;
             font-weight: 500;
         }
 
+        /* =========== SIZE OPTIONS (Dewasa & Anak-anak) =========== */
         .size-options {
             display: flex;
-            gap: 0.5rem; /* Lebih kecil */
+            gap: 0.5rem;
         }
 
         .size-option {
-            width: 35px; /* Lebih kecil */
-            height: 35px; /* Lebih kecil */
+            flex: 1;
+            height: 35px;
             border: 1.5px solid var(--secondary);
-            border-radius: 8px; /* Lebih kecil */
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
-            font-size: 0.8rem; /* Lebih kecil */
+            font-size: 0.8rem;
             background: white;
+            text-align: center;
+            padding: 0 8px;
         }
 
         .size-option.active {
@@ -844,11 +826,11 @@
         }
 
         .product-price {
-            font-size: 1.1rem; /* Lebih kecil */
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--primary);
             position: relative;
-            padding-left: 18px; /* Lebih kecil */
+            padding-left: 18px;
         }
 
         .product-price::before {
@@ -857,24 +839,24 @@
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 0.75rem; /* Lebih kecil */
+            font-size: 0.75rem;
             color: var(--gray);
             font-weight: 400;
         }
 
         .add-to-cart-btn {
-            padding: 8px 16px; /* Lebih kecil */
+            padding: 8px 16px;
             background: var(--gradient);
             color: white;
             border: none;
-            border-radius: 8px; /* Lebih kecil */
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 5px; /* Lebih kecil */
-            font-size: 0.75rem; /* Lebih kecil */
+            gap: 5px;
+            font-size: 0.75rem;
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -903,18 +885,22 @@
         }
 
         /* =========== SLIDE 3: STORY =========== */
+        .story-section {
+            background: linear-gradient(135deg, var(--secondary) 0%, #FFFCF5 100%);
+        }
+
         .story-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem; /* Lebih kecil */
-            max-width: 900px; /* Lebih kecil */
+            gap: 2rem;
+            max-width: 900px;
             width: 100%;
             align-items: center;
         }
 
         .story-img {
-            height: 280px; /* Lebih kecil */
-            border-radius: 16px; /* Lebih kecil */
+            height: 280px;
+            border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
             position: relative;
@@ -931,9 +917,9 @@
         }
 
         .story-title {
-            font-size: clamp(1.5rem, 3.5vw, 2rem); /* Lebih kecil */
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
             color: var(--dark);
-            margin-bottom: 1.2rem; /* Lebih kecil */
+            margin-bottom: 1.2rem;
             position: relative;
             display: inline-block;
         }
@@ -941,66 +927,66 @@
         .story-title::after {
             content: '';
             position: absolute;
-            bottom: -10px; /* Lebih kecil */
+            bottom: -10px;
             left: 0;
-            width: 50px; /* Lebih kecil */
-            height: 2.5px; /* Lebih kecil */
+            width: 50px;
+            height: 2.5px;
             background: var(--gold-gradient);
             border-radius: 1px;
         }
 
         .story-text {
             line-height: 1.6;
-            margin-bottom: 1rem; /* Lebih kecil */
+            margin-bottom: 1rem;
             color: var(--dark);
             opacity: 0.8;
-            font-size: 0.8rem; /* Lebih kecil */
+            font-size: 0.8rem;
             font-weight: 300;
         }
 
         .story-features {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 0.8rem; /* Lebih kecil */
-            margin: 1.5rem 0; /* Lebih kecil */
+            gap: 0.8rem;
+            margin: 1.5rem 0;
         }
 
         .story-feature {
             display: flex;
             align-items: center;
-            gap: 8px; /* Lebih kecil */
-            padding: 12px; /* Lebih kecil */
+            gap: 8px;
+            padding: 12px;
             background: white;
-            border-radius: 10px; /* Lebih kecil */
+            border-radius: 10px;
             box-shadow: 0 6px 15px rgba(0,0,0,0.03);
         }
 
         .story-feature i {
-            width: 35px; /* Lebih kecil */
-            height: 35px; /* Lebih kecil */
+            width: 35px;
+            height: 35px;
             background: var(--gold-gradient);
-            border-radius: 6px; /* Lebih kecil */
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 0.9rem; /* Lebih kecil */
+            font-size: 0.9rem;
         }
 
         .story-feature-text {
             font-weight: 500;
             color: var(--dark);
-            font-size: 0.75rem; /* Lebih kecil */
+            font-size: 0.75rem;
         }
 
         .rating-section {
             display: flex;
             align-items: center;
-            gap: 12px; /* Lebih kecil */
-            margin: 1.5rem 0; /* Lebih kecil */
-            padding: 14px 18px; /* Lebih kecil */
+            gap: 12px;
+            margin: 1.5rem 0;
+            padding: 14px 18px;
             background: white;
-            border-radius: 12px; /* Lebih kecil */
+            border-radius: 12px;
             width: fit-content;
             border: 1px solid rgba(250, 243, 233, 0.5);
             box-shadow: 0 8px 20px rgba(0,0,0,0.03);
@@ -1008,38 +994,38 @@
 
         .rating-stars {
             display: flex;
-            gap: 2px; /* Lebih kecil */
+            gap: 2px;
         }
 
         .rating-stars i {
             color: var(--accent);
-            font-size: 1rem; /* Lebih kecil */
+            font-size: 1rem;
             text-shadow: 0 1px 2px rgba(218, 165, 32, 0.15);
         }
 
         .rating-text {
             font-weight: 700;
             color: var(--dark);
-            font-size: 1rem; /* Lebih kecil */
+            font-size: 1rem;
         }
 
         .rating-source {
             color: var(--gray);
-            font-size: 0.75rem; /* Lebih kecil */
+            font-size: 0.75rem;
             font-weight: 300;
         }
 
         .story-tagline {
             display: inline-flex;
             align-items: center;
-            gap: 6px; /* Lebih kecil */
+            gap: 6px;
             color: var(--primary);
             font-weight: 600;
-            font-size: 0.85rem; /* Lebih kecil */
+            font-size: 0.85rem;
             background: white;
-            padding: 12px 20px; /* Lebih kecil */
-            border-radius: 35px; /* Lebih kecil */
-            margin-top: 0.6rem; /* Lebih kecil */
+            padding: 12px 20px;
+            border-radius: 35px;
+            margin-top: 0.6rem;
             transition: var(--transition);
             border: 1px solid transparent;
             position: relative;
@@ -1071,50 +1057,50 @@
             box-shadow: 0 8px 20px rgba(218, 165, 32, 0.12);
         }
 
-        /* =========== SLIDE 4: CONTACT LEBIH KECIL =========== */
-        .contact-slide {
+        /* =========== SLIDE 4: CONTACT =========== */
+        .contact-section {
             background: var(--gradient-light);
             position: relative;
         }
 
         .contact-container {
-            max-width: 900px; /* Lebih kecil */
+            max-width: 900px;
             width: 100%;
         }
 
         .contact-header {
             text-align: center;
-            margin-bottom: 2rem; /* Lebih kecil */
+            margin-bottom: 2rem;
         }
 
         .contact-title {
-            font-size: clamp(1.5rem, 3.5vw, 2rem); /* Lebih kecil */
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
             color: var(--dark);
-            margin-bottom: 0.6rem; /* Lebih kecil */
+            margin-bottom: 0.6rem;
         }
 
         .contact-subtitle {
             color: var(--dark);
             opacity: 0.8;
-            font-size: clamp(0.8rem, 1.8vw, 0.9rem); /* Lebih kecil */
-            max-width: 500px; /* Lebih kecil */
+            font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+            max-width: 500px;
             margin: 0 auto;
             font-weight: 300;
             line-height: 1.5;
         }
 
-        /* =========== CONTACT GRID LEBIH KECIL =========== */
+        /* =========== CONTACT GRID =========== */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem; /* Lebih kecil */
-            margin-bottom: 2rem; /* Lebih kecil */
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .contact-info, .contact-form-container {
             background: white;
-            padding: 1.5rem; /* Lebih kecil */
-            border-radius: 16px; /* Lebih kecil */
+            padding: 1.5rem;
+            border-radius: 16px;
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
             position: relative;
             border: 1px solid rgba(250, 243, 233, 0.5);
@@ -1127,7 +1113,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 3px; /* Lebih kecil */
+            height: 3px;
             background: var(--gold-gradient);
             border-radius: 16px 16px 0 0;
         }
@@ -1135,10 +1121,10 @@
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 0.8rem; /* Lebih kecil */
-            padding: 14px; /* Lebih kecil */
-            margin-bottom: 0.8rem; /* Lebih kecil */
-            border-radius: 10px; /* Lebih kecil */
+            gap: 0.8rem;
+            padding: 14px;
+            margin-bottom: 0.8rem;
+            border-radius: 10px;
             transition: var(--transition);
             border: 1px solid transparent;
         }
@@ -1146,19 +1132,19 @@
         .contact-item:hover {
             border-color: rgba(218, 165, 32, 0.15);
             background: rgba(250, 243, 233, 0.3);
-            transform: translateX(4px); /* Lebih kecil */
+            transform: translateX(4px);
         }
 
         .contact-icon {
-            width: 40px; /* Lebih kecil */
-            height: 40px; /* Lebih kecil */
+            width: 40px;
+            height: 40px;
             background: var(--gold-gradient);
-            border-radius: 8px; /* Lebih kecil */
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1rem; /* Lebih kecil */
+            font-size: 1rem;
             flex-shrink: 0;
             transition: var(--transition);
         }
@@ -1168,9 +1154,9 @@
         }
 
         .contact-details h4 {
-            font-size: 0.9rem; /* Lebih kecil */
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 0.4rem; /* Lebih kecil */
+            margin-bottom: 0.4rem;
             color: var(--dark);
         }
 
@@ -1179,7 +1165,7 @@
             opacity: 0.8;
             text-decoration: none;
             transition: var(--transition);
-            font-size: 0.75rem; /* Lebih kecil */
+            font-size: 0.75rem;
             line-height: 1.4;
             font-weight: 300;
         }
@@ -1190,32 +1176,32 @@
             opacity: 1;
         }
 
-        /* =========== FORM LEBIH KECIL =========== */
+        /* =========== FORM =========== */
         .form-title {
-            font-size: 1.3rem; /* Lebih kecil */
+            font-size: 1.3rem;
             color: var(--dark);
-            margin-bottom: 1.2rem; /* Lebih kecil */
+            margin-bottom: 1.2rem;
             text-align: center;
         }
 
         .form-group {
-            margin-bottom: 1.2rem; /* Lebih kecil */
+            margin-bottom: 1.2rem;
         }
 
         .form-label {
             display: block;
-            font-size: 0.75rem; /* Lebih kecil */
+            font-size: 0.75rem;
             color: var(--dark);
-            margin-bottom: 0.4rem; /* Lebih kecil */
+            margin-bottom: 0.4rem;
             font-weight: 500;
         }
 
         .form-input, .form-textarea {
             width: 100%;
-            padding: 12px 14px; /* Lebih kecil */
+            padding: 12px 14px;
             border: 1px solid rgba(250, 243, 233, 0.8);
-            border-radius: 8px; /* Lebih kecil */
-            font-size: 0.8rem; /* Lebih kecil */
+            border-radius: 8px;
+            font-size: 0.8rem;
             font-family: 'Poppins', sans-serif;
             transition: var(--transition);
             background: var(--secondary);
@@ -1229,25 +1215,25 @@
         }
 
         .form-textarea {
-            min-height: 100px; /* Lebih kecil */
+            min-height: 100px;
             resize: vertical;
         }
 
         .submit-button {
             width: 100%;
-            padding: 14px; /* Lebih kecil */
+            padding: 14px;
             background: var(--gradient);
             color: white;
             border: none;
-            border-radius: 10px; /* Lebih kecil */
-            font-size: 0.8rem; /* Lebih kecil */
+            border-radius: 10px;
+            font-size: 0.8rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px; /* Lebih kecil */
+            gap: 6px;
             box-shadow: 0 8px 20px rgba(139, 69, 19, 0.12);
             position: relative;
             overflow: hidden;
@@ -1276,13 +1262,13 @@
             box-shadow: 0 12px 20px rgba(139, 69, 19, 0.15);
         }
 
-        /* =========== SOCIAL SECTION LEBIH KECIL =========== */
+        /* =========== SOCIAL SECTION =========== */
         .social-section {
             text-align: center;
-            margin-top: 2rem; /* Lebih kecil */
-            padding: 1.5rem; /* Lebih kecil */
+            margin-top: 2rem;
+            padding: 1.5rem;
             background: white;
-            border-radius: 16px; /* Lebih kecil */
+            border-radius: 16px;
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
             position: relative;
             border: 1px solid rgba(250, 243, 233, 0.5);
@@ -1294,34 +1280,34 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 3px; /* Lebih kecil */
+            height: 3px;
             background: var(--gold-gradient);
             border-radius: 16px 16px 0 0;
         }
 
         .social-title {
-            font-size: 1.3rem; /* Lebih kecil */
+            font-size: 1.3rem;
             color: var(--dark);
-            margin-bottom: 1.2rem; /* Lebih kecil */
+            margin-bottom: 1.2rem;
         }
 
         .social-media {
             display: flex;
             justify-content: center;
-            gap: 0.8rem; /* Lebih kecil */
+            gap: 0.8rem;
             flex-wrap: wrap;
         }
 
         .social-icon {
-            width: 45px; /* Lebih kecil */
-            height: 45px; /* Lebih kecil */
-            border-radius: 10px; /* Lebih kecil */
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
             background: var(--secondary);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary);
-            font-size: 1.1rem; /* Lebih kecil */
+            font-size: 1.1rem;
             transition: var(--transition);
             text-decoration: none;
             border: 1px solid transparent;
@@ -1338,15 +1324,15 @@
         .social-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
-            padding: 12px 25px; /* Lebih kecil */
-            border-radius: 35px; /* Lebih kecil */
+            padding: 12px 25px;
+            border-radius: 35px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 6px; /* Lebih kecil */
+            gap: 6px;
             font-weight: 600;
-            font-size: 0.85rem; /* Lebih kecil */
-            margin-top: 1.5rem; /* Lebih kecil */
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
             transition: var(--transition);
             box-shadow: 0 8px 20px rgba(37, 211, 102, 0.12);
         }
@@ -1356,7 +1342,7 @@
             box-shadow: 0 12px 20px rgba(37, 211, 102, 0.15);
         }
 
-        /* =========== CART OVERLAY LEBIH KECIL =========== */
+        /* =========== CART OVERLAY =========== */
         .cart-overlay {
             position: fixed;
             top: 0;
@@ -1382,10 +1368,10 @@
 
         .cart-container {
             background: white;
-            border-radius: 16px; /* Lebih kecil */
+            border-radius: 16px;
             width: 100%;
-            max-width: 450px; /* Lebih kecil */
-            max-height: 65vh; /* Lebih kecil */
+            max-width: 450px;
+            max-height: 65vh;
             overflow: hidden;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
             transform: translateY(15px) scale(0.95);
@@ -1399,14 +1385,14 @@
 
         .cart-header {
             background: var(--gradient);
-            padding: 1.2rem 1.5rem; /* Lebih kecil */
+            padding: 1.2rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .cart-title {
-            font-size: 1.2rem; /* Lebih kecil */
+            font-size: 1.2rem;
             color: white;
             font-weight: 600;
             letter-spacing: 0.2px;
@@ -1414,11 +1400,11 @@
 
         .close-cart {
             color: white;
-            font-size: 1.2rem; /* Lebih kecil */
+            font-size: 1.2rem;
             cursor: pointer;
             transition: var(--transition);
-            width: 32px; /* Lebih kecil */
-            height: 32px; /* Lebih kecil */
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1432,8 +1418,8 @@
         }
 
         .cart-body {
-            padding: 1.2rem; /* Lebih kecil */
-            max-height: 250px; /* Lebih kecil */
+            padding: 1.2rem;
+            max-height: 250px;
             overflow-y: auto;
         }
 
@@ -1441,7 +1427,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0; /* Lebih kecil */
+            padding: 1rem 0;
             border-bottom: 1px solid var(--secondary);
         }
 
@@ -1450,36 +1436,36 @@
         }
 
         .item-info h4 {
-            font-size: 0.9rem; /* Lebih kecil */
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 0.4rem; /* Lebih kecil */
+            margin-bottom: 0.4rem;
             color: var(--dark);
         }
 
         .item-info p {
             color: var(--gray);
-            font-size: 0.75rem; /* Lebih kecil */
+            font-size: 0.75rem;
             font-weight: 300;
         }
 
         .item-actions {
             display: flex;
             align-items: center;
-            gap: 1rem; /* Lebih kecil */
+            gap: 1rem;
         }
 
         .item-quantity {
             display: flex;
             align-items: center;
-            gap: 0.5rem; /* Lebih kecil */
+            gap: 0.5rem;
             background: var(--secondary);
-            padding: 5px 8px; /* Lebih kecil */
-            border-radius: 8px; /* Lebih kecil */
+            padding: 5px 8px;
+            border-radius: 8px;
         }
 
         .quantity-btn {
-            width: 25px; /* Lebih kecil */
-            height: 25px; /* Lebih kecil */
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
             background: white;
             border: 1px solid var(--secondary);
@@ -1489,7 +1475,7 @@
             cursor: pointer;
             color: var(--dark);
             transition: var(--transition);
-            font-size: 0.8rem; /* Lebih kecil */
+            font-size: 0.8rem;
         }
 
         .quantity-btn:hover {
@@ -1502,25 +1488,25 @@
             font-weight: 700;
             min-width: 25px;
             text-align: center;
-            font-size: 0.85rem; /* Lebih kecil */
+            font-size: 0.85rem;
             color: var(--dark);
         }
 
         .item-price {
             font-weight: 700;
             color: var(--primary);
-            min-width: 90px; /* Lebih kecil */
+            min-width: 90px;
             text-align: right;
-            font-size: 1rem; /* Lebih kecil */
+            font-size: 1rem;
         }
 
         .remove-item {
             color: #ff6b6b;
             cursor: pointer;
-            font-size: 1rem; /* Lebih kecil */
+            font-size: 1rem;
             transition: var(--transition);
-            width: 28px; /* Lebih kecil */
-            height: 28px; /* Lebih kecil */
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1535,24 +1521,24 @@
 
         .cart-empty {
             text-align: center;
-            padding: 2.5rem 0; /* Lebih kecil */
+            padding: 2.5rem 0;
             color: var(--gray);
         }
 
         .cart-empty i {
-            font-size: 2rem; /* Lebih kecil */
-            margin-bottom: 0.8rem; /* Lebih kecil */
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
             color: var(--secondary);
             opacity: 0.5;
         }
 
         .cart-empty p {
-            font-size: 0.9rem; /* Lebih kecil */
+            font-size: 0.9rem;
             font-weight: 300;
         }
 
         .cart-footer {
-            padding: 1.2rem; /* Lebih kecil */
+            padding: 1.2rem;
             border-top: 1.5px solid var(--secondary);
         }
 
@@ -1560,40 +1546,40 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.2rem; /* Lebih kecil */
+            margin-bottom: 1.2rem;
             padding: 0 0.4rem;
         }
 
         .total-label {
-            font-size: 1rem; /* Lebih kecil */
+            font-size: 1rem;
             color: var(--dark);
             font-weight: 500;
         }
 
         .total-amount {
-            font-size: 1.4rem; /* Lebih kecil */
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary);
         }
 
         .cart-actions {
             display: flex;
-            gap: 0.8rem; /* Lebih kecil */
+            gap: 0.8rem;
         }
 
         .cart-btn {
             flex: 1;
-            padding: 0.9rem; /* Lebih kecil */
+            padding: 0.9rem;
             border: none;
-            border-radius: 10px; /* Lebih kecil */
+            border-radius: 10px;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px; /* Lebih kecil */
-            font-size: 0.8rem; /* Lebih kecil */
+            gap: 5px;
+            font-size: 0.8rem;
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -1637,7 +1623,7 @@
             transform: translateY(-2px);
         }
 
-        /* =========== MARQUEE LEBIH KECIL =========== */
+        /* =========== MARQUEE =========== */
         .marquee-container {
             position: fixed;
             bottom: 0;
@@ -1645,7 +1631,7 @@
             width: 100%;
             background: var(--gradient);
             color: white;
-            padding: 10px 0; /* Lebih kecil */
+            padding: 10px 0;
             overflow: hidden;
             z-index: 998;
             box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.1);
@@ -1666,45 +1652,15 @@
         .marquee-item {
             display: flex;
             align-items: center;
-            gap: 6px; /* Lebih kecil */
+            gap: 6px;
             white-space: nowrap;
-            padding: 0 1.5rem; /* Lebih kecil */
-            font-size: 0.75rem; /* Lebih kecil */
+            padding: 0 1.5rem;
+            font-size: 0.75rem;
         }
 
         .marquee-icon {
             color: var(--accent-light);
-            font-size: 0.9rem; /* Lebih kecil */
-        }
-
-        /* =========== SWIPER PAGINATION LEBIH KECIL =========== */
-        .swiper-pagination {
-            position: fixed !important;
-            right: 12px !important; /* Lebih kecil */
-            top: 50% !important;
-            transform: translateY(-50%) !important;
-            left: auto !important;
-            width: auto !important;
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 12px !important; /* Lebih kecil */
-            z-index: 999 !important;
-        }
-
-        .swiper-pagination-bullet {
-            width: 10px !important; /* Lebih kecil */
-            height: 10px !important; /* Lebih kecil */
-            background: rgba(139, 69, 19, 0.15) !important;
-            opacity: 1 !important;
-            transition: var(--transition) !important;
-            border: 1px solid transparent;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: var(--gold-gradient) !important;
-            transform: scale(1.2) !important; /* Lebih kecil */
-            box-shadow: 0 0 12px rgba(218, 165, 32, 0.3);
-            border-color: white;
+            font-size: 0.9rem;
         }
 
         /* =========== ANIMATIONS =========== */
@@ -1751,9 +1707,8 @@
                 max-height: 55px;
             }
             
-            .main-swiper {
-                height: calc(100vh - 60px);
-                margin-top: 60px;
+            .main-content {
+                padding-top: 60px;
             }
             
             .global-controls {
@@ -1889,18 +1844,12 @@
                 height: 40px;
             }
             
-            .main-swiper {
-                height: calc(100vh - 50px);
-                margin-top: 50px;
+            .main-content {
+                padding-top: 50px;
             }
             
-            .swiper-slide {
-                padding: 8px;
-            }
-            
-            .slide-inner {
-                padding: 12px 8px 25px;
-                align-items: flex-start;
+            .section {
+                padding: 50px 12px 30px;
             }
             
             .hero-content {
@@ -1959,20 +1908,6 @@
                 gap: 10px;
                 padding: 12px;
                 width: 100%;
-            }
-            
-            .swiper-pagination {
-                right: 8px !important;
-                gap: 10px !important;
-            }
-            
-            .swiper-pagination-bullet {
-                width: 8px !important;
-                height: 8px !important;
-            }
-            
-            .swiper-pagination-bullet-active {
-                transform: scale(1.1) !important;
             }
             
             .cart-overlay {
@@ -2055,10 +1990,15 @@
             .contact-details {
                 text-align: center;
             }
+            
+            .size-option {
+                font-size: 0.75rem;
+                padding: 0 4px;
+            }
         }
 
         @media (min-width: 1440px) {
-            .slide-inner {
+            .section-inner {
                 max-width: 1200px;
             }
             
@@ -2069,11 +2009,6 @@
 
         /* =========== SAFARI FIX =========== */
         @supports (-webkit-touch-callout: none) {
-            body, .main-swiper {
-                height: 100vh;
-                height: -webkit-fill-available;
-            }
-            
             .header {
                 padding-top: max(10px, env(safe-area-inset-top));
             }
@@ -2124,19 +2059,19 @@
         </button>
         
         <nav class="nav-container" id="navContainer">
-            <a href="#" class="nav-link active" data-slide="0">
+            <a href="#home" class="nav-link active">
                 <i class="fas fa-home"></i>
                 Beranda
             </a>
-            <a href="#" class="nav-link" data-slide="1">
+            <a href="#products" class="nav-link">
                 <i class="fas fa-shopping-bag"></i>
                 Produk
             </a>
-            <a href="#" class="nav-link" data-slide="2">
+            <a href="#story" class="nav-link">
                 <i class="fas fa-info-circle"></i>
                 Tentang
             </a>
-            <a href="#" class="nav-link" data-slide="3">
+            <a href="#contact" class="nav-link">
                 <i class="fas fa-phone-alt"></i>
                 Kontak
             </a>
@@ -2157,366 +2092,350 @@
         </button>
     </div>
 
-    <!-- Horizontal Swiper -->
-    <div class="main-swiper">
-        <div class="swiper-wrapper">
-            
-            <!-- Slide 1: Hero -->
-            <div class="swiper-slide">
-                <div class="slide-inner">
-                    <div class="hero-content">
-                        <div class="hero-badge animate-text">PREMIUM QUALITY</div>
-                        <h1 class="hero-title animate-text delay-1">Mukena <span>Hasfita</span></h1>
-                        <p class="hero-subtitle animate-text delay-2">
-                            Menyediakan mukena berkualitas tinggi dengan bahan premium dan desain modern untuk melengkapi ibadah Anda.
+    <!-- Main Content (Vertical Scroll) -->
+    <main class="main-content">
+        <!-- Section 1: Hero -->
+        <section id="home" class="section hero-section">
+            <div class="section-inner">
+                <div class="hero-content">
+                    <div class="hero-badge animate-text">PREMIUM QUALITY</div>
+                    <h1 class="hero-title animate-text delay-1">Mukena <span>Hasfita</span></h1>
+                    <p class="hero-subtitle animate-text delay-2">
+                        Menyediakan mukena berkualitas tinggi dengan bahan premium dan desain modern untuk melengkapi ibadah Anda.
+                    </p>
+                    
+                    <div class="intro-features">
+                        <div class="feature animate-text delay-1">
+                            <div class="feature-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <p class="feature-text">Bahan Premium</p>
+                        </div>
+                        <div class="feature animate-text delay-2">
+                            <div class="feature-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <p class="feature-text">Desain Eksklusif</p>
+                        </div>
+                        <div class="feature animate-text delay-3">
+                            <div class="feature-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <p class="feature-text">Gratis Pengiriman</p>
+                        </div>
+                        <div class="feature animate-text delay-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <p class="feature-text">Garansi Kualitas</p>
+                        </div>
+                    </div>
+                    
+                    <button class="cta-button animate-text delay-4" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
+                        Lihat Koleksi
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Products -->
+        <section id="products" class="section products-section">
+            <div class="section-inner">
+                <div class="section-header">
+                    <h2 class="section-title animate-text">Koleksi Eksklusif</h2>
+                    <p class="section-subtitle animate-text delay-1">Temukan koleksi mukena premium kami</p>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Product 1: Zafira -->
+                    <div class="product-card animate-text delay-1">
+                        <div class="product-badge">BEST SELLER</div>
+                        <div class="product-image">
+                            <img src="https://i.ibb.co/39JFFGrH/mukena1.jpg" class="image-reveal" alt="Mukena Zafira" onerror="this.src='https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=600'">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Mukena Zafira</h3>
+                            <p class="product-description">Mukena katun premium dengan bordir tangan eksklusif.</p>
+                            
+                            <div class="size-selector">
+                                <div class="size-label">Pilih Ukuran:</div>
+                                <div class="size-options">
+                                    <div class="size-option active" data-price="199000">Dewasa</div>
+                                    <div class="size-option" data-price="179000">Anak-anak</div>
+                                </div>
+                            </div>
+                            
+                            <div class="product-footer">
+                                <div class="product-price">199.000</div>
+                                <button class="add-to-cart-btn" data-product="Mukena Zafira">
+                                    <i class="fas fa-plus"></i>
+                                    Tambah ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2: Aliya -->
+                    <div class="product-card animate-text delay-2">
+                        <div class="product-image">
+                            <img src="https://i.ibb.co/gZ1V4N1G/mukena2.jpg" class="image-reveal" alt="Mukena Aliya" onerror="this.src='https://images.unsplash.com/photo-1601006543884-a14a29a0f44e?q=80&w=600'">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Mukena Aliya</h3>
+                            <p class="product-description">Mukena satin dengan motif bunga halus yang elegan.</p>
+                            
+                            <div class="size-selector">
+                                <div class="size-label">Pilih Ukuran:</div>
+                                <div class="size-options">
+                                    <div class="size-option active" data-price="189000">Dewasa</div>
+                                    <div class="size-option" data-price="169000">Anak-anak</div>
+                                </div>
+                            </div>
+                            
+                            <div class="product-footer">
+                                <div class="product-price">189.000</div>
+                                <button class="add-to-cart-btn" data-product="Mukena Aliya">
+                                    <i class="fas fa-plus"></i>
+                                    Tambah ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3: Safiya -->
+                    <div class="product-card animate-text delay-3">
+                        <div class="product-badge">NEW ARRIVAL</div>
+                        <div class="product-image">
+                            <img src="https://i.ibb.co/0VGprGnx/mukena3.jpg" class="image-reveal" alt="Mukena Safiya" onerror="this.src='https://images.unsplash.com/photo-1599814352520-22c9e787e91d?q=80&w=600'">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Mukena Safiya</h3>
+                            <p class="product-description">Mukena brokat mewah dengan aksen payet kristal.</p>
+                            
+                            <div class="size-selector">
+                                <div class="size-label">Pilih Ukuran:</div>
+                                <div class="size-options">
+                                    <div class="size-option active" data-price="309000">Dewasa</div>
+                                    <div class="size-option" data-price="289000">Anak-anak</div>
+                                </div>
+                            </div>
+                            
+                            <div class="product-footer">
+                                <div class="product-price">309.000</div>
+                                <button class="add-to-cart-btn" data-product="Mukena Safiya">
+                                    <i class="fas fa-plus"></i>
+                                    Tambah ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4: Nayla -->
+                    <div class="product-card animate-text delay-2">
+                        <div class="product-image">
+                            <img src="https://i.ibb.co/S4YtJJ4j/mukena4.jpg" class="image-reveal" alt="Mukena Nayla" onerror="this.src='https://images.unsplash.com/photo-1565299543923-37dd37887442?q=80&w=600'">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Mukena Nayla</h3>
+                            <p class="product-description">Mukena katun jepang dengan desain modern minimalis.</p>
+                            
+                            <div class="size-selector">
+                                <div class="size-label">Pilih Ukuran:</div>
+                                <div class="size-options">
+                                    <div class="size-option active" data-price="259000">Dewasa</div>
+                                    <div class="size-option" data-price="239000">Anak-anak</div>
+                                </div>
+                            </div>
+                            
+                            <div class="product-footer">
+                                <div class="product-price">259.000</div>
+                                <button class="add-to-cart-btn" data-product="Mukena Nayla">
+                                    <i class="fas fa-plus"></i>
+                                    Tambah ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Story -->
+        <section id="story" class="section story-section">
+            <div class="section-inner">
+                <div class="story-container">
+                    <div class="story-img animate-text">
+                        <img src="https://i.ibb.co/Z1QkDzK/map-store.jpg" class="image-reveal" alt="Lokasi Toko Mukena Hasfita" onerror="this.src='https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-7.664205,112.9057888&fov=80&heading=70&pitch=0&key=YOUR_API_KEY'">
+                    </div>
+                    <div class="story-content">
+                        <h2 class="story-title animate-text delay-1">Kisah Mukena Hasfita</h2>
+                        <p class="story-text animate-text delay-2">
+                            Mukena Hasfita hadir sejak 2019 dengan komitmen untuk menyediakan mukena berkualitas tinggi yang nyaman dan elegan.
+                        </p>
+                        <p class="story-text animate-text delay-2">
+                            Setiap produk dikerjakan dengan bahan pilihan terbaik untuk memberikan pengalaman ibadah yang sempurna.
                         </p>
                         
-                        <div class="intro-features">
-                            <div class="feature animate-text delay-1">
-                                <div class="feature-icon">
-                                    <i class="fas fa-gem"></i>
-                                </div>
-                                <p class="feature-text">Bahan Premium</p>
+                        <div class="story-features">
+                            <div class="story-feature">
+                                <i class="fas fa-check"></i>
+                                <div class="story-feature-text">Bahan Premium</div>
                             </div>
-                            <div class="feature animate-text delay-2">
-                                <div class="feature-icon">
-                                    <i class="fas fa-palette"></i>
-                                </div>
-                                <p class="feature-text">Desain Eksklusif</p>
+                            <div class="story-feature">
+                                <i class="fas fa-check"></i>
+                                <div class="story-feature-text">Jahitan Presisi</div>
                             </div>
-                            <div class="feature animate-text delay-3">
-                                <div class="feature-icon">
-                                    <i class="fas fa-shipping-fast"></i>
-                                </div>
-                                <p class="feature-text">Gratis Pengiriman</p>
+                            <div class="story-feature">
+                                <i class="fas fa-check"></i>
+                                <div class="story-feature-text">Desain Eksklusif</div>
                             </div>
-                            <div class="feature animate-text delay-4">
-                                <div class="feature-icon">
-                                    <i class="fas fa-award"></i>
-                                </div>
-                                <p class="feature-text">Garansi Kualitas</p>
+                            <div class="story-feature">
+                                <i class="fas fa-check"></i>
+                                <div class="story-feature-text">Garansi 1 Tahun</div>
                             </div>
                         </div>
                         
-                        <button class="cta-button animate-text delay-4" data-slide="1">
-                            Lihat Koleksi
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 2: Products (UKURAN DIPERKECIL) -->
-            <div class="swiper-slide products-slide">
-                <div class="slide-inner">
-                    <div style="width: 100%;">
-                        <div class="section-header">
-                            <h2 class="section-title animate-text">Koleksi Eksklusif</h2>
-                            <p class="section-subtitle animate-text delay-1">Temukan koleksi mukena premium kami</p>
+                        <div class="rating-section animate-text delay-3">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div>
+                                <div class="rating-text">4.9/5.0 Rating</div>
+                                <div class="rating-source">500+ Ulasan</div>
+                            </div>
                         </div>
                         
-                        <div class="products-grid">
-                            <!-- Product 1: Zafira -->
-                            <div class="product-card animate-text delay-1">
-                                <div class="product-badge">BEST SELLER</div>
-                                <div class="product-image">
-                                    <img src="https://i.ibb.co/39JFFGrH/mukena1.jpg" class="image-reveal" alt="Mukena Zafira" onerror="this.src='https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=600'">
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="product-name">Mukena Zafira</h3>
-                                    <p class="product-description">Mukena katun premium dengan bordir tangan eksklusif.</p>
-                                    
-                                    <div class="size-selector">
-                                        <div class="size-label">Pilih Ukuran:</div>
-                                        <div class="size-options">
-                                            <div class="size-option" data-price="189000">S</div>
-                                            <div class="size-option active" data-price="199000">M</div>
-                                            <div class="size-option" data-price="209000">L</div>
-                                            <div class="size-option" data-price="219000">XL</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="product-footer">
-                                        <div class="product-price">199.000</div>
-                                        <button class="add-to-cart-btn" data-product="Mukena Zafira">
-                                            <i class="fas fa-plus"></i>
-                                            Tambah ke Keranjang
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product 2: Aliya -->
-                            <div class="product-card animate-text delay-2">
-                                <div class="product-image">
-                                    <img src="https://i.ibb.co/gZ1V4N1G/mukena2.jpg" class="image-reveal" alt="Mukena Aliya" onerror="this.src='https://images.unsplash.com/photo-1601006543884-a14a29a0f44e?q=80&w=600'">
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="product-name">Mukena Aliya</h3>
-                                    <p class="product-description">Mukena satin dengan motif bunga halus yang elegan.</p>
-                                    
-                                    <div class="size-selector">
-                                        <div class="size-label">Pilih Ukuran:</div>
-                                        <div class="size-options">
-                                            <div class="size-option" data-price="179000">S</div>
-                                            <div class="size-option active" data-price="189000">M</div>
-                                            <div class="size-option" data-price="199000">L</div>
-                                            <div class="size-option" data-price="209000">XL</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="product-footer">
-                                        <div class="product-price">189.000</div>
-                                        <button class="add-to-cart-btn" data-product="Mukena Aliya">
-                                            <i class="fas fa-plus"></i>
-                                            Tambah ke Keranjang
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product 3: Safiya -->
-                            <div class="product-card animate-text delay-3">
-                                <div class="product-badge">NEW ARRIVAL</div>
-                                <div class="product-image">
-                                    <img src="https://i.ibb.co/0VGprGnx/mukena3.jpg" class="image-reveal" alt="Mukena Safiya" onerror="this.src='https://images.unsplash.com/photo-1599814352520-22c9e787e91d?q=80&w=600'">
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="product-name">Mukena Safiya</h3>
-                                    <p class="product-description">Mukena brokat mewah dengan aksen payet kristal.</p>
-                                    
-                                    <div class="size-selector">
-                                        <div class="size-label">Pilih Ukuran:</div>
-                                        <div class="size-options">
-                                            <div class="size-option" data-price="299000">S</div>
-                                            <div class="size-option active" data-price="309000">M</div>
-                                            <div class="size-option" data-price="319000">L</div>
-                                            <div class="size-option" data-price="329000">XL</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="product-footer">
-                                        <div class="product-price">309.000</div>
-                                        <button class="add-to-cart-btn" data-product="Mukena Safiya">
-                                            <i class="fas fa-plus"></i>
-                                            Tambah ke Keranjang
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product 4: Nayla -->
-                            <div class="product-card animate-text delay-2">
-                                <div class="product-image">
-                                    <img src="https://i.ibb.co/S4YtJJ4j/mukena4.jpg" class="image-reveal" alt="Mukena Nayla" onerror="this.src='https://images.unsplash.com/photo-1565299543923-37dd37887442?q=80&w=600'">
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="product-name">Mukena Nayla</h3>
-                                    <p class="product-description">Mukena katun jepang dengan desain modern minimalis.</p>
-                                    
-                                    <div class="size-selector">
-                                        <div class="size-label">Pilih Ukuran:</div>
-                                        <div class="size-options">
-                                            <div class="size-option" data-price="249000">S</div>
-                                            <div class="size-option active" data-price="259000">M</div>
-                                            <div class="size-option" data-price="269000">L</div>
-                                            <div class="size-option" data-price="279000">XL</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="product-footer">
-                                        <div class="product-price">259.000</div>
-                                        <button class="add-to-cart-btn" data-product="Mukena Nayla">
-                                            <i class="fas fa-plus"></i>
-                                            Tambah ke Keranjang
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="story-tagline animate-text delay-4">
+                            <i class="fas fa-hashtag"></i>
+                            #MukenaPremium #MukenaHasfita
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Slide 3: Story -->
-            <div class="swiper-slide">
-                <div class="slide-inner">
-                    <div class="story-container">
-                        <div class="story-img animate-text">
-                            <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?q=80&w=600" class="image-reveal" alt="Tentang Kami">
+        <!-- Section 4: Contact -->
+        <section id="contact" class="section contact-section">
+            <div class="section-inner">
+                <div class="contact-container">
+                    <div class="contact-header animate-text">
+                        <h2 class="contact-title">Hubungi Kami</h2>
+                        <p class="contact-subtitle">Kami siap membantu Anda mendapatkan mukena terbaik.</p>
+                    </div>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-info animate-text delay-1">
+                            <h3 class="form-title">Informasi Kontak</h3>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Nama Toko</h4>
+                                    <p>Mukena Hasfita</p>
+                                    <p style="color: var(--accent); font-weight: 500; font-size: 0.7rem;">Toko Mukena Premium</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Alamat Toko</h4>
+                                    <p>Perumahan Cipta Graha Asri Blok B-9<br>Jalan Sultan Agung Purworejo<br>Purutrejo, Kota Pasuruan 67122</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Jam Operasional</h4>
+                                    <p>Senin - Minggu: 08:00 - 20:00 WIB</p>
+                                    <p style="font-size: 0.7rem; color: var(--accent);">Buka Setiap Hari</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Telepon & WhatsApp</h4>
+                                    <a href="https://wa.me/6282240409293" target="_blank">0822-4040-9293</a>
+                                    <p style="font-size: 0.7rem;">Respon Cepat via WhatsApp</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="story-content">
-                            <h2 class="story-title animate-text delay-1">Kisah Mukena Hasfita</h2>
-                            <p class="story-text animate-text delay-2">
-                                Mukena Hasfita hadir sejak 2019 dengan komitmen untuk menyediakan mukena berkualitas tinggi yang nyaman dan elegan.
-                            </p>
-                            <p class="story-text animate-text delay-2">
-                                Setiap produk dikerjakan dengan bahan pilihan terbaik untuk memberikan pengalaman ibadah yang sempurna.
-                            </p>
-                            
-                            <div class="story-features">
-                                <div class="story-feature">
-                                    <i class="fas fa-check"></i>
-                                    <div class="story-feature-text">Bahan Premium</div>
+                        
+                        <div class="contact-form-container animate-text delay-2">
+                            <h3 class="form-title">Kirim Pesan</h3>
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label class="form-label">Nama Lengkap</label>
+                                    <input type="text" class="form-input" placeholder="Masukkan nama Anda" required>
                                 </div>
-                                <div class="story-feature">
-                                    <i class="fas fa-check"></i>
-                                    <div class="story-feature-text">Jahitan Presisi</div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-input" placeholder="email@anda.com" required>
                                 </div>
-                                <div class="story-feature">
-                                    <i class="fas fa-check"></i>
-                                    <div class="story-feature-text">Desain Eksklusif</div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Nomor WhatsApp</label>
+                                    <input type="tel" class="form-input" placeholder="0822-XXXX-XXXX" required>
                                 </div>
-                                <div class="story-feature">
-                                    <i class="fas fa-check"></i>
-                                    <div class="story-feature-text">Garansi 1 Tahun</div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Pesan</label>
+                                    <textarea class="form-textarea" placeholder="Tulis pesan Anda di sini..." required></textarea>
                                 </div>
-                            </div>
-                            
-                            <div class="rating-section animate-text delay-3">
-                                <div class="rating-stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                                <div>
-                                    <div class="rating-text">4.9/5.0 Rating</div>
-                                    <div class="rating-source">500+ Ulasan</div>
-                                </div>
-                            </div>
-                            
-                            <div class="story-tagline animate-text delay-4">
-                                <i class="fas fa-hashtag"></i>
-                                #MukenaPremium #MukenaHasfita
-                            </div>
+                                
+                                <button type="submit" class="submit-button">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Kirim Pesan
+                                </button>
+                            </form>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Slide 4: Contact (UKURAN DIPERKECIL) -->
-            <div class="swiper-slide contact-slide">
-                <div class="slide-inner">
-                    <div class="contact-container">
-                        <div class="contact-header animate-text">
-                            <h2 class="contact-title">Hubungi Kami</h2>
-                            <p class="contact-subtitle">Kami siap membantu Anda mendapatkan mukena terbaik.</p>
-                        </div>
-                        
-                        <div class="contact-grid">
-                            <div class="contact-info animate-text delay-1">
-                                <h3 class="form-title">Informasi Kontak</h3>
-                                
-                                <div class="contact-item">
-                                    <div class="contact-icon">
-                                        <i class="fas fa-store"></i>
-                                    </div>
-                                    <div class="contact-details">
-                                        <h4>Nama Toko</h4>
-                                        <p>Mukena Hasfita</p>
-                                        <p style="color: var(--accent); font-weight: 500; font-size: 0.7rem;">Toko Mukena Premium</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="contact-item">
-                                    <div class="contact-icon">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </div>
-                                    <div class="contact-details">
-                                        <h4>Alamat Toko</h4>
-                                        <p>Perumahan Cipta Graha Asri Blok B-9<br>Jalan Sultan Agung Purworejo<br>Purutrejo, Kota Pasuruan 67122</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="contact-item">
-                                    <div class="contact-icon">
-                                        <i class="fas fa-clock"></i>
-                                    </div>
-                                    <div class="contact-details">
-                                        <h4>Jam Operasional</h4>
-                                        <p>Senin - Minggu: 08:00 - 20:00 WIB</p>
-                                        <p style="font-size: 0.7rem; color: var(--accent);">Buka Setiap Hari</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="contact-item">
-                                    <div class="contact-icon">
-                                        <i class="fas fa-phone"></i>
-                                    </div>
-                                    <div class="contact-details">
-                                        <h4>Telepon & WhatsApp</h4>
-                                        <a href="https://wa.me/6282240409293" target="_blank">0822-4040-9293</a>
-                                        <p style="font-size: 0.7rem;">Respon Cepat via WhatsApp</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-form-container animate-text delay-2">
-                                <h3 class="form-title">Kirim Pesan</h3>
-                                <form id="contactForm">
-                                    <div class="form-group">
-                                        <label class="form-label">Nama Lengkap</label>
-                                        <input type="text" class="form-input" placeholder="Masukkan nama Anda" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" class="form-input" placeholder="email@anda.com" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label class="form-label">Nomor WhatsApp</label>
-                                        <input type="tel" class="form-input" placeholder="0822-XXXX-XXXX" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label class="form-label">Pesan</label>
-                                        <textarea class="form-textarea" placeholder="Tulis pesan Anda di sini..." required></textarea>
-                                    </div>
-                                    
-                                    <button type="submit" class="submit-button">
-                                        <i class="fas fa-paper-plane"></i>
-                                        Kirim Pesan
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                        
-                        <div class="social-section animate-text delay-3">
-                            <h3 class="social-title">Ikuti Kami</h3>
-                            <div class="social-media">
-                                <a href="https://instagram.com/mukenahasfita.id" class="social-icon" target="_blank">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://wa.me/6282240409293" class="social-icon" target="_blank">
-                                    <i class="fab fa-whatsapp"></i>
-                                </a>
-                                <a href="https://facebook.com" class="social-icon" target="_blank">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://tiktok.com" class="social-icon" target="_blank">
-                                    <i class="fab fa-tiktok"></i>
-                                </a>
-                                <a href="https://youtube.com" class="social-icon" target="_blank">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </div>
-                            
-                            <a href="https://wa.me/6282240409293" class="social-whatsapp" target="_blank">
+                    
+                    <div class="social-section animate-text delay-3">
+                        <h3 class="social-title">Ikuti Kami</h3>
+                        <div class="social-media">
+                            <a href="https://instagram.com/mukenahasfita.id" class="social-icon" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://wa.me/6282240409293" class="social-icon" target="_blank">
                                 <i class="fab fa-whatsapp"></i>
-                                Chat Langsung via WhatsApp
+                            </a>
+                            <a href="https://facebook.com" class="social-icon" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://tiktok.com" class="social-icon" target="_blank">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://youtube.com" class="social-icon" target="_blank">
+                                <i class="fab fa-youtube"></i>
                             </a>
                         </div>
+                        
+                        <a href="https://wa.me/6282240409293" class="social-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Chat Langsung via WhatsApp
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Pagination -->
-        <div class="swiper-pagination"></div>
-    </div>
+        </section>
+    </main>
 
     <!-- Cart Overlay -->
     <div class="cart-overlay" id="cartOverlay">
@@ -2594,14 +2513,13 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         // Data produk
         const products = {
-            "Mukena Zafira": { basePrice: 199000, sizes: { "S": 189000, "M": 199000, "L": 209000, "XL": 219000 } },
-            "Mukena Aliya": { basePrice: 189000, sizes: { "S": 179000, "M": 189000, "L": 199000, "XL": 209000 } },
-            "Mukena Safiya": { basePrice: 309000, sizes: { "S": 299000, "M": 309000, "L": 319000, "XL": 329000 } },
-            "Mukena Nayla": { basePrice: 259000, sizes: { "S": 249000, "M": 259000, "L": 269000, "XL": 279000 } }
+            "Mukena Zafira": { dewasa: 199000, anak: 179000 },
+            "Mukena Aliya": { dewasa: 189000, anak: 169000 },
+            "Mukena Safiya": { dewasa: 309000, anak: 289000 },
+            "Mukena Nayla": { dewasa: 259000, anak: 239000 }
         };
 
         // Variabel global
@@ -2619,7 +2537,6 @@
         const navContainer = document.getElementById('navContainer');
         const navLinks = document.querySelectorAll('.nav-link');
         const header = document.getElementById('mainHeader');
-        const ctaButtons = document.querySelectorAll('.cta-button');
         const contactForm = document.getElementById('contactForm');
         const marqueeContainer = document.getElementById('marqueeContainer');
         const toggleTaskbarBtn = document.getElementById('toggleTaskbar');
@@ -2629,69 +2546,51 @@
         let headerVisible = true;
         let taskbarVisible = true;
 
-        // Inisialisasi Swiper Horizontal
-        const swiper = new Swiper('.main-swiper', {
-            direction: 'horizontal',
-            speed: 600,
-            slidesPerView: 1,
-            spaceBetween: 0,
-            mousewheel: {
-                forceToAxis: true,
-                sensitivity: window.innerWidth >= 1025 ? 0.5 : 0.8
-            },
-            touchRatio: 1,
-            simulateTouch: true,
-            grabCursor: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            keyboard: {
-                enabled: true,
-            },
-            on: {
-                init: function () {
-                    updateActiveNavLink(this.activeIndex);
-                },
-                slideChange: function () {
-                    updateActiveNavLink(this.activeIndex);
-                    
-                    // Reset animasi untuk slide baru
-                    document.querySelectorAll('.animate-text').forEach(el => {
-                        el.style.opacity = '0';
-                        el.style.transform = 'translateY(15px)';
-                    });
-                    
-                    // Trigger animasi untuk slide aktif
-                    setTimeout(() => {
-                        const activeSlide = document.querySelector('.swiper-slide-active');
-                        if (activeSlide) {
-                            activeSlide.querySelectorAll('.animate-text').forEach((el, index) => {
-                                setTimeout(() => {
-                                    el.style.opacity = '1';
-                                    el.style.transform = 'translateY(0)';
-                                }, index * 120);
-                            });
-                        }
-                    }, 100);
-                    
-                    // Tutup mobile menu jika terbuka
-                    if (window.innerWidth <= 768) {
-                        navContainer.classList.remove('active');
-                        mobileMenuBtn.classList.remove('active');
-                    }
-                }
-            }
-        });
+        // Fungsi untuk mengatur animasi saat scroll
+        function setupScrollAnimations() {
+            const sections = document.querySelectorAll('.section');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
 
-        // Fungsi update active nav link
-        function updateActiveNavLink(activeIndex) {
-            navLinks.forEach((link, index) => {
-                if (index === activeIndex) {
-                    link.classList.add('active');
-                } else {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-visible');
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Fungsi untuk update active nav link saat scroll
+        function setupScrollSpy() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
                     link.classList.remove('active');
-                }
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
             });
         }
 
@@ -2735,7 +2634,7 @@
 
         // Setup aplikasi
         document.addEventListener('DOMContentLoaded', function() {
-            // Setup event listener untuk ukuran produk
+            // Setup event listener untuk ukuran produk (Dewasa/Anak-anak)
             document.querySelectorAll('.size-options').forEach(option => {
                 const sizeOptions = option.querySelectorAll('.size-option');
                 sizeOptions.forEach(optionEl => {
@@ -2773,14 +2672,6 @@
                 });
             });
 
-            // Setup tombol CTA
-            ctaButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const slideIndex = parseInt(this.getAttribute('data-slide'));
-                    swiper.slideTo(slideIndex);
-                });
-            });
-
             // Setup keranjang belanja
             cartIcon.addEventListener('click', openCart);
             closeCart.addEventListener('click', closeCartOverlay);
@@ -2793,12 +2684,19 @@
                 navContainer.classList.toggle('active');
             });
 
-            // Setup nav links
+            // Setup nav links untuk scroll
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const slideIndex = parseInt(this.getAttribute('data-slide'));
-                    swiper.slideTo(slideIndex);
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 55,
+                            behavior: 'smooth'
+                        });
+                    }
                     
                     // Tutup mobile menu jika terbuka
                     if (window.innerWidth <= 768) {
@@ -2877,31 +2775,9 @@
                 }
             });
 
-            // Setup touch gesture untuk mobile
-            let touchStartX = 0;
-            let touchEndX = 0;
-            const touchThreshold = 40;
-
-            document.addEventListener('touchstart', function(e) {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-
-            document.addEventListener('touchend', function(e) {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            });
-
-            function handleSwipe() {
-                const diff = touchStartX - touchEndX;
-                
-                if (Math.abs(diff) > touchThreshold) {
-                    if (diff > 0 && swiper.activeIndex < swiper.slides.length - 1) {
-                        swiper.slideNext();
-                    } else if (diff < 0 && swiper.activeIndex > 0) {
-                        swiper.slidePrev();
-                    }
-                }
-            }
+            // Setup animasi scroll
+            setupScrollAnimations();
+            setupScrollSpy();
 
             // Close cart when clicking outside
             cartOverlay.addEventListener('click', function(e) {
@@ -2915,11 +2791,6 @@
                 if (e.key === 'Escape' && cartOverlay.classList.contains('active')) {
                     closeCartOverlay();
                 }
-            });
-
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                swiper.update();
             });
         });
 
