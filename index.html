@@ -2,2948 +2,1086 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mukena Hasfita | Mukena Premium Berkualitas</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yey! Happy Birthday! 🎂</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #8B4513;
-            --primary-light: #A0522D;
-            --primary-dark: #654321;
-            --secondary: #FAF3E9;
-            --accent: #DAA520;
-            --accent-light: #FFD700;
-            --dark: #2C1810;
-            --light: #FFFFFF;
-            --gray: #8B7355;
-            --shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            --transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            --gradient-light: linear-gradient(135deg, var(--secondary) 0%, #FFF8ED 100%);
-            --gold-gradient: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            --pink: #FF85B3;
+            --blue: #85E3FF;
+            --yellow: #FFD166;
+            --purple: #C780FA;
+            --green: #7AFFB0;
+            --shadow: 5px 5px 0px rgba(0, 0, 0, 0.1);
+            --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
-
-        html {
-            scroll-behavior: smooth;
-            height: 100%;
-            font-size: 13px;
-        }
-
+        
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--secondary);
-            color: var(--dark);
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(45deg, #FFC8DD, #BDE0FE, #FFAFCC);
+            background-size: 300% 300%;
+            animation: gradientBG 10s ease infinite;
+            min-height: 100vh;
             overflow-x: hidden;
-            width: 100%;
-            position: relative;
-            padding: 0;
-            margin: 0;
-            font-size: 0.85rem;
+            padding: 20px;
         }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 10% 90%, rgba(218, 165, 32, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 10%, rgba(139, 69, 19, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(250, 243, 233, 0.1) 0%, transparent 60%);
-            pointer-events: none;
-            z-index: -1;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
-        h1, h2, h3, .brand-name {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-        }
-
-        /* =========== WELCOME ANIMATION =========== */
-        .welcome-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            animation: fadeOut 1s ease 1.2s forwards;
-        }
-
-        .welcome-logo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            opacity: 0;
-            transform: translateY(15px);
-            animation: slideUp 0.6s ease 0.3s forwards;
-        }
-
-        .logo-circle {
-            width: 70px;
-            height: 70px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo-circle i {
-            font-size: 2rem;
-            color: var(--primary);
-            position: relative;
-            z-index: 1;
-        }
-
-        .welcome-logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: white;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            letter-spacing: 0.8px;
-            text-align: center;
-            padding: 0 12px;
-        }
-
-        .welcome-subtitle {
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.9);
-            opacity: 0;
-            transform: translateY(15px);
-            animation: slideUp 0.6s ease 0.5s forwards;
-            letter-spacing: 1.5px;
-            text-align: center;
-            padding: 0 12px;
-            font-weight: 300;
-            text-transform: uppercase;
-        }
-
-        .loader {
-            width: 80px;
-            height: 2.5px;
-            background: rgba(255,255,255,0.3);
-            margin-top: 20px;
-            border-radius: 4px;
-            overflow: hidden;
-            opacity: 0;
-            animation: slideUp 0.6s ease 0.7s forwards;
-            position: relative;
-        }
-
-        .loader::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 40%;
-            height: 100%;
-            background: var(--gold-gradient);
-            border-radius: 4px;
-            animation: loading 1.2s infinite ease-in-out;
-        }
-
-        /* =========== HEADER =========== */
+        
+        /* Header Styles */
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-            transition: var(--transition);
-            border-bottom: 1px solid rgba(139, 69, 19, 0.08);
-            height: 55px;
-            max-height: 55px;
-            transform: translateY(0);
-        }
-
-        .header.hidden {
-            transform: translateY(-100%);
-        }
-
-        .header.scrolled {
-            padding: 8px 12px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
-            height: 50px;
-            max-height: 50px;
-        }
-
-        .brand-container {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-        }
-
-        .brand-logo {
-            width: 28px;
-            height: 28px;
-            background: var(--gold-gradient);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            text-align: center;
+            margin-bottom: 40px;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(218, 165, 32, 0.15);
         }
-
-        .brand-logo::before {
-            content: '\f6c0';
-            font-family: 'Font Awesome 6 Free';
+        
+        .title-box {
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            border: 8px dotted var(--pink);
+            position: relative;
+            margin-bottom: 30px;
+            transform: rotate(-1deg);
+            animation: wiggle 3s infinite;
+        }
+        
+        h1 {
+            font-size: 4.5rem;
+            color: var(--purple);
+            text-shadow: 3px 3px 0 var(--yellow);
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            color: var(--blue);
             font-weight: 900;
-            font-size: 0.85rem;
-            color: white;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 10px;
         }
-
-        .brand-name {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: -0.2px;
-        }
-
-        .brand-name span {
-            color: var(--accent);
+        
+        .tagline {
+            font-size: 1.4rem;
+            color: #666;
             font-style: italic;
         }
-
-        /* =========== GLOBAL CONTROLS =========== */
-        .global-controls {
-            position: fixed;
-            top: 65px;
-            right: 12px;
-            z-index: 999;
+        
+        /* Navigation Tabs */
+        .tabs {
             display: flex;
-            flex-direction: column;
-            gap: 6px;
-            transition: var(--transition);
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .header.scrolled ~ .global-controls {
-            top: 60px;
-        }
-
-        .header.hidden ~ .global-controls {
-            top: 12px;
-        }
-
-        .control-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--gold-gradient);
-            border: none;
-            color: white;
-            font-size: 0.85rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            transition: var(--transition);
-            box-shadow: 0 2px 8px rgba(218, 165, 32, 0.15);
-            position: relative;
-            overflow: hidden;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
-
-        .control-btn:hover {
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 4px 12px rgba(218, 165, 32, 0.2);
-        }
-
-        .control-btn.active {
-            background: var(--primary);
-            transform: rotate(180deg);
-        }
-
-        .control-btn.header-toggle {
-            background: linear-gradient(135deg, #4A90E2, #357ABD);
-        }
-
-        /* =========== MOBILE MENU =========== */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 22px;
-            height: 16px;
-            background: transparent;
+        
+        .tab-btn {
+            background: white;
             border: none;
+            padding: 20px 35px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: 900;
             cursor: pointer;
-            z-index: 1001;
-            padding: 0;
-        }
-
-        .mobile-menu-btn span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background: var(--primary);
-            border-radius: 1px;
-            transition: var(--transition);
-        }
-
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(4px, 4px);
-        }
-
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(4px, -4px);
-        }
-
-        .nav-container {
+            transition: all 0.3s var(--bounce);
+            box-shadow: var(--shadow);
             display: flex;
             align-items: center;
             gap: 15px;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--dark);
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.2px;
             position: relative;
-            padding: 5px 0;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            overflow: hidden;
+            transform: scale(1);
         }
-
-        .nav-link i {
-            font-size: 0.7rem;
-            color: var(--accent);
+        
+        .tab-btn:hover {
+            transform: scale(1.1) rotate(2deg);
         }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1.5px;
-            background: var(--gold-gradient);
-            transition: width 0.25s ease;
-            border-radius: 1px;
+        
+        .tab-btn.active {
+            transform: scale(1.1);
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
         }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
+        
+        .tab-btn:nth-child(1) {
+            background-color: var(--pink);
+            color: white;
         }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary);
+        
+        .tab-btn:nth-child(2) {
+            background-color: var(--yellow);
+            color: #333;
         }
-
-        .cart-icon {
-            position: relative;
-            font-size: 1rem;
-            color: var(--primary);
-            cursor: pointer;
-            transition: var(--transition);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--secondary);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        
+        .tab-btn:nth-child(3) {
+            background-color: var(--blue);
+            color: white;
         }
-
-        .cart-icon:hover {
-            transform: translateY(-2px) scale(1.05);
-            color: var(--accent);
-            box-shadow: 0 4px 12px rgba(218, 165, 32, 0.12);
+        
+        .tab-btn i {
+            font-size: 1.8rem;
         }
-
-        .cart-count {
-            position: absolute;
-            top: -4px;
-            right: -4px;
-            background: var(--gold-gradient);
-            color: var(--dark);
-            font-size: 0.65rem;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            box-shadow: 0 1px 4px rgba(218, 165, 32, 0.15);
-        }
-
-        /* =========== MAIN CONTENT (SCROLL VERTICAL) =========== */
-        .main-content {
-            padding-top: 55px;
-            overflow-x: hidden;
-        }
-
-        .section {
-            min-height: 100vh;
-            padding: 60px 15px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .section-inner {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        /* =========== ANIMATIONS =========== */
-        .animate-text {
-            opacity: 0;
-            transform: translateY(15px);
-            transition: 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-        }
-
-        .animate-visible .animate-text {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-        .delay-4 { transition-delay: 0.4s; }
-
-        .image-reveal {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transform: scale(1.08);
-            transition: 1s cubic-bezier(0.2, 1, 0.3, 1);
-            filter: brightness(1.03) saturate(1.03);
-            max-height: 100%;
-        }
-
-        /* =========== SLIDE 1: HERO =========== */
-        .hero-section {
-            background: linear-gradient(135deg, var(--secondary) 0%, #FFF8F0 100%);
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            width: 100%;
-            position: relative;
-            margin-top: 0;
-            padding-top: 0;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            background: var(--gold-gradient);
-            color: var(--dark);
-            border-radius: 35px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.8px;
-            margin-bottom: 15px;
-            box-shadow: 0 3px 10px rgba(218, 165, 32, 0.12);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-
-        .hero-title {
-            font-size: clamp(1.6rem, 4vw, 2.5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 0.8rem;
-            color: var(--dark);
-            letter-spacing: -0.3px;
-        }
-
-        .hero-title span {
-            color: var(--accent);
-            position: relative;
-            display: inline-block;
-        }
-
-        .hero-title span::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(218, 165, 32, 0.12);
-            z-index: -1;
-            border-radius: 2px;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 12px;
-            font-weight: 300;
-            letter-spacing: 0.2px;
-        }
-
-        .intro-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 12px;
-            margin-bottom: 1.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .feature {
+        
+        /* Content Areas */
+        .content {
+            display: none;
             background: white;
-            padding: 16px 12px;
-            border-radius: 12px;
-            text-align: center;
+            border-radius: 30px;
+            padding: 40px;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            margin-bottom: 50px;
+            border: 5px solid var(--green);
             position: relative;
             overflow: hidden;
-            border: 1px solid transparent;
+            animation: popIn 0.6s var(--bounce);
         }
-
-        .feature:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
-            border-color: rgba(218, 165, 32, 0.15);
-        }
-
-        .feature-icon {
-            width: 42px;
-            height: 42px;
-            background: var(--secondary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 10px;
-            color: var(--primary);
-            font-size: 1rem;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .feature:hover .feature-icon {
-            background: var(--gold-gradient);
-            color: white;
-            transform: rotateY(180deg) scale(0.95);
-        }
-
-        .feature-text {
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 0.75rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-button {
-            background: var(--gradient);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 35px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin: 0 auto;
-            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.15);
-            letter-spacing: 0.3px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gold-gradient);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: -1;
-        }
-
-        .cta-button:hover::before {
-            opacity: 1;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 12px 25px rgba(139, 69, 19, 0.2);
-        }
-
-        /* =========== SLIDE 2: PRODUCTS =========== */
-        .products-section {
-            background: linear-gradient(135deg, #FFFCF8 0%, #FFF8F0 100%);
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
-            width: 100%;
-        }
-
-        .section-title {
-            font-size: clamp(1.5rem, 3.5vw, 2rem);
-            color: var(--dark);
-            margin-bottom: 0.6rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 2.5px;
-            background: var(--gold-gradient);
-            border-radius: 1px;
-        }
-
-        .section-subtitle {
-            color: var(--gray);
-            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
-            max-width: 600px;
-            margin: 0.8rem auto 0;
-            padding: 0 12px;
-            font-weight: 300;
-            line-height: 1.5;
-        }
-
-        /* =========== PRODUK =========== */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            width: 100%;
-            padding: 0 8px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.06);
-            transition: var(--transition);
-            position: relative;
-            border: 1px solid rgba(250, 243, 233, 0.5);
-            height: auto;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
-            border-color: rgba(218, 165, 32, 0.15);
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--gold-gradient);
-            z-index: 2;
-        }
-
-        .product-image {
-            height: 180px;
-            background: var(--secondary);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 4px;
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--gold-gradient);
-            color: var(--dark);
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            z-index: 3;
-            box-shadow: 0 2px 6px rgba(218, 165, 32, 0.15);
-        }
-
-        /* =========== PRODUCT CONTENT =========== */
-        .product-content {
-            padding: 1.2rem;
-        }
-
-        .product-name {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.1px;
-        }
-
-        .product-description {
-            color: var(--dark);
-            opacity: 0.8;
-            font-size: 0.75rem;
-            margin-bottom: 1rem;
-            line-height: 1.4;
-            font-weight: 300;
-        }
-
-        .size-selector {
-            margin-bottom: 1rem;
-        }
-
-        .size-label {
+        
+        .content.active {
             display: block;
-            font-size: 0.75rem;
-            color: var(--dark);
-            margin-bottom: 0.6rem;
-            font-weight: 500;
         }
-
-        /* =========== SIZE OPTIONS (Dewasa & Anak-anak) =========== */
-        .size-options {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .size-option {
-            flex: 1;
-            height: 35px;
-            border: 1.5px solid var(--secondary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 0.8rem;
-            background: white;
-            text-align: center;
-            padding: 0 8px;
-        }
-
-        .size-option.active {
-            background: var(--gradient);
-            color: white;
-            border-color: transparent;
-            box-shadow: 0 2px 6px rgba(139, 69, 19, 0.12);
-        }
-
-        .size-option:hover:not(.active) {
-            border-color: var(--accent);
-            transform: translateY(-1px);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
-        }
-
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .product-price {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary);
-            position: relative;
-            padding-left: 18px;
-        }
-
-        .product-price::before {
-            content: 'Rp';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.75rem;
-            color: var(--gray);
-            font-weight: 400;
-        }
-
-        .add-to-cart-btn {
-            padding: 8px 16px;
-            background: var(--gradient);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.75rem;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .add-to-cart-btn::before {
+        
+        .content::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gold-gradient);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: -1;
-        }
-
-        .add-to-cart-btn:hover::before {
-            opacity: 1;
-        }
-
-        .add-to-cart-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.15);
-        }
-
-        /* =========== SLIDE 3: STORY =========== */
-        .story-section {
-            background: linear-gradient(135deg, var(--secondary) 0%, #FFFCF5 100%);
-        }
-
-        .story-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            max-width: 900px;
-            width: 100%;
-            align-items: center;
-        }
-
-        .story-img {
-            height: 280px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .story-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .story-content {
-            text-align: left;
-        }
-
-        .story-title {
-            font-size: clamp(1.5rem, 3.5vw, 2rem);
-            color: var(--dark);
-            margin-bottom: 1.2rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .story-title::after {
-            content: '';
-            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
             bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 2.5px;
-            background: var(--gold-gradient);
-            border-radius: 1px;
-        }
-
-        .story-text {
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            color: var(--dark);
-            opacity: 0.8;
-            font-size: 0.8rem;
-            font-weight: 300;
-        }
-
-        .story-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.8rem;
-            margin: 1.5rem 0;
-        }
-
-        .story-feature {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.03);
-        }
-
-        .story-feature i {
-            width: 35px;
-            height: 35px;
-            background: var(--gold-gradient);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.9rem;
-        }
-
-        .story-feature-text {
-            font-weight: 500;
-            color: var(--dark);
-            font-size: 0.75rem;
-        }
-
-        .rating-section {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin: 1.5rem 0;
-            padding: 14px 18px;
-            background: white;
-            border-radius: 12px;
-            width: fit-content;
-            border: 1px solid rgba(250, 243, 233, 0.5);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-        }
-
-        .rating-stars {
-            display: flex;
-            gap: 2px;
-        }
-
-        .rating-stars i {
-            color: var(--accent);
-            font-size: 1rem;
-            text-shadow: 0 1px 2px rgba(218, 165, 32, 0.15);
-        }
-
-        .rating-text {
-            font-weight: 700;
-            color: var(--dark);
-            font-size: 1rem;
-        }
-
-        .rating-source {
-            color: var(--gray);
-            font-size: 0.75rem;
-            font-weight: 300;
-        }
-
-        .story-tagline {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.85rem;
-            background: white;
-            padding: 12px 20px;
+            background: linear-gradient(45deg, var(--pink), var(--yellow), var(--blue), var(--green));
+            z-index: -1;
             border-radius: 35px;
-            margin-top: 0.6rem;
-            transition: var(--transition);
-            border: 1px solid transparent;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            animation: rainbowBorder 4s linear infinite;
         }
-
-        .story-tagline::before {
-            content: '';
+        
+        /* Slideshow */
+        .slideshow {
+            position: relative;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            background: #FFF9F9;
+            border: 5px dashed var(--pink);
+        }
+        
+        .slide {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--gold-gradient);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: -1;
-        }
-
-        .story-tagline:hover::before {
-            opacity: 1;
-        }
-
-        .story-tagline:hover {
-            color: var(--dark);
-            transform: translateY(-2px);
-            border-color: var(--accent);
-            box-shadow: 0 8px 20px rgba(218, 165, 32, 0.12);
-        }
-
-        /* =========== SLIDE 4: CONTACT =========== */
-        .contact-section {
-            background: var(--gradient-light);
-            position: relative;
-        }
-
-        .contact-container {
-            max-width: 900px;
-            width: 100%;
-        }
-
-        .contact-header {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            margin-bottom: 2rem;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s var(--bounce);
         }
-
-        .contact-title {
-            font-size: clamp(1.5rem, 3.5vw, 2rem);
-            color: var(--dark);
-            margin-bottom: 0.6rem;
+        
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
         }
-
-        .contact-subtitle {
-            color: var(--dark);
-            opacity: 0.8;
-            font-size: clamp(0.8rem, 1.8vw, 0.9rem);
-            max-width: 500px;
+        
+        .slide-emoji {
+            font-size: 8rem;
+            margin-bottom: 30px;
+            animation: bounce 2s infinite;
+            filter: drop-shadow(5px 5px 0px rgba(0,0,0,0.1));
+        }
+        
+        .slide-title {
+            font-size: 3.5rem;
+            color: var(--purple);
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 0 var(--yellow);
+        }
+        
+        .slide-text {
+            font-size: 1.8rem;
+            line-height: 1.6;
+            color: #555;
+            max-width: 800px;
             margin: 0 auto;
-            font-weight: 300;
-            line-height: 1.5;
         }
-
-        /* =========== CONTACT GRID =========== */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-info, .contact-form-container {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 16px;
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
-            position: relative;
-            border: 1px solid rgba(250, 243, 233, 0.5);
-        }
-
-        .contact-info::before,
-        .contact-form-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--gold-gradient);
-            border-radius: 16px 16px 0 0;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-            padding: 14px;
-            margin-bottom: 0.8rem;
+        
+        .slide-text span {
+            background-color: var(--yellow);
+            padding: 0 10px;
             border-radius: 10px;
-            transition: var(--transition);
-            border: 1px solid transparent;
+            font-weight: 900;
         }
-
-        .contact-item:hover {
-            border-color: rgba(218, 165, 32, 0.15);
-            background: rgba(250, 243, 233, 0.3);
-            transform: translateX(4px);
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gold-gradient);
-            border-radius: 8px;
+        
+        .slide-controls {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1rem;
-            flex-shrink: 0;
-            transition: var(--transition);
+            gap: 30px;
         }
-
-        .contact-item:hover .contact-icon {
-            transform: rotateY(180deg) scale(1.03);
-        }
-
-        .contact-details h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-            color: var(--dark);
-        }
-
-        .contact-details p, .contact-details a {
-            color: var(--dark);
-            opacity: 0.8;
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 0.75rem;
-            line-height: 1.4;
-            font-weight: 300;
-        }
-
-        .contact-details a:hover {
-            color: var(--primary);
-            text-decoration: underline;
-            opacity: 1;
-        }
-
-        /* =========== FORM =========== */
-        .form-title {
-            font-size: 1.3rem;
-            color: var(--dark);
-            margin-bottom: 1.2rem;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 0.75rem;
-            color: var(--dark);
-            margin-bottom: 0.4rem;
-            font-weight: 500;
-        }
-
-        .form-input, .form-textarea {
-            width: 100%;
-            padding: 12px 14px;
-            border: 1px solid rgba(250, 243, 233, 0.8);
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-family: 'Poppins', sans-serif;
-            transition: var(--transition);
-            background: var(--secondary);
-        }
-
-        .form-input:focus, .form-textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            background: white;
-            box-shadow: 0 2px 8px rgba(218, 165, 32, 0.08);
-        }
-
-        .form-textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .submit-button {
-            width: 100%;
-            padding: 14px;
-            background: var(--gradient);
-            color: white;
+        
+        .slide-nav {
+            padding: 15px 30px;
+            background: var(--pink);
             border: none;
-            border-radius: 10px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: white;
             cursor: pointer;
-            transition: var(--transition);
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 6px;
-            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.12);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
         }
-
-        .submit-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gold-gradient);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: -1;
+        
+        .slide-nav:hover {
+            transform: translateY(-5px);
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
         }
-
-        .submit-button:hover::before {
-            opacity: 1;
+        
+        .slide-dots {
+            display: flex;
+            gap: 15px;
         }
-
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 20px rgba(139, 69, 19, 0.15);
+        
+        .dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
         }
-
-        /* =========== SOCIAL SECTION =========== */
-        .social-section {
+        
+        .dot.active {
+            background: var(--purple);
+            transform: scale(1.3);
+        }
+        
+        /* Game Section */
+        .game-container {
             text-align: center;
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
-            position: relative;
-            border: 1px solid rgba(250, 243, 233, 0.5);
         }
-
-        .social-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--gold-gradient);
-            border-radius: 16px 16px 0 0;
+        
+        .game-title {
+            font-size: 3rem;
+            color: var(--pink);
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 0 var(--yellow);
         }
-
-        .social-title {
-            font-size: 1.3rem;
-            color: var(--dark);
-            margin-bottom: 1.2rem;
-        }
-
-        .social-media {
+        
+        .game-stats {
             display: flex;
             justify-content: center;
-            gap: 0.8rem;
+            gap: 40px;
+            margin-bottom: 40px;
             flex-wrap: wrap;
         }
-
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 10px;
-            background: var(--secondary);
+        
+        .stat {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            min-width: 180px;
+            box-shadow: var(--shadow);
+            border: 4px solid;
+            transform: rotate(1deg);
+        }
+        
+        .stat:nth-child(1) { border-color: var(--pink); }
+        .stat:nth-child(2) { border-color: var(--blue); transform: rotate(-1deg); }
+        .stat:nth-child(3) { border-color: var(--yellow); transform: rotate(2deg); }
+        
+        .stat-value {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--purple);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 1.3rem;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        .game-area {
+            background: linear-gradient(45deg, #E3F2FF, #FFF2E3);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 8px dotted var(--blue);
+            position: relative;
+        }
+        
+        .cake {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 30px 0;
+        }
+        
+        .cake:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+        
+        .cake-base {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(to bottom, #FF9E9E, #FF7B9C);
+            border-radius: 20px 20px 0 0;
+            position: absolute;
+            bottom: 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .cake-top {
+            width: 90%;
+            height: 60px;
+            background: linear-gradient(to bottom, #FFD6A5, #FFB347);
+            border-radius: 15px 15px 0 0;
+            position: absolute;
+            bottom: 120px;
+            left: 5%;
+        }
+        
+        .candle {
+            position: absolute;
+            width: 12px;
+            height: 50px;
+            background: white;
+            border-radius: 6px;
+            top: -50px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.8);
+            transition: all 0.3s;
+        }
+        
+        .flame {
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            background: linear-gradient(to bottom, #FFE259, #FFA751);
+            border-radius: 50% 50% 20% 20%;
+            top: -80px;
+            left: -4px;
+            animation: flicker 0.5s infinite alternate;
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.7);
+        }
+        
+        .game-buttons {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .game-btn {
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 1.1rem;
-            transition: var(--transition);
-            text-decoration: none;
-            border: 1px solid transparent;
+            gap: 15px;
+            transition: all 0.3s var(--bounce);
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
         }
-
-        .social-icon:hover {
-            background: var(--gold-gradient);
+        
+        .game-btn:hover {
+            transform: translateY(-8px) rotate(3deg);
+            box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
+        }
+        
+        .start-btn {
+            background: var(--green);
+            color: #333;
+        }
+        
+        .reset-btn {
+            background: var(--purple);
             color: white;
-            transform: translateY(-4px) scale(1.03);
-            border-color: var(--accent);
-            box-shadow: 0 8px 15px rgba(218, 165, 32, 0.12);
         }
-
-        .social-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 35px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-top: 1.5rem;
-            transition: var(--transition);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.12);
-        }
-
-        .social-whatsapp:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 12px 20px rgba(37, 211, 102, 0.15);
-        }
-
-        /* =========== CART OVERLAY =========== */
-        .cart-overlay {
+        
+        /* Animal Elements */
+        .animals {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            backdrop-filter: blur(6px);
-            padding: 12px;
-        }
-
-        .cart-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .cart-container {
-            background: white;
-            border-radius: 16px;
-            width: 100%;
-            max-width: 450px;
-            max-height: 65vh;
-            overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-            transform: translateY(15px) scale(0.95);
-            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .cart-overlay.active .cart-container {
-            transform: translateY(0) scale(1);
-        }
-
-        .cart-header {
-            background: var(--gradient);
-            padding: 1.2rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .cart-title {
-            font-size: 1.2rem;
-            color: white;
-            font-weight: 600;
-            letter-spacing: 0.2px;
-        }
-
-        .close-cart {
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: var(--transition);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        .close-cart:hover {
-            transform: rotate(90deg) scale(1.03);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .cart-body {
-            padding: 1.2rem;
-            max-height: 250px;
-            overflow-y: auto;
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--secondary);
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-
-        .item-info h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-            color: var(--dark);
-        }
-
-        .item-info p {
-            color: var(--gray);
-            font-size: 0.75rem;
-            font-weight: 300;
-        }
-
-        .item-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .item-quantity {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--secondary);
-            padding: 5px 8px;
-            border-radius: 8px;
-        }
-
-        .quantity-btn {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: white;
-            border: 1px solid var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--dark);
-            transition: var(--transition);
-            font-size: 0.8rem;
-        }
-
-        .quantity-btn:hover {
-            background: var(--gradient);
-            color: white;
-            border-color: transparent;
-        }
-
-        .quantity {
-            font-weight: 700;
-            min-width: 25px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--dark);
-        }
-
-        .item-price {
-            font-weight: 700;
-            color: var(--primary);
-            min-width: 90px;
-            text-align: right;
-            font-size: 1rem;
-        }
-
-        .remove-item {
-            color: #ff6b6b;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: var(--transition);
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 107, 107, 0.08);
-        }
-
-        .remove-item:hover {
-            transform: scale(1.08);
-            background: rgba(255, 107, 107, 0.15);
-        }
-
-        .cart-empty {
-            text-align: center;
-            padding: 2.5rem 0;
-            color: var(--gray);
-        }
-
-        .cart-empty i {
-            font-size: 2rem;
-            margin-bottom: 0.8rem;
-            color: var(--secondary);
-            opacity: 0.5;
-        }
-
-        .cart-empty p {
-            font-size: 0.9rem;
-            font-weight: 300;
-        }
-
-        .cart-footer {
-            padding: 1.2rem;
-            border-top: 1.5px solid var(--secondary);
-        }
-
-        .cart-total {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.2rem;
-            padding: 0 0.4rem;
-        }
-
-        .total-label {
-            font-size: 1rem;
-            color: var(--dark);
-            font-weight: 500;
-        }
-
-        .total-amount {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .cart-actions {
-            display: flex;
-            gap: 0.8rem;
-        }
-
-        .cart-btn {
-            flex: 1;
-            padding: 0.9rem;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            font-size: 0.8rem;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .checkout-btn {
-            background: var(--gradient);
-            color: white;
-        }
-
-        .checkout-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gold-gradient);
-            opacity: 0;
-            transition: var(--transition);
+            pointer-events: none;
             z-index: -1;
         }
-
-        .checkout-btn:hover::before {
-            opacity: 1;
+        
+        .animal {
+            position: absolute;
+            font-size: 4rem;
+            filter: drop-shadow(5px 5px 0px rgba(0,0,0,0.1));
+            animation-timing-function: var(--bounce);
         }
-
-        .checkout-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.15);
+        
+        .bunny {
+            animation: hopAround 8s infinite;
         }
-
-        .clear-btn {
-            background: var(--secondary);
-            color: var(--dark);
-            border: 1px solid rgba(139, 69, 19, 0.08);
+        
+        .panda {
+            animation: rollAround 12s infinite;
         }
-
-        .clear-btn:hover {
-            background: rgba(139, 69, 19, 0.04);
-            transform: translateY(-2px);
+        
+        .cat {
+            animation: bounceAround 10s infinite;
         }
-
-        /* =========== MARQUEE =========== */
-        .marquee-container {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: var(--gradient);
-            color: white;
-            padding: 10px 0;
-            overflow: hidden;
-            z-index: 998;
-            box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.1);
-            border-top: 2px solid rgba(218, 165, 32, 0.25);
-            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transform: translateY(0);
+        
+        .dog {
+            animation: runAround 15s infinite;
         }
-
-        .marquee-container.hidden {
-            transform: translateY(100%);
+        
+        /* Animations */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-
-        .marquee-content {
-            display: flex;
-            animation: marquee 30s linear infinite;
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-1deg); }
+            50% { transform: rotate(1deg); }
         }
-
-        .marquee-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            white-space: nowrap;
-            padding: 0 1.5rem;
-            font-size: 0.75rem;
+        
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
-
-        .marquee-icon {
-            color: var(--accent-light);
-            font-size: 0.9rem;
+        
+        @keyframes rainbowBorder {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
         }
-
-        /* =========== ANIMATIONS =========== */
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
         }
-
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
+        
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.1, 0.9); opacity: 0.8; }
         }
-
-        @keyframes loading {
-            0% { transform: translateX(-100%); }
-            50% { transform: translateX(250%); }
-            100% { transform: translateX(250%); }
+        
+        @keyframes hopAround {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(200px, -100px) rotate(90deg); }
+            50% { transform: translate(400px, 0) rotate(180deg); }
+            75% { transform: translate(200px, 100px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
         }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        
+        @keyframes rollAround {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(calc(100vw - 100px), 100px) rotate(360deg); }
+            66% { transform: translate(200px, calc(100vh - 100px)) rotate(720deg); }
+            100% { transform: translate(0, 0) rotate(1080deg); }
         }
-
-        /* =========== RESPONSIVE =========== */
-        @media (min-width: 1025px) {
-            html {
-                font-size: 14px;
-            }
-            
-            .header {
-                padding: 12px 25px;
-                height: 60px;
-                max-height: 60px;
-            }
-            
-            .header.scrolled {
-                padding: 10px 25px;
-                height: 55px;
-                max-height: 55px;
-            }
-            
-            .main-content {
-                padding-top: 60px;
-            }
-            
-            .global-controls {
-                right: 20px;
-                top: 75px;
-            }
-            
-            .header.scrolled ~ .global-controls {
-                top: 70px;
-            }
-            
-            .header.hidden ~ .global-controls {
-                top: 15px;
-            }
-            
-            .control-btn {
-                width: 36px;
-                height: 36px;
-                font-size: 0.9rem;
-            }
+        
+        @keyframes bounceAround {
+            0%, 100% { transform: translateY(0) scale(1); }
+            25% { transform: translateY(-100px) scale(1.1); }
+            50% { transform: translateY(0) scale(1); }
+            75% { transform: translateY(-100px) scale(1.1); }
         }
-
-        @media (max-width: 1024px) {
-            .story-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                text-align: center;
-            }
-            
-            .story-title::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .story-img {
-                height: 220px;
-                order: -1;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
+        
+        @keyframes runAround {
+            0% { transform: translateX(-100px) rotateY(0deg); }
+            49% { transform: translateX(calc(100vw + 100px)) rotateY(0deg); }
+            50% { transform: translateX(calc(100vw + 100px)) rotateY(180deg); }
+            99% { transform: translateX(-100px) rotateY(180deg); }
+            100% { transform: translateX(-100px) rotateY(0deg); }
         }
-
+        
+        /* Message Box */
+        .message-box {
+            background: #FFF9E6;
+            border-radius: 25px;
+            padding: 40px;
+            border: 6px solid var(--yellow);
+            text-align: center;
+        }
+        
+        .message-title {
+            font-size: 3rem;
+            color: var(--pink);
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 0 var(--yellow);
+        }
+        
+        .message-text {
+            font-size: 2rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .highlight {
+            background: linear-gradient(45deg, var(--pink), var(--blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 900;
+            padding: 0 10px;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--purple);
+            font-size: 1.3rem;
+            background: white;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            border: 4px solid var(--green);
+            margin-top: 30px;
+        }
+        
+        .heart {
+            color: var(--pink);
+            animation: heartbeat 1s infinite;
+            display: inline-block;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            h1 { font-size: 3.5rem; }
+            .slide-title { font-size: 2.8rem; }
+            .slide-text { font-size: 1.5rem; }
+            .game-title { font-size: 2.5rem; }
+        }
+        
         @media (max-width: 768px) {
-            html {
-                font-size: 12px;
-            }
-            
-            .header {
-                padding: 8px 10px;
-                height: 50px;
-                max-height: 50px;
-            }
-            
-            .header.scrolled {
-                padding: 6px 10px;
-                height: 46px;
-                max-height: 46px;
-            }
-            
-            .global-controls {
-                top: 55px;
-                right: 8px;
-            }
-            
-            .header.scrolled ~ .global-controls {
-                top: 51px;
-            }
-            
-            .header.hidden ~ .global-controls {
-                top: 8px;
-            }
-            
-            .brand-name {
-                font-size: 0.9rem;
-            }
-            
-            .brand-logo {
-                width: 26px;
-                height: 26px;
-                font-size: 0.8rem;
-            }
-            
-            .mobile-menu-btn {
-                display: flex;
-            }
-            
-            .nav-container {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 220px;
-                height: 100vh;
-                height: 100dvh;
-                background: white;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
-                padding: 70px 15px 25px;
-                gap: 12px;
-                box-shadow: -6px 0 25px rgba(0,0,0,0.1);
-                transition: right 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                z-index: 1000;
-                overflow-y: auto;
-            }
-            
-            .nav-container.active {
-                right: 0;
-            }
-            
-            .nav-link {
-                font-size: 0.9rem;
-                padding: 10px 14px;
-                width: 100%;
-                border-radius: 8px;
-                gap: 6px;
-            }
-            
-            .nav-link:hover {
-                background: var(--secondary);
-            }
-            
-            .nav-link::after {
-                display: none;
-            }
-            
-            .cart-icon {
-                margin-top: 15px;
-                font-size: 1.1rem;
-                width: 40px;
-                height: 40px;
-            }
-            
-            .main-content {
-                padding-top: 50px;
-            }
-            
-            .section {
-                padding: 50px 12px 30px;
-            }
-            
-            .hero-content {
-                padding-top: 5px;
-            }
-            
-            .hero-title {
-                font-size: 1.4rem;
-                margin-bottom: 0.8rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 0.8rem;
-                margin-bottom: 1.2rem;
-            }
-            
-            .intro-features {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-                margin-bottom: 1.2rem;
-            }
-            
-            .feature {
-                padding: 12px 10px;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                padding: 0 4px;
-            }
-            
-            .product-card {
-                max-width: 280px;
-                margin: 0 auto;
-            }
-            
-            .product-image {
-                height: 150px;
-            }
-            
-            .story-container {
-                padding: 8px 0;
-            }
-            
-            .story-features {
-                grid-template-columns: 1fr;
-                gap: 10px;
-                margin: 1.2rem 0;
-            }
-            
-            .rating-section {
-                margin: 1.2rem auto;
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-                padding: 12px;
-                width: 100%;
-            }
-            
-            .cart-overlay {
-                align-items: flex-end;
-                padding: 0;
-            }
-            
-            .cart-container {
-                border-radius: 12px 12px 0 0;
-                max-width: 100%;
-                transform: translateY(100%);
-                max-height: 75vh;
-            }
-            
-            .cart-overlay.active .cart-container {
-                transform: translateY(0);
-            }
-            
-            .contact-info, .contact-form-container {
-                padding: 1.2rem;
-            }
-            
-            .social-section {
-                padding: 1.2rem;
-                margin-top: 1.2rem;
-            }
-            
-            .social-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-            
-            .social-whatsapp {
-                padding: 10px 18px;
-                font-size: 0.8rem;
-                margin-top: 1.2rem;
-            }
-            
-            .marquee-container {
-                padding: 8px 0;
-            }
-            
-            .marquee-item {
-                padding: 0 1rem;
-                font-size: 0.7rem;
-            }
+            .title-box { padding: 20px; }
+            h1 { font-size: 2.8rem; }
+            .subtitle { font-size: 1.4rem; }
+            .tab-btn { padding: 15px 25px; font-size: 1.2rem; }
+            .content { padding: 25px; }
+            .slideshow { height: 400px; padding: 30px; }
+            .slide-emoji { font-size: 6rem; }
+            .cake { width: 250px; }
+            .game-stats { gap: 20px; }
+            .stat { min-width: 140px; padding: 20px; }
         }
-
-        @media (max-width: 480px) {
-            .intro-features {
-                grid-template-columns: 1fr;
-            }
-            
-            .product-image {
-                height: 130px;
-            }
-            
-            .product-content {
-                padding: 1rem;
-            }
-            
-            .product-footer {
-                flex-direction: column;
-                gap: 12px;
-                align-items: stretch;
-            }
-            
-            .add-to-cart-btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-                align-items: center;
-            }
-            
-            .contact-details {
-                text-align: center;
-            }
-            
-            .size-option {
-                font-size: 0.75rem;
-                padding: 0 4px;
-            }
-        }
-
-        @media (min-width: 1440px) {
-            .section-inner {
-                max-width: 1200px;
-            }
-            
-            .hero-content {
-                max-width: 900px;
-            }
-        }
-
-        /* =========== SAFARI FIX =========== */
-        @supports (-webkit-touch-callout: none) {
-            .header {
-                padding-top: max(10px, env(safe-area-inset-top));
-            }
-            
-            .global-controls {
-                top: calc(65px + env(safe-area-inset-top));
-            }
-            
-            .header.scrolled ~ .global-controls {
-                top: calc(60px + env(safe-area-inset-top));
-            }
-            
-            .header.hidden ~ .global-controls {
-                top: calc(12px + env(safe-area-inset-top));
-            }
-            
-            .marquee-container {
-                padding-bottom: max(10px, env(safe-area-inset-bottom));
-            }
+        
+        @media (max-width: 576px) {
+            h1 { font-size: 2.2rem; }
+            .tab-btn { padding: 12px 20px; font-size: 1rem; }
+            .slide-title { font-size: 2rem; }
+            .slide-text { font-size: 1.3rem; }
+            .game-buttons { flex-direction: column; }
+            .animal { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Welcome Screen -->
-    <div class="welcome-screen">
-        <div class="welcome-logo-container">
-            <div class="logo-circle">
-                <i class="fas fa-pray"></i>
-            </div>
-            <h1 class="welcome-logo">MUKENA HASFITA</h1>
+    <div class="container">
+        <!-- Floating Animals -->
+        <div class="animals">
+            <div class="animal bunny" style="top: 10%; left: 5%;">🐰</div>
+            <div class="animal panda" style="top: 20%; right: 10%;">🐼</div>
+            <div class="animal cat" style="bottom: 15%; left: 15%;">🐱</div>
+            <div class="animal dog" style="bottom: 20%; right: 20%;">🐶</div>
+            <div class="animal bunny" style="top: 60%; left: 80%;">🐰</div>
+            <div class="animal cat" style="top: 70%; right: 70%;">😺</div>
         </div>
-        <p class="welcome-subtitle">Mukena Premium dengan Kualitas Terbaik</p>
-        <div class="loader"></div>
-    </div>
-
-    <!-- Header Navigation -->
-    <header class="header" id="mainHeader">
-        <a href="#" class="brand-container">
-            <div class="brand-logo"></div>
-            <div class="brand-name">Mukena <span>Hasfita</span></div>
-        </a>
         
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <!-- Header -->
+        <div class="header">
+            <div class="title-box">
+                <h1>HAPPY BIRTHDAY! 🎉</h1>
+                <div class="subtitle">Yey! It's your special day! 🥳</div>
+                <div class="tagline">Party time! Let's celebrate together! 🎊</div>
+            </div>
+        </div>
         
-        <nav class="nav-container" id="navContainer">
-            <a href="#home" class="nav-link active">
-                <i class="fas fa-home"></i>
-                Beranda
-            </a>
-            <a href="#products" class="nav-link">
-                <i class="fas fa-shopping-bag"></i>
-                Produk
-            </a>
-            <a href="#story" class="nav-link">
-                <i class="fas fa-info-circle"></i>
-                Tentang
-            </a>
-            <a href="#contact" class="nav-link">
-                <i class="fas fa-phone-alt"></i>
-                Kontak
-            </a>
-            <div class="cart-icon" id="cartIcon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count">0</span>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Global Controls -->
-    <div class="global-controls">
-        <button class="control-btn header-toggle" id="toggleHeader" title="Sembunyikan/Tampilkan Header">
-            <i class="fas fa-bars"></i>
-        </button>
-        <button class="control-btn" id="toggleTaskbar" title="Sembunyikan/Tampilkan Promo">
-            <i class="fas fa-chevron-down"></i>
-        </button>
-    </div>
-
-    <!-- Main Content (Vertical Scroll) -->
-    <main class="main-content">
-        <!-- Section 1: Hero -->
-        <section id="home" class="section hero-section">
-            <div class="section-inner">
-                <div class="hero-content">
-                    <div class="hero-badge animate-text">PREMIUM QUALITY</div>
-                    <h1 class="hero-title animate-text delay-1">Mukena <span>Hasfita</span></h1>
-                    <p class="hero-subtitle animate-text delay-2">
-                        Menyediakan mukena berkualitas tinggi dengan bahan premium dan desain modern untuk melengkapi ibadah Anda.
-                    </p>
-                    
-                    <div class="intro-features">
-                        <div class="feature animate-text delay-1">
-                            <div class="feature-icon">
-                                <i class="fas fa-gem"></i>
-                            </div>
-                            <p class="feature-text">Bahan Premium</p>
-                        </div>
-                        <div class="feature animate-text delay-2">
-                            <div class="feature-icon">
-                                <i class="fas fa-palette"></i>
-                            </div>
-                            <p class="feature-text">Desain Eksklusif</p>
-                        </div>
-                        <div class="feature animate-text delay-3">
-                            <div class="feature-icon">
-                                <i class="fas fa-shipping-fast"></i>
-                            </div>
-                            <p class="feature-text">Gratis Pengiriman</p>
-                        </div>
-                        <div class="feature animate-text delay-4">
-                            <div class="feature-icon">
-                                <i class="fas fa-award"></i>
-                            </div>
-                            <p class="feature-text">Garansi Kualitas</p>
-                        </div>
-                    </div>
-                    
-                    <button class="cta-button animate-text delay-4" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
-                        Lihat Koleksi
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 2: Products -->
-        <section id="products" class="section products-section">
-            <div class="section-inner">
-                <div class="section-header">
-                    <h2 class="section-title animate-text">Koleksi Eksklusif</h2>
-                    <p class="section-subtitle animate-text delay-1">Temukan koleksi mukena premium kami</p>
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="slides">
+                <i class="fas fa-birthday-cake"></i>
+                <span>Birthday Slides</span>
+            </button>
+            <button class="tab-btn" data-tab="game">
+                <i class="fas fa-gamepad"></i>
+                <span>Blow Candles Game</span>
+            </button>
+            <button class="tab-btn" data-tab="message">
+                <i class="fas fa-heart"></i>
+                <span>Special Message</span>
+            </button>
+        </div>
+        
+        <!-- Slideshow Tab -->
+        <div id="slides" class="content active">
+            <div class="slideshow">
+                <div class="slide active">
+                    <div class="slide-emoji">🎂✨</div>
+                    <h2 class="slide-title">OMG! Happy Birthday! 🥳</h2>
+                    <p class="slide-text">Today is <span>YOUR DAY</span> to shine! Semoga tahun ini bawa banyak <span>kebahagiaan, success, dan adventure</span> yang seru-seru!</p>
                 </div>
                 
-                <div class="products-grid">
-                    <!-- Product 1: Zafira -->
-                    <div class="product-card animate-text delay-1">
-                        <div class="product-badge">BEST SELLER</div>
-                        <div class="product-image">
-                            <img src="https://i.ibb.co/39JFFGrH/mukena1.jpg" class="image-reveal" alt="Mukena Zafira" onerror="this.src='https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=600'">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-name">Mukena Zafira</h3>
-                            <p class="product-description">Mukena katun premium dengan bordir tangan eksklusif.</p>
-                            
-                            <div class="size-selector">
-                                <div class="size-label">Pilih Ukuran:</div>
-                                <div class="size-options">
-                                    <div class="size-option active" data-price="199000">Dewasa</div>
-                                    <div class="size-option" data-price="179000">Anak-anak</div>
-                                </div>
-                            </div>
-                            
-                            <div class="product-footer">
-                                <div class="product-price">199.000</div>
-                                <button class="add-to-cart-btn" data-product="Mukena Zafira">
-                                    <i class="fas fa-plus"></i>
-                                    Tambah ke Keranjang
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 2: Aliya -->
-                    <div class="product-card animate-text delay-2">
-                        <div class="product-image">
-                            <img src="https://i.ibb.co/gZ1V4N1G/mukena2.jpg" class="image-reveal" alt="Mukena Aliya" onerror="this.src='https://images.unsplash.com/photo-1601006543884-a14a29a0f44e?q=80&w=600'">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-name">Mukena Aliya</h3>
-                            <p class="product-description">Mukena satin dengan motif bunga halus yang elegan.</p>
-                            
-                            <div class="size-selector">
-                                <div class="size-label">Pilih Ukuran:</div>
-                                <div class="size-options">
-                                    <div class="size-option active" data-price="189000">Dewasa</div>
-                                    <div class="size-option" data-price="169000">Anak-anak</div>
-                                </div>
-                            </div>
-                            
-                            <div class="product-footer">
-                                <div class="product-price">189.000</div>
-                                <button class="add-to-cart-btn" data-product="Mukena Aliya">
-                                    <i class="fas fa-plus"></i>
-                                    Tambah ke Keranjang
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 3: Safiya -->
-                    <div class="product-card animate-text delay-3">
-                        <div class="product-badge">NEW ARRIVAL</div>
-                        <div class="product-image">
-                            <img src="https://i.ibb.co/0VGprGnx/mukena3.jpg" class="image-reveal" alt="Mukena Safiya" onerror="this.src='https://images.unsplash.com/photo-1599814352520-22c9e787e91d?q=80&w=600'">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-name">Mukena Safiya</h3>
-                            <p class="product-description">Mukena brokat mewah dengan aksen payet kristal.</p>
-                            
-                            <div class="size-selector">
-                                <div class="size-label">Pilih Ukuran:</div>
-                                <div class="size-options">
-                                    <div class="size-option active" data-price="309000">Dewasa</div>
-                                    <div class="size-option" data-price="289000">Anak-anak</div>
-                                </div>
-                            </div>
-                            
-                            <div class="product-footer">
-                                <div class="product-price">309.000</div>
-                                <button class="add-to-cart-btn" data-product="Mukena Safiya">
-                                    <i class="fas fa-plus"></i>
-                                    Tambah ke Keranjang
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 4: Nayla -->
-                    <div class="product-card animate-text delay-2">
-                        <div class="product-image">
-                            <img src="https://i.ibb.co/S4YtJJ4j/mukena4.jpg" class="image-reveal" alt="Mukena Nayla" onerror="this.src='https://images.unsplash.com/photo-1565299543923-37dd37887442?q=80&w=600'">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-name">Mukena Nayla</h3>
-                            <p class="product-description">Mukena katun jepang dengan desain modern minimalis.</p>
-                            
-                            <div class="size-selector">
-                                <div class="size-label">Pilih Ukuran:</div>
-                                <div class="size-options">
-                                    <div class="size-option active" data-price="259000">Dewasa</div>
-                                    <div class="size-option" data-price="239000">Anak-anak</div>
-                                </div>
-                            </div>
-                            
-                            <div class="product-footer">
-                                <div class="product-price">259.000</div>
-                                <button class="add-to-cart-btn" data-product="Mukena Nayla">
-                                    <i class="fas fa-plus"></i>
-                                    Tambah ke Keranjang
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="slide">
+                    <div class="slide-emoji">🎉😎</div>
+                    <h2 class="slide-title">Party Time! Let's Go! 🕺</h2>
+                    <p class="slide-text">We're gonna <span>party all night!</span> Cake, balloons, music yang upbeat! Get ready for the <span>best celebration ever!</span></p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Story -->
-        <section id="story" class="section story-section">
-            <div class="section-inner">
-                <div class="story-container">
-                    <div class="story-img animate-text">
-                        <img src="https://i.ibb.co/Z1QkDzK/map-store.jpg" class="image-reveal" alt="Lokasi Toko Mukena Hasfita" onerror="this.src='https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-7.664205,112.9057888&fov=80&heading=70&pitch=0&key=YOUR_API_KEY'">
-                    </div>
-                    <div class="story-content">
-                        <h2 class="story-title animate-text delay-1">Kisah Mukena Hasfita</h2>
-                        <p class="story-text animate-text delay-2">
-                            Mukena Hasfita hadir sejak 2019 dengan komitmen untuk menyediakan mukena berkualitas tinggi yang nyaman dan elegan.
-                        </p>
-                        <p class="story-text animate-text delay-2">
-                            Setiap produk dikerjakan dengan bahan pilihan terbaik untuk memberikan pengalaman ibadah yang sempurna.
-                        </p>
-                        
-                        <div class="story-features">
-                            <div class="story-feature">
-                                <i class="fas fa-check"></i>
-                                <div class="story-feature-text">Bahan Premium</div>
-                            </div>
-                            <div class="story-feature">
-                                <i class="fas fa-check"></i>
-                                <div class="story-feature-text">Jahitan Presisi</div>
-                            </div>
-                            <div class="story-feature">
-                                <i class="fas fa-check"></i>
-                                <div class="story-feature-text">Desain Eksklusif</div>
-                            </div>
-                            <div class="story-feature">
-                                <i class="fas fa-check"></i>
-                                <div class="story-feature-text">Garansi 1 Tahun</div>
-                            </div>
-                        </div>
-                        
-                        <div class="rating-section animate-text delay-3">
-                            <div class="rating-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <div>
-                                <div class="rating-text">4.9/5.0 Rating</div>
-                                <div class="rating-source">500+ Ulasan</div>
-                            </div>
-                        </div>
-                        
-                        <div class="story-tagline animate-text delay-4">
-                            <i class="fas fa-hashtag"></i>
-                            #MukenaPremium #MukenaHasfita
-                        </div>
-                    </div>
+                
+                <div class="slide">
+                    <div class="slide-emoji">🎁🤩</div>
+                    <h2 class="slide-title">Surprise! Many Gifts! 🎊</h2>
+                    <p class="slide-text">Check out all the <span>awesome presents</span> waiting for you! Tapi yang paling penting sih <span>cinta dari temen-temen semua</span> 😉</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 4: Contact -->
-        <section id="contact" class="section contact-section">
-            <div class="section-inner">
-                <div class="contact-container">
-                    <div class="contact-header animate-text">
-                        <h2 class="contact-title">Hubungi Kami</h2>
-                        <p class="contact-subtitle">Kami siap membantu Anda mendapatkan mukena terbaik.</p>
-                    </div>
-                    
-                    <div class="contact-grid">
-                        <div class="contact-info animate-text delay-1">
-                            <h3 class="form-title">Informasi Kontak</h3>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-store"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <h4>Nama Toko</h4>
-                                    <p>Mukena Hasfita</p>
-                                    <p style="color: var(--accent); font-weight: 500; font-size: 0.7rem;">Toko Mukena Premium</p>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <h4>Alamat Toko</h4>
-                                    <p>Perumahan Cipta Graha Asri Blok B-9<br>Jalan Sultan Agung Purworejo<br>Purutrejo, Kota Pasuruan 67122</p>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <h4>Jam Operasional</h4>
-                                    <p>Senin - Minggu: 08:00 - 20:00 WIB</p>
-                                    <p style="font-size: 0.7rem; color: var(--accent);">Buka Setiap Hari</p>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <h4>Telepon & WhatsApp</h4>
-                                    <a href="https://wa.me/6282240409293" target="_blank">0822-4040-9293</a>
-                                    <p style="font-size: 0.7rem;">Respon Cepat via WhatsApp</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-form-container animate-text delay-2">
-                            <h3 class="form-title">Kirim Pesan</h3>
-                            <form id="contactForm">
-                                <div class="form-group">
-                                    <label class="form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-input" placeholder="Masukkan nama Anda" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" class="form-input" placeholder="email@anda.com" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label class="form-label">Nomor WhatsApp</label>
-                                    <input type="tel" class="form-input" placeholder="0822-XXXX-XXXX" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label class="form-label">Pesan</label>
-                                    <textarea class="form-textarea" placeholder="Tulis pesan Anda di sini..." required></textarea>
-                                </div>
-                                
-                                <button type="submit" class="submit-button">
-                                    <i class="fas fa-paper-plane"></i>
-                                    Kirim Pesan
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                    
-                    <div class="social-section animate-text delay-3">
-                        <h3 class="social-title">Ikuti Kami</h3>
-                        <div class="social-media">
-                            <a href="https://instagram.com/mukenahasfita.id" class="social-icon" target="_blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://wa.me/6282240409293" class="social-icon" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="https://facebook.com" class="social-icon" target="_blank">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="https://tiktok.com" class="social-icon" target="_blank">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                            <a href="https://youtube.com" class="social-icon" target="_blank">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                        
-                        <a href="https://wa.me/6282240409293" class="social-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Chat Langsung via WhatsApp
-                        </a>
-                    </div>
+                
+                <div class="slide">
+                    <div class="slide-emoji">😂🤪</div>
+                    <h2 class="slide-title">Laugh & Happy Vibes Only! ✨</h2>
+                    <p class="slide-text">This year, may your life be filled with <span>non-stop laughter, good vibes, and crazy fun memories</span> with your squad!</p>
                 </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Cart Overlay -->
-    <div class="cart-overlay" id="cartOverlay">
-        <div class="cart-container">
-            <div class="cart-header">
-                <h3 class="cart-title">Keranjang Belanja</h3>
-                <div class="close-cart" id="closeCart">
-                    <i class="fas fa-times"></i>
+                
+                <div class="slide">
+                    <div class="slide-emoji">❤️🥰</div>
+                    <h2 class="slide-title">You're Loved! Periodt! 💖</h2>
+                    <p class="slide-text">Remember that <span>you're amazing</span> and so many people care about you! Slay every day, queen/king! 💅✨</p>
                 </div>
             </div>
             
-            <div class="cart-body" id="cartItems">
-                <div class="cart-empty" id="emptyCart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <p>Keranjang belanja Anda kosong</p>
-                </div>
-            </div>
-            
-            <div class="cart-footer">
-                <div class="cart-total">
-                    <div class="total-label">Total Pembayaran:</div>
-                    <div class="total-amount" id="cartTotal">Rp 0</div>
+            <div class="slide-controls">
+                <button class="slide-nav" id="prev-slide">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back</span>
+                </button>
+                
+                <div class="slide-dots">
+                    <div class="dot active" data-slide="0"></div>
+                    <div class="dot" data-slide="1"></div>
+                    <div class="dot" data-slide="2"></div>
+                    <div class="dot" data-slide="3"></div>
+                    <div class="dot" data-slide="4"></div>
                 </div>
                 
-                <div class="cart-actions">
-                    <button class="cart-btn clear-btn" id="clearCart">
-                        <i class="fas fa-trash-alt"></i>
-                        Kosongkan
+                <button class="slide-nav" id="next-slide">
+                    <span>Next</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Game Tab -->
+        <div id="game" class="content">
+            <div class="game-container">
+                <h2 class="game-title">Blow The Candles Challenge! 🕯️</h2>
+                
+                <div class="game-stats">
+                    <div class="stat">
+                        <div class="stat-value" id="score">0</div>
+                        <div class="stat-label">Candles Blown</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="time">30</div>
+                        <div class="stat-label">Seconds Left</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="candles-left">10</div>
+                        <div class="stat-label">Still Burning</div>
+                    </div>
+                </div>
+                
+                <div class="game-area">
+                    <h3 style="color: var(--purple); font-size: 2rem; margin-bottom: 20px;">Click the candles to blow 'em out! Fast! ⏰</h3>
+                    
+                    <div class="cake" id="cake">
+                        <div class="cake-base"></div>
+                        <div class="cake-top"></div>
+                        <!-- Candles will be added by JavaScript -->
+                    </div>
+                    
+                    <div id="game-message" style="font-size: 1.8rem; margin-top: 20px; min-height: 60px;"></div>
+                </div>
+                
+                <div class="game-buttons">
+                    <button class="game-btn start-btn" id="start-game">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Start Game! Let's Go! 🚀</span>
                     </button>
-                    <button class="cart-btn checkout-btn" id="checkoutBtn">
-                        <i class="fab fa-whatsapp"></i>
-                        Checkout via WhatsApp
+                    <button class="game-btn reset-btn" id="reset-game">
+                        <i class="fas fa-redo-alt"></i>
+                        <span>Try Again! 🔄</span>
                     </button>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Marquee -->
-    <div class="marquee-container" id="marqueeContainer">
-        <div class="marquee-content">
-            <div class="marquee-item">
-                <i class="fas fa-shipping-fast marquee-icon"></i>
-                <span>🚚 GRATIS ONGKIR ke seluruh Indonesia untuk pembelian di atas Rp 500.000</span>
+        
+        <!-- Message Tab -->
+        <div id="message" class="content">
+            <div class="message-box">
+                <h2 class="message-title">Special Message For You! 💌</h2>
+                
+                <div class="message-text">
+                    <p>Hey you! <span class="highlight">Happy Birthday</span> lagi ya! 🎉</p>
+                    <p>Semoga di usia yang baru ini, kamu makin <span class="highlight">cool, confident, and slay every day!</span> 💅</p>
+                    <p>Inget ya, you're <span class="highlight">amazing just the way you are</span>! Jangan pernah berubah! 😊</p>
+                    <p>Semoga semua <span class="highlight">dreams and wishes</span> kamu terkabul this year! ✨</p>
+                    <p>Have the <span class="highlight">best birthday ever</span>! Party hard but stay safe! 🥳🎊</p>
+                </div>
+                
+                <div style="font-size: 4rem; margin-top: 40px;">
+                    🎂 🎈 🎁 🥳 🎉 ✨
+                </div>
             </div>
-            <div class="marquee-item">
-                <i class="fas fa-gift marquee-icon"></i>
-                <span>🎁 DISKON 15% untuk pembelian pertama menggunakan kode: WELCOME15</span>
-            </div>
-            <div class="marquee-item">
-                <i class="fas fa-clock marquee-icon"></i>
-                <span>⚡ PENGIRIMAN SAME DAY untuk order sebelum jam 14:00 WIB</span>
-            </div>
-            <div class="marquee-item">
-                <i class="fas fa-headset marquee-icon"></i>
-                <span>📞 LAYANAN PELANGGAN 08:00 - 20:00 WIB (Setiap Hari)</span>
-            </div>
-            <!-- Duplicate for seamless loop -->
-            <div class="marquee-item">
-                <i class="fas fa-shipping-fast marquee-icon"></i>
-                <span>🚚 GRATIS ONGKIR ke seluruh Indonesia untuk pembelian di atas Rp 500.000</span>
-            </div>
-            <div class="marquee-item">
-                <i class="fas fa-gift marquee-icon"></i>
-                <span>🎁 DISKON 15% untuk pembelian pertama menggunakan kode: WELCOME15</span>
-            </div>
-            <div class="marquee-item">
-                <i class="fas fa-clock marquee-icon"></i>
-                <span>⚡ PENGIRIMAN SAME DAY untuk order sebelum jam 14:00 WIB</span>
-            </div>
-            <div class="marquee-item">
-                <i class="fas fa-headset marquee-icon"></i>
-                <span>📞 LAYANAN PELANGGAN 08:00 - 20:00 WIB (Setiap Hari)</span>
-            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Made with <span class="heart">❤️</span> for your special day! | Gaul bahasa campur-campur nih! 😎</p>
+            <p style="margin-top: 15px; font-size: 1rem;">© 2023 Happy Birthday Website - Super Lucu & Fun! 🥳</p>
         </div>
     </div>
 
     <script>
-        // Data produk
-        const products = {
-            "Mukena Zafira": { dewasa: 199000, anak: 179000 },
-            "Mukena Aliya": { dewasa: 189000, anak: 169000 },
-            "Mukena Safiya": { dewasa: 309000, anak: 289000 },
-            "Mukena Nayla": { dewasa: 259000, anak: 239000 }
-        };
-
-        // Variabel global
-        let cart = [];
-        const cartIcon = document.getElementById('cartIcon');
-        const cartOverlay = document.getElementById('cartOverlay');
-        const closeCart = document.getElementById('closeCart');
-        const cartItems = document.getElementById('cartItems');
-        const emptyCart = document.getElementById('emptyCart');
-        const cartTotal = document.getElementById('cartTotal');
-        const cartCount = document.querySelector('.cart-count');
-        const clearCartBtn = document.getElementById('clearCart');
-        const checkoutBtn = document.getElementById('checkoutBtn');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navContainer = document.getElementById('navContainer');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const header = document.getElementById('mainHeader');
-        const contactForm = document.getElementById('contactForm');
-        const marqueeContainer = document.getElementById('marqueeContainer');
-        const toggleTaskbarBtn = document.getElementById('toggleTaskbar');
-        const toggleHeaderBtn = document.getElementById('toggleHeader');
-
-        // Status kontrol
-        let headerVisible = true;
-        let taskbarVisible = true;
-
-        // Fungsi untuk mengatur animasi saat scroll
-        function setupScrollAnimations() {
-            const sections = document.querySelectorAll('.section');
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-visible');
-                    }
-                });
-            }, observerOptions);
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        }
-
-        // Fungsi untuk update active nav link saat scroll
-        function setupScrollSpy() {
-            const sections = document.querySelectorAll('.section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            window.addEventListener('scroll', () => {
-                let current = '';
+        // Tab Navigation
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
                 
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    
-                    if (scrollY >= (sectionTop - 100)) {
-                        current = section.getAttribute('id');
-                    }
-                });
+                // Remove active class from all
+                tabBtns.forEach(b => b.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
                 
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${current}`) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-        }
-
-        // Fungsi toggle header
-        function toggleHeader() {
-            headerVisible = !headerVisible;
-            
-            if (headerVisible) {
-                header.classList.remove('hidden');
-                toggleHeaderBtn.classList.remove('active');
-                toggleHeaderBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                toggleHeaderBtn.title = "Sembunyikan Header";
-                localStorage.setItem('headerVisible', 'true');
-            } else {
-                header.classList.add('hidden');
-                toggleHeaderBtn.classList.add('active');
-                toggleHeaderBtn.innerHTML = '<i class="fas fa-eye"></i>';
-                toggleHeaderBtn.title = "Tampilkan Header";
-                localStorage.setItem('headerVisible', 'false');
-            }
-        }
-
-        // Fungsi toggle taskbar
-        function toggleTaskbar() {
-            taskbarVisible = !taskbarVisible;
-            
-            if (taskbarVisible) {
-                marqueeContainer.classList.remove('hidden');
-                toggleTaskbarBtn.classList.remove('active');
-                toggleTaskbarBtn.innerHTML = '<i class="fas fa-chevron-down"></i>';
-                toggleTaskbarBtn.title = "Sembunyikan Promo";
-                localStorage.setItem('taskbarVisible', 'true');
-            } else {
-                marqueeContainer.classList.add('hidden');
-                toggleTaskbarBtn.classList.add('active');
-                toggleTaskbarBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-                toggleTaskbarBtn.title = "Tampilkan Promo";
-                localStorage.setItem('taskbarVisible', 'false');
-            }
-        }
-
-        // Setup aplikasi
-        document.addEventListener('DOMContentLoaded', function() {
-            // Setup event listener untuk ukuran produk (Dewasa/Anak-anak)
-            document.querySelectorAll('.size-options').forEach(option => {
-                const sizeOptions = option.querySelectorAll('.size-option');
-                sizeOptions.forEach(optionEl => {
-                    optionEl.addEventListener('click', function() {
-                        const parent = this.parentElement;
-                        parent.querySelectorAll('.size-option').forEach(el => el.classList.remove('active'));
-                        this.classList.add('active');
-                        
-                        // Update harga
-                        const priceElement = this.closest('.product-content').querySelector('.product-price');
-                        const price = this.getAttribute('data-price');
-                        priceElement.textContent = `${parseInt(price).toLocaleString('id-ID')}`;
-                    });
-                });
-            });
-
-            // Setup event listener untuk tombol tambah ke keranjang
-            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const productName = this.getAttribute('data-product');
-                    const productCard = this.closest('.product-card');
-                    const selectedSize = productCard.querySelector('.size-option.active').textContent;
-                    const price = parseInt(productCard.querySelector('.size-option.active').getAttribute('data-price'));
-                    
-                    addToCart(productName, selectedSize, price);
-                    
-                    // Animasi konfirmasi
-                    this.innerHTML = '<i class="fas fa-check"></i> Ditambahkan';
-                    this.style.background = '#27ae60';
-                    
-                    setTimeout(() => {
-                        this.innerHTML = '<i class="fas fa-plus"></i> Tambah ke Keranjang';
-                        this.style.background = '';
-                    }, 1200);
-                });
-            });
-
-            // Setup keranjang belanja
-            cartIcon.addEventListener('click', openCart);
-            closeCart.addEventListener('click', closeCartOverlay);
-            clearCartBtn.addEventListener('click', clearCart);
-            checkoutBtn.addEventListener('click', checkout);
-
-            // Setup mobile menu
-            mobileMenuBtn.addEventListener('click', function() {
-                this.classList.toggle('active');
-                navContainer.classList.toggle('active');
-            });
-
-            // Setup nav links untuk scroll
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    
-                    if (targetSection) {
-                        window.scrollTo({
-                            top: targetSection.offsetTop - 55,
-                            behavior: 'smooth'
-                        });
-                    }
-                    
-                    // Tutup mobile menu jika terbuka
-                    if (window.innerWidth <= 768) {
-                        navContainer.classList.remove('active');
-                        mobileMenuBtn.classList.remove('active');
-                    }
-                });
-            });
-
-            // Setup contact form
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const name = this.querySelector('input[type="text"]').value;
-                    const email = this.querySelector('input[type="email"]').value;
-                    const phone = this.querySelector('input[type="tel"]').value;
-                    const message = this.querySelector('textarea').value;
-                    
-                    // Kirim ke WhatsApp
-                    const whatsappMessage = `Halo Mukena Hasfita,%0A%0ANama: ${name}%0AEmail: ${email}%0ANomor HP: ${phone}%0A%0APesan:%0A${message}`;
-                    
-                    window.open(`https://wa.me/6282240409293?text=${whatsappMessage}`, '_blank');
-                    
-                    // Reset form
-                    this.reset();
-                    
-                    // Notifikasi
-                    alert('Pesan Anda telah dikirim. Kami akan membalas melalui WhatsApp.');
-                });
-            }
-
-            // Setup toggle header
-            if (toggleHeaderBtn && header) {
-                toggleHeaderBtn.addEventListener('click', toggleHeader);
+                // Add active to clicked
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
                 
-                // Load status header dari localStorage
-                const savedHeaderStatus = localStorage.getItem('headerVisible');
-                if (savedHeaderStatus === 'false') {
-                    headerVisible = false;
-                    header.classList.add('hidden');
-                    toggleHeaderBtn.classList.add('active');
-                    toggleHeaderBtn.innerHTML = '<i class="fas fa-eye"></i>';
-                    toggleHeaderBtn.title = "Tampilkan Header";
-                }
-            }
-
-            // Setup toggle taskbar
-            if (toggleTaskbarBtn && marqueeContainer) {
-                toggleTaskbarBtn.addEventListener('click', toggleTaskbar);
-                
-                // Load status taskbar dari localStorage
-                const savedTaskbarStatus = localStorage.getItem('taskbarVisible');
-                if (savedTaskbarStatus === 'false') {
-                    taskbarVisible = false;
-                    marqueeContainer.classList.add('hidden');
-                    toggleTaskbarBtn.classList.add('active');
-                    toggleTaskbarBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-                    toggleTaskbarBtn.title = "Tampilkan Promo";
-                }
-            }
-
-            // Update keranjang dari localStorage jika ada
-            const savedCart = localStorage.getItem('mukenaHasfitaCart');
-            if (savedCart) {
-                cart = JSON.parse(savedCart);
-                updateCartDisplay();
-            }
-
-            // Setup scroll untuk header
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 15) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-
-            // Setup animasi scroll
-            setupScrollAnimations();
-            setupScrollSpy();
-
-            // Close cart when clicking outside
-            cartOverlay.addEventListener('click', function(e) {
-                if (e.target === cartOverlay) {
-                    closeCartOverlay();
-                }
-            });
-
-            // Close cart with Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && cartOverlay.classList.contains('active')) {
-                    closeCartOverlay();
-                }
+                // Add fun sound
+                playSound('tab');
             });
         });
-
-        // Fungsi keranjang belanja
-        function addToCart(name, size, price) {
-            const existingItemIndex = cart.findIndex(item => item.name === name && item.size === size);
+        
+        // Slideshow
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const nextBtn = document.getElementById('next-slide');
+        const prevBtn = document.getElementById('prev-slide');
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
             
-            if (existingItemIndex !== -1) {
-                cart[existingItemIndex].quantity += 1;
-            } else {
-                cart.push({
-                    name: name,
-                    size: size,
-                    price: price,
-                    quantity: 1
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+            
+            // Add fun sound
+            playSound('slide');
+        }
+        
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+            // Bounce animation
+            nextBtn.style.transform = 'scale(0.9)';
+            setTimeout(() => nextBtn.style.transform = '', 200);
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+            // Bounce animation
+            prevBtn.style.transform = 'scale(0.9)';
+            setTimeout(() => prevBtn.style.transform = '', 200);
+        });
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                // Pop animation
+                dot.style.transform = 'scale(1.5)';
+                setTimeout(() => dot.style.transform = '', 300);
+            });
+        });
+        
+        // Auto-advance slides
+        setInterval(() => {
+            if (document.getElementById('slides').classList.contains('active')) {
+                showSlide(currentSlide + 1);
+            }
+        }, 4000);
+        
+        // Game Logic
+        const cake = document.getElementById('cake');
+        const scoreElement = document.getElementById('score');
+        const timeElement = document.getElementById('time');
+        const candlesLeftElement = document.getElementById('candles-left');
+        const startBtn = document.getElementById('start-game');
+        const resetBtn = document.getElementById('reset-game');
+        const gameMessage = document.getElementById('game-message');
+        
+        let score = 0;
+        let gameActive = false;
+        let candles = 10;
+        let timeLeft = 30;
+        let gameTimer;
+        
+        function createCandle() {
+            const candle = document.createElement('div');
+            candle.className = 'candle';
+            
+            // Random position
+            const leftPos = Math.floor(Math.random() * 250) + 25;
+            candle.style.left = leftPos + 'px';
+            
+            // Add flame
+            const flame = document.createElement('div');
+            flame.className = 'flame';
+            candle.appendChild(flame);
+            
+            // Click to blow
+            candle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (gameActive && this.querySelector('.flame')) {
+                    // Remove flame with animation
+                    const flame = this.querySelector('.flame');
+                    flame.style.animation = 'none';
+                    flame.style.transform = 'scale(0)';
+                    flame.style.opacity = '0';
+                    
+                    setTimeout(() => flame.remove(), 300);
+                    
+                    // Candle effect
+                    this.style.background = '#ddd';
+                    this.style.boxShadow = 'none';
+                    
+                    // Update score
+                    score++;
+                    scoreElement.textContent = score;
+                    candles--;
+                    candlesLeftElement.textContent = candles;
+                    
+                    // Play blow sound
+                    playSound('blow');
+                    
+                    // Add floating text
+                    const floatText = document.createElement('div');
+                    floatText.textContent = 'Poof! 💨';
+                    floatText.style.position = 'absolute';
+                    floatText.style.left = leftPos + 'px';
+                    floatText.style.top = '-100px';
+                    floatText.style.color = var('--pink');
+                    floatText.style.fontSize = '1.5rem';
+                    floatText.style.fontWeight = '900';
+                    floatText.style.animation = 'bounce 1s forwards';
+                    cake.appendChild(floatText);
+                    
+                    setTimeout(() => floatText.remove(), 1000);
+                    
+                    // Win condition
+                    if (candles === 0) {
+                        gameActive = false;
+                        clearInterval(gameTimer);
+                        const timeUsed = 30 - timeLeft;
+                        gameMessage.innerHTML = `<div style="background: var(--green); padding: 20px; border-radius: 20px; color: #333; font-weight: 900; animation: popIn 0.5s;">
+                            🎉 YASSS! YOU DID IT! 🎉<br>
+                            All candles blown in ${timeUsed} seconds! Slay! 💅
+                        </div>`;
+                        playSound('win');
+                        createConfetti();
+                    }
+                }
+            });
+            
+            cake.appendChild(candle);
+        }
+        
+        function startGame() {
+            if (gameActive) return;
+            
+            // Reset
+            score = 0;
+            candles = 10;
+            timeLeft = 30;
+            scoreElement.textContent = score;
+            candlesLeftElement.textContent = candles;
+            timeElement.textContent = timeLeft;
+            gameMessage.innerHTML = '<div style="color: var(--purple);">Ready? Click the candles FAST! ⚡</div>';
+            
+            // Clear old candles
+            document.querySelectorAll('.candle').forEach(c => c.remove());
+            
+            // Create new candles
+            for (let i = 0; i < 10; i++) {
+                createCandle();
+            }
+            
+            gameActive = true;
+            playSound('start');
+            
+            // Timer
+            clearInterval(gameTimer);
+            gameTimer = setInterval(() => {
+                timeLeft--;
+                timeElement.textContent = timeLeft;
+                
+                // Time warning
+                if (timeLeft === 10) {
+                    timeElement.style.color = 'var(--pink)';
+                    timeElement.style.animation = 'bounce 0.5s infinite';
+                }
+                
+                // Time's up
+                if (timeLeft <= 0) {
+                    clearInterval(gameTimer);
+                    gameActive = false;
+                    gameMessage.innerHTML = `<div style="background: var(--pink); padding: 20px; border-radius: 20px; color: white; font-weight: 900;">
+                        ⏰ TIME'S UP! ⏰<br>
+                        You blew ${score} candles! Not bad! 😉
+                    </div>`;
+                    playSound('lose');
+                }
+            }, 1000);
+        }
+        
+        function resetGame() {
+            gameActive = false;
+            clearInterval(gameTimer);
+            timeElement.style.color = '';
+            timeElement.style.animation = '';
+            startGame();
+        }
+        
+        startBtn.addEventListener('click', startGame);
+        resetBtn.addEventListener('click', resetGame);
+        
+        // Sound effects
+        function playSound(type) {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                // Different sounds for different actions
+                switch(type) {
+                    case 'tab':
+                        oscillator.frequency.value = 523.25; // C5
+                        oscillator.type = 'sine';
+                        gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+                        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                        oscillator.start(audioContext.currentTime);
+                        oscillator.stop(audioContext.currentTime + 0.3);
+                        break;
+                        
+                    case 'slide':
+                        oscillator.frequency.value = 659.25; // E5
+                        oscillator.type = 'triangle';
+                        gainNode.gain.setValueAtTime(0.15, audioContext.currentTime);
+                        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+                        oscillator.start(audioContext.currentTime);
+                        oscillator.stop(audioContext.currentTime + 0.2);
+                        break;
+                        
+                    case 'blow':
+                        oscillator.frequency.value = 392.00; // G4
+                        oscillator.type = 'sawtooth';
+                        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+                        oscillator.start(audioContext.currentTime);
+                        oscillator.stop(audioContext.currentTime + 0.1);
+                        break;
+                        
+                    case 'start':
+                        // Two tones
+                        for(let i = 0; i < 2; i++) {
+                            setTimeout(() => {
+                                const osc = audioContext.createOscillator();
+                                const gain = audioContext.createGain();
+                                osc.connect(gain);
+                                gain.connect(audioContext.destination);
+                                osc.frequency.value = 523.25 + (i * 261.63);
+                                osc.type = 'sine';
+                                gain.gain.setValueAtTime(0.15, audioContext.currentTime);
+                                gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+                                osc.start(audioContext.currentTime);
+                                osc.stop(audioContext.currentTime + 0.2);
+                            }, i * 100);
+                        }
+                        break;
+                }
+            } catch(e) {
+                console.log("Audio not supported");
+            }
+        }
+        
+        // Confetti effect
+        function createConfetti() {
+            const colors = ['#FF85B3', '#85E3FF', '#FFD166', '#C780FA', '#7AFFB0'];
+            const emojis = ['🎉', '🎊', '✨', '🥳', '🎂', '🎁', '💖'];
+            
+            for (let i = 0; i < 80; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'fixed';
+                confetti.style.fontSize = Math.random() * 30 + 20 + 'px';
+                confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-50px';
+                confetti.style.zIndex = '9999';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.filter = 'drop-shadow(2px 2px 0px rgba(0,0,0,0.2))';
+                document.body.appendChild(confetti);
+                
+                // Random animation
+                const animation = confetti.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(${window.innerHeight + 50}px) rotate(${Math.random() * 720}deg)`, opacity: 0 }
+                ], {
+                    duration: Math.random() * 3000 + 2000,
+                    delay: Math.random() * 500,
+                    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
                 });
-            }
-            
-            localStorage.setItem('mukenaHasfitaCart', JSON.stringify(cart));
-            updateCartDisplay();
-            
-            // Animasi cart icon
-            cartIcon.style.transform = 'scale(1.08)';
-            setTimeout(() => {
-                cartIcon.style.transform = '';
-            }, 250);
-        }
-
-        function updateQuantity(index, change) {
-            const newQuantity = cart[index].quantity + change;
-            
-            if (newQuantity < 1) {
-                removeFromCart(index);
-                return;
-            }
-            
-            cart[index].quantity = newQuantity;
-            localStorage.setItem('mukenaHasfitaCart', JSON.stringify(cart));
-            updateCartDisplay();
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            localStorage.setItem('mukenaHasfitaCart', JSON.stringify(cart));
-            updateCartDisplay();
-        }
-
-        function updateCartDisplay() {
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems;
-            
-            cartItems.innerHTML = '';
-            
-            if (cart.length === 0) {
-                emptyCart.style.display = 'block';
-                cartTotal.textContent = 'Rp 0';
-                return;
-            }
-            
-            emptyCart.style.display = 'none';
-            
-            let totalPrice = 0;
-            
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                totalPrice += itemTotal;
                 
-                const cartItemElement = document.createElement('div');
-                cartItemElement.className = 'cart-item';
-                cartItemElement.innerHTML = `
-                    <div class="item-info">
-                        <h4>${item.name}</h4>
-                        <p>Ukuran: ${item.size}</p>
-                    </div>
-                    <div class="item-actions">
-                        <div class="item-quantity">
-                            <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity">${item.quantity}</span>
-                            <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <div class="item-price">Rp ${itemTotal.toLocaleString('id-ID')}</div>
-                        <div class="remove-item" onclick="removeFromCart(${index})">
-                            <i class="fas fa-times"></i>
-                        </div>
-                    </div>
-                `;
-                
-                cartItems.appendChild(cartItemElement);
-            });
-            
-            cartTotal.textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
-        }
-
-        function openCart() {
-            cartOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            if (window.innerWidth <= 768) {
-                navContainer.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
+                animation.onfinish = () => confetti.remove();
             }
         }
-
-        function closeCartOverlay() {
-            cartOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function clearCart() {
-            if (cart.length === 0) return;
-            
-            if (confirm('Apakah Anda yakin ingin mengosongkan keranjang belanja?')) {
-                cart = [];
-                localStorage.removeItem('mukenaHasfitaCart');
-                updateCartDisplay();
-            }
-        }
-
-        function checkout() {
-            if (cart.length === 0) {
-                alert('Keranjang belanja Anda masih kosong.');
-                return;
-            }
-            
-            let message = "Halo Mukena Hasfita, saya ingin memesan mukena:%0A%0A";
-            
-            cart.forEach((item, index) => {
-                message += `${index + 1}. ${item.name} (Ukuran: ${item.size}) - ${item.quantity} pcs - Rp ${(item.price * item.quantity).toLocaleString('id-ID')}%0A`;
-            });
-            
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const discount = totalPrice > 500000 ? totalPrice * 0.15 : 0;
-            const finalPrice = totalPrice - discount;
-            
-            message += `%0ATotal: Rp ${totalPrice.toLocaleString('id-ID')}`;
-            if (discount > 0) {
-                message += `%0ADiskon 15%: Rp ${discount.toLocaleString('id-ID')}`;
-                message += `%0ATotal Akhir: Rp ${finalPrice.toLocaleString('id-ID')}`;
-            }
-            
-            message += `%0A%0ANama: %0AAlamat Lengkap: %0ANomor HP: %0AMetode Pembayaran:`;
-            
-            window.open(`https://wa.me/6282240409293?text=${message}`, '_blank');
-            closeCartOverlay();
-        }
-
-        // Ekspos fungsi ke global scope
-        window.updateQuantity = updateQuantity;
-        window.removeFromCart = removeFromCart;
+        
+        // Initial confetti
+        setTimeout(() => createConfetti(), 1500);
     </script>
 </body>
 </html>
