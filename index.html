@@ -1,630 +1,527 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mie Gacopan | Mie Pedas Level Dewa</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine?</title>
     <style>
-        /* ... (semua CSS sebelumnya tetap sama) ... */
-
-        /* =========== UPDATED SWIPER SLIDER STYLES WITH MAPS =========== */
-        .location-slider-container {
-            position: relative;
-            padding: 2rem 0 5rem;
-            margin-bottom: 3rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .swiper {
-            width: 100%;
-            height: 550px;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(183, 28, 28, 0.15);
-            border: 5px solid rgba(183, 28, 28, 0.2);
-        }
-
-        .swiper-slide {
-            position: relative;
+        body {
+            min-height: 100vh;
+            background: #fbeef0;
+            background-image: radial-gradient(circle at 10% 30%, #ffd9e2 0%, #ffeef2 50%, #fff5f7 100%);
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', cursive, sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-        }
-
-        /* Slide dengan peta */
-        .slide-with-map {
             position: relative;
-            width: 100%;
-            height: 100%;
+            overflow-x: hidden;
         }
 
-        .map-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            filter: brightness(0.95) contrast(1.1);
-        }
-
-        .map-overlay-content {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: rgba(26, 26, 26, 0.9);
-            padding: 1.5rem;
-            border-radius: 15px;
-            color: var(--off-white);
-            transform: translateY(0);
-            transition: transform 0.5s ease;
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--gold-accent);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            z-index: 2;
-        }
-
-        .swiper-slide-active .map-overlay-content {
-            animation: slideUp 0.6s ease 0.3s forwards;
-        }
-
-        .map-overlay-content h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--gold-accent);
-            margin-bottom: 0.8rem;
-            font-family: 'Bebas Neue', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .map-overlay-content p {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: var(--light-gray);
-            margin-bottom: 1rem;
-        }
-
-        .map-action-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 20px;
-            background: var(--luxury-gradient);
-            color: var(--gold-accent);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 700;
-            transition: var(--transition);
-            font-size: 0.9rem;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            text-transform: uppercase;
-            font-family: 'Oswald', sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .map-action-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--glow);
-            background: var(--gold-gradient);
-        }
-
-        /* Slide dengan gambar */
-        .slide-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            filter: brightness(0.9);
-        }
-
-        .swiper-slide-active .slide-image {
-            transform: scale(1.05);
-        }
-
-        .slide-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(26, 26, 26, 0.85);
-            padding: 2rem;
-            color: var(--off-white);
-            transform: translateY(100%);
-            transition: transform 0.5s ease;
-            backdrop-filter: blur(10px);
-            border-top: 3px solid var(--gold-accent);
-        }
-
-        .swiper-slide-active .slide-overlay {
-            transform: translateY(0);
-        }
-
-        .slide-title {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--gold-accent);
-            margin-bottom: 1rem;
-            font-family: 'Bebas Neue', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .slide-description {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--light-gray);
-            margin-bottom: 1.5rem;
-        }
-
-        .slide-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 25px;
-            background: var(--luxury-gradient);
-            color: var(--gold-accent);
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 800;
-            transition: var(--transition);
-            font-size: 1rem;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            text-transform: uppercase;
-            font-family: 'Oswald', sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .slide-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--glow);
-            background: var(--gold-gradient);
-        }
-
-        /* =========== UPDATED MAPS SPECIFIC STYLES =========== */
-        .interactive-map-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .map-marker-info {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(26, 26, 26, 0.9);
-            padding: 15px;
-            border-radius: 10px;
-            color: var(--off-white);
-            max-width: 250px;
-            border: 2px solid var(--primary-red);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
-        }
-
-        .map-marker-info h4 {
-            color: var(--gold-accent);
-            margin-bottom: 5px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.3rem;
-        }
-
-        /* =========== RESPONSIVE UPDATES =========== */
-        @media (max-width: 768px) {
-            .swiper {
-                height: 400px;
-            }
-            
-            .map-overlay-content {
-                bottom: 10px;
-                left: 10px;
-                right: 10px;
-                padding: 1rem;
-            }
-            
-            .map-overlay-content h3 {
-                font-size: 1.2rem;
-            }
-            
-            .map-overlay-content p {
-                font-size: 0.9rem;
-            }
-            
-            .slide-overlay {
-                padding: 1.5rem;
-            }
-            
-            .slide-title {
-                font-size: 1.5rem;
-            }
-            
-            .slide-description {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .swiper {
-                height: 350px;
-            }
-            
-            .map-overlay-content {
-                padding: 0.8rem;
-            }
-            
-            .map-overlay-content h3 {
-                font-size: 1.1rem;
-            }
-            
-            .slide-overlay {
-                padding: 1rem;
-            }
-            
-            .slide-title {
-                font-size: 1.3rem;
-            }
-            
-            .slide-description {
-                font-size: 0.9rem;
-            }
-            
-            .map-marker-info {
-                top: 10px;
-                right: 10px;
-                max-width: 180px;
-                padding: 10px;
-            }
-        }
-
-        /* Animasi khusus untuk maps */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Efek loading untuk maps */
-        .map-loading {
-            position: absolute;
+        /* Love rain canvas */
+        #hearts-canvas {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--cream-bg), var(--light-gold));
+            pointer-events: none;
+            z-index: 5;
+            display: none;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 90%;
+            background: rgba(255, 250, 245, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 70px 70px 50px 50px;
+            box-shadow: 0 20px 30px rgba(255, 120, 160, 0.3), 
+                        0 0 0 8px #ffe2e9, 
+                        0 0 0 12px #ffb6c7;
+            padding: 40px 30px 45px;
+            text-align: center;
+            border: 2px solid white;
+            position: relative;
+            z-index: 10;
+            transition: all 0.2s;
+        }
+
+        /* Foto 1 - tampilan awal persis */
+        .header-text {
+            font-size: 2.5rem;
+            color: #b3445c;
+            text-shadow: 3px 3px 0 #ffc1d0;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header-text small {
+            font-size: 1.8rem;
+            color: #a13f55;
+        }
+
+        .dear-someone {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #8f334c;
+            background: #fff3f5;
+            display: inline-block;
+            padding: 12px 40px;
+            border-radius: 60px;
+            margin: 15px 0 5px;
+            box-shadow: 0 6px 0 #e08a9f;
+            border: 2px solid white;
+        }
+
+        .question-box {
+            background: #ffdee6;
+            border-radius: 100px;
+            padding: 15px 20px;
+            margin: 20px 0 25px;
+            border: 4px solid #ffb0c2;
+            box-shadow: inset 0 -4px 0 #db8fa0;
+        }
+
+        .will-you {
+            font-size: 2.2rem;
+            color: #802b43;
+            font-weight: 600;
+        }
+
+        .big-question {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #ac1f45;
+            line-height: 1.2;
+            letter-spacing: 2px;
+        }
+
+        .yes-no-group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin: 20px 0 15px;
+            position: relative;
+        }
+
+        .yes-button {
+            background: #ff4d6d;
+            border: none;
+            color: white;
+            font-size: 3.5rem;
+            font-weight: bold;
+            padding: 12px 50px;
+            border-radius: 80px;
+            box-shadow: 0 12px 0 #9f2b48, 0 10px 25px #ff8da8;
+            cursor: pointer;
+            transition: 0.07s;
+            border: 4px solid #ffeef2;
+            transform: scale(1);
+            min-width: 220px;
+        }
+
+        .yes-button:active {
+            transform: translateY(8px);
+            box-shadow: 0 4px 0 #9f2b48, 0 12px 25px #ffb0c6;
+        }
+
+        /* No button wrapper for absolute positioning inside */
+        .no-wrapper {
+            position: relative;
+            width: 130px;
+            height: 90px;
+            display: inline-block;
+        }
+
+        .no-button {
+            background: #3f2a30;
+            border: none;
+            color: #ffd2d2;
+            font-size: 2.8rem;
+            font-weight: bold;
+            padding: 8px 25px;
+            border-radius: 60px;
+            box-shadow: 0 10px 0 #1f1217, 0 8px 15px #5a3e48;
+            cursor: pointer;
+            border: 3px solid #ffb6b6;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 130px;
+            text-align: center;
+            transition: 0.05s;
+            pointer-events: auto;
+            z-index: 30;
+        }
+
+        .choose-wisely {
+            font-size: 1.6rem;
+            color: #b3546b;
+            background: #ffeef4;
+            display: inline-block;
+            padding: 5px 30px;
+            border-radius: 40px;
+            margin-top: 5px;
+            border: 2px dashed #ff99b4;
+        }
+
+        /* Result area - foto kedua & ketiga */
+        .result-area {
+            margin-top: 30px;
+            background: #ffe5ec;
+            border-radius: 70px 70px 40px 40px;
+            padding: 25px 20px 30px;
+            border: 6px solid #ffb3c6;
+            box-shadow: 0 12px 0 #e690aa;
+            transition: 0.4s;
+        }
+
+        .yay-message {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #b13055;
+            background: white;
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 60px;
+            margin-bottom: 20px;
+            border: 4px solid #ffa5bc;
+            transform: rotate(-0.5deg);
+            box-shadow: 0 5px 0 #e07c9a;
+        }
+
+        .hug-box {
+            background: #fff0f3;
+            border-radius: 70px;
+            padding: 25px 20px;
+            border: 6px solid #ffbccd;
+            box-shadow: inset 0 -5px 0 #e7a1b4;
+        }
+
+        .hug-text-line {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #782b45;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 10px;
         }
 
-        .map-loading-content {
-            text-align: center;
-            color: var(--primary-red);
+        .dots-loading {
+            font-size: 2.8rem;
+            letter-spacing: 8px;
+            color: #bc4e6e;
+            min-width: 100px;
+            text-align: left;
         }
 
-        .map-loading-content i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: pulse 1.5s infinite;
+        .loading-bar-container {
+            width: 80%;
+            max-width: 320px;
+            height: 28px;
+            background: #ffb9cd;
+            border-radius: 40px;
+            margin: 15px auto 12px;
+            border: 4px solid white;
+            overflow: hidden;
+            box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
         }
 
-        .map-loading-content p {
-            font-weight: 700;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
+        .loading-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ff6687, #ff94b2, #ffb8cc);
+            border-radius: 40px;
+            transition: width 2.8s cubic-bezier(0.2, 0.9, 0.3, 1);
         }
 
-        /* ... (CSS lainnya tetap sama) ... */
+        .hug-emoji-big {
+            font-size: 4rem;
+            margin: 10px 0 5px;
+            filter: drop-shadow(0 8px 6px #e85c86);
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) rotate(-2deg); }
+            100% { transform: scale(1.15) rotate(2deg); }
+        }
+
+        .loading-text-below {
+            font-size: 1.9rem;
+            color: #9a3f5a;
+            background: #ffe2ec;
+            display: inline-block;
+            padding: 8px 28px;
+            border-radius: 50px;
+            margin: 12px 0 5px;
+            border: 3px solid #ffa0b9;
+        }
+
+        .final-line {
+            font-size: 2.2rem;
+            color: #c2224b;
+            font-weight: 600;
+            margin-top: 18px;
+            background: rgba(255,255,255,0.7);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Foto ketiga: ada tambahan "I guess there's only one answer" tapi kita munculkan saat klik yes? 
+           kita bisa tambahkan elemen itu di result area bagian atas */
+        .only-one-answer {
+            font-size: 2rem;
+            color: #9f3d57;
+            background: #ffdae3;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            border: 3px solid #ff99b2;
+        }
     </style>
 </head>
 <body>
-    <!-- ... (kode sebelumnya tetap sama) ... -->
 
-    <!-- Section 4: UPDATED Location with REAL MAPS Slider -->
-    <section id="location" class="section location-section">
-        <div class="section-inner">
-            <div class="location-container">
-                <div class="location-header animate-text">
-                    <h2 class="location-title">LOKASI & AKSES</h2>
-                    <p class="location-subtitle">Kunjungi toko kami yang strategis atau pesan delivery. Nikmati pengalaman kuliner terbaik!</p>
-                </div>
-                
-                <!-- Swiper Slider with REAL MAPS -->
-                <div class="location-slider-container animate-text delay-1">
-                    <div class="swiper">
-                        <div class="swiper-wrapper">
-                            <!-- Slide 1: Google Maps Location - REAL MAP -->
-                            <div class="swiper-slide">
-                                <div class="slide-with-map">
-                                    <div class="map-container">
-                                        <!-- Peta Google Maps yang sesungguhnya -->
-                                        <iframe 
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.123456789012!2d112.9075!3d-7.6458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7c5d6b0c1e4c5%3A0x6d5c1b3b3b3b3b3b!2sJl.%20Masuk%20Taman%20Ria%20Suropati%2C%20Kabupaten%20Pasuruan%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1621234567890!5m2!1sid!2sid" 
-                                            allowfullscreen="" 
-                                            loading="lazy"
-                                            referrerpolicy="no-referrer-when-downgrade">
-                                        </iframe>
-                                    </div>
-                                    <div class="map-overlay-content">
-                                        <h3>LOKASI TOKO KAMI</h3>
-                                        <p>Mie Gacopan terletak di lokasi strategis di Jl. Masuk Taman Ria Suropati, Kab. Pasuruan. Mudah diakses dari berbagai wilayah.</p>
-                                        <a href="https://maps.app.goo.gl/aQm2XLBP3PEbZH378" class="map-action-button" target="_blank">
-                                            <i class="fas fa-directions"></i>
-                                            BUKA DI GOOGLE MAPS
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Slide 2: Street View - REAL STREET VIEW -->
-                            <div class="swiper-slide">
-                                <div class="slide-with-map">
-                                    <div class="map-container">
-                                        <!-- Street View Google Maps -->
-                                        <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m0!4v1621234567890!6m8!1m7!1sCAoSLEFGMVFpcE5oME5JV1p6b0FGUWNGT2lUQ3N1SzBmZnFEdjhoaVNQa3VXa0tE!2m2!1d-7.6458!2d112.9075!3f0!4f0!5f0.7820865974627469"
-                                            allowfullscreen=""
-                                            loading="lazy"
-                                            referrerpolicy="no-referrer-when-downgrade">
-                                        </iframe>
-                                    </div>
-                                    <div class="map-overlay-content">
-                                        <h3>VIEW JALAN DEPAN TOKO</h3>
-                                        <p>Lihat suasana jalan di depan toko kami. Area yang nyaman dengan parkir yang luas dan akses mudah.</p>
-                                        <a href="https://maps.app.goo.gl/aQm2XLBP3PEbZH378" class="map-action-button" target="_blank">
-                                            <i class="fas fa-street-view"></i>
-                                            LIHAT STREET VIEW
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Slide 3: Interior View -->
-                            <div class="swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200" class="slide-image" alt="Interior Mie Gacopan">
-                                <div class="slide-overlay">
-                                    <h3 class="slide-title">INTERIOR NYAMAN</h3>
-                                    <p class="slide-description">
-                                        Tempat makan yang bersih dan nyaman dengan desain modern. 
-                                        Suasana yang cocok untuk makan bersama keluarga dan teman.
-                                    </p>
-                                    <a href="#location-info" class="slide-button" onclick="document.getElementById('facilities-info').scrollIntoView({behavior: 'smooth'})">
-                                        <i class="fas fa-store"></i>
-                                        LIHAT FASILITAS
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Slide 4: Delivery Service -->
-                            <div class="swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200" class="slide-image" alt="Delivery Service">
-                                <div class="slide-overlay">
-                                    <h3 class="slide-title">DELIVERY SERVICE</h3>
-                                    <p class="slide-description">
-                                        Pesan antar ke seluruh wilayah Pasuruan dan sekitarnya. 
-                                        Makanan tetap panas dan segar saat sampai di rumah Anda.
-                                    </p>
-                                    <a href="#contact" class="slide-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-                                        <i class="fas fa-motorcycle"></i>
-                                        PESAN ANTAR
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Slide 5: Interactive Area Map -->
-                            <div class="swiper-slide">
-                                <div class="slide-with-map">
-                                    <div class="interactive-map-container">
-                                        <div class="map-container">
-                                            <!-- Peta dengan area delivery -->
-                                            <iframe
-                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.123456789012!2d112.9075!3d-7.6458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7c5d6b0c1e4c5%3A0x6d5c1b3b3b3b3b3b!2sJl.%20Masuk%20Taman%20Ria%20Suropati%2C%20Kabupaten%20Pasuruan%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1621234567890!5m2!1sid!2sid&z=13"
-                                                allowfullscreen=""
-                                                loading="lazy"
-                                                referrerpolicy="no-referrer-when-downgrade">
-                                            </iframe>
-                                        </div>
-                                        <div class="map-marker-info">
-                                            <h4>AREA DELIVERY</h4>
-                                            <p>Kami melayani delivery ke seluruh Pasuruan dalam radius 10km dari toko.</p>
-                                        </div>
-                                    </div>
-                                    <div class="map-overlay-content">
-                                        <h3>AREA PELAYANAN KAMI</h3>
-                                        <p>Lihat area delivery kami. Kami melayani pemesanan untuk wilayah Pasuruan dan sekitarnya.</p>
-                                        <a href="#contact" class="map-action-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-                                            <i class="fas fa-truck"></i>
-                                            CEK AREA DELIVERY
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Navigation buttons -->
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-                
-                <!-- Location Info Cards -->
-                <div id="location-info" class="location-info-grid animate-text delay-2">
-                    <div class="location-info-card">
-                        <div class="info-card-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3 class="info-card-title">ALAMAT TOKO</h3>
-                        <p class="info-card-content">
-                            <strong>Jl. Masuk Taman Ria Suropati</strong><br>
-                            Kabupaten Pasuruan, Jawa Timur<br>
-                            Indonesia
-                        </p>
-                        <a href="https://maps.app.goo.gl/aQm2XLBP3PEbZH378" class="info-card-button" target="_blank">
-                            <i class="fas fa-directions"></i>
-                            PETUNJUK JALAN
-                        </a>
-                    </div>
-                    
-                    <div id="parking-info" class="location-info-card">
-                        <div class="info-card-icon">
-                            <i class="fas fa-car"></i>
-                        </div>
-                        <h3 class="info-card-title">PARKIR</h3>
-                        <p class="info-card-content">
-                            Area parkir luas untuk mobil dan motor.<br>
-                            Aman dan terjamin keamanannya.<br>
-                            <em>Gratis untuk pelanggan</em>
-                        </p>
-                        <button class="info-card-button" onclick="alert('Area parkir tersedia di depan toko dan belakang bangunan. Penjaga parkir siap membantu.')">
-                            <i class="fas fa-info-circle"></i>
-                            INFO PARKIR
-                        </button>
-                    </div>
-                    
-                    <div id="facilities-info" class="location-info-card">
-                        <div class="info-card-icon">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <h3 class="info-card-title">FASILITAS</h3>
-                        <p class="info-card-content">
-                            • AC & WiFi gratis<br>
-                            • Toilet bersih<br>
-                            • Meja keluarga<br>
-                            • Area merokok terpisah
-                        </p>
-                        <a href="#contact" class="info-card-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-                            <i class="fas fa-concierge-bell"></i>
-                            LAYANAN LAIN
-                        </a>
-                    </div>
-                    
-                    <div class="location-info-card">
-                        <div class="info-card-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3 class="info-card-title">JAM BUKA</h3>
-                        <p class="info-card-content">
-                            <strong>Senin - Minggu:</strong><br>
-                            09:00 - 15:00 WIB<br>
-                            <strong style="color: var(--primary-red);">Hari Kamis: LIBUR</strong>
-                        </p>
-                        <button class="info-card-button" onclick="alert('Kami buka setiap hari kecuali Kamis. Untuk pemesanan delivery, silakan hubungi via WhatsApp.')">
-                            <i class="fas fa-calendar-alt"></i>
-                            JADWAL BUKA
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- ... (kode kontak dan lainnya tetap sama) ... -->
+    <canvas id="hearts-canvas"></canvas>
+
+    <div class="container" id="mainContainer">
+        <!-- AWAL: persis foto pertama -->
+        <div class="header-text">Why is clicking ‘no’ this hard?</div>
+        <div class="dear-someone">Dear Someone</div>   <!-- Jennifer diganti Someone -->
+        <div class="question-box">
+            <div class="will-you">Will you be my Valentine?</div>
+            <div class="big-question">YES! 🥰💖</div>
+        </div>
+
+        <div class="yes-no-group">
+            <button class="yes-button" id="yesBtn">YES</button>
+            <div class="no-wrapper" id="noWrapper">
+                <button class="no-button" id="noBtn">NO</button>
             </div>
         </div>
-    </section>
+        <div class="choose-wisely">(choose wisely)</div>
 
-    <!-- ... (kode setelahnya tetap sama) ... -->
+        <!-- HASIL (foto kedua & ketiga digabung) - hidden mula2 -->
+        <div id="resultPanel" class="result-area hidden">
+            <!-- baris "I guess there's only one answer" (foto ketiga) -->
+            <div class="only-one-answer">💭 I guess there's only one answer</div>
+
+            <!-- Yay message persis foto kedua & ketiga -->
+            <div class="yay-message">Yay! I knew you'd say yes!</div>
+
+            <!-- Virtual hug dengan loading -->
+            <div class="hug-box">
+                <div class="hug-text-line">
+                    <span>sending virtual hug</span>
+                    <span class="dots-loading" id="loadingDots">......</span>
+                </div>
+                <div class="loading-bar-container">
+                    <div class="loading-fill" id="loadingFill"></div>
+                </div>
+                <div class="hug-emoji-big" id="hugEmoji">🤗</div>
+                <div class="loading-text-below" id="loadingCaption">loading...</div>
+            </div>
+
+            <!-- Baris terakhir "You've made me the happiest❤️" -->
+            <div class="final-line">You've made me the happiest ❤️</div>
+        </div>
+    </div>
 
     <script>
-        // ... (kode JavaScript sebelumnya tetap sama) ... 
+        (function() {
+            // Elemen
+            const noBtn = document.getElementById('noBtn');
+            const noWrapper = document.getElementById('noWrapper');
+            const yesBtn = document.getElementById('yesBtn');
+            const resultPanel = document.getElementById('resultPanel');
+            const loadingFill = document.getElementById('loadingFill');
+            const loadingDots = document.getElementById('loadingDots');
+            const hugEmoji = document.getElementById('hugEmoji');
+            const canvas = document.getElementById('hearts-canvas');
+            const ctx = canvas.getContext('2d');
 
-        // Initialize Swiper slider dengan opsi yang diperbarui
-        function initSwiper() {
-            swiper = new Swiper('.swiper', {
-                // Optional parameters
-                direction: 'horizontal',
-                loop: true,
-                speed: 800,
-                autoplay: {
-                    delay: 6000, // Lebih lama untuk membaca peta
-                    disableOnInteraction: false,
-                },
-                
-                // If we need pagination
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                    dynamicBullets: true,
-                },
-                
-                // Navigation arrows
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                
-                // Effect
-                effect: 'slide',
-                fadeEffect: {
-                    crossFade: true
-                },
-                
-                // Responsive breakpoints
-                breakpoints: {
-                    320: {
-                        slidesPerView: 1,
-                        spaceBetween: 0
-                    },
-                    768: {
-                        slidesPerView: 1,
-                        spaceBetween: 0
-                    },
-                    1024: {
-                        slidesPerView: 1,
-                        spaceBetween: 0
-                    }
-                },
-                
-                // Event untuk reload iframe maps saat slide aktif
-                on: {
-                    slideChange: function () {
-                        // Reload iframe maps untuk memastikan peta terbuka dengan benar
-                        setTimeout(() => {
-                            const activeSlide = this.slides[this.activeIndex];
-                            const iframes = activeSlide.querySelectorAll('iframe');
-                            iframes.forEach(iframe => {
-                                const src = iframe.src;
-                                iframe.src = src; // Reload iframe
-                            });
-                        }, 100);
+            // ========== CANVAS LOVE RAIN ==========
+            let hearts = [];
+            let animFrame = null;
+            let w, h;
+
+            function resizeCanvas() {
+                w = window.innerWidth;
+                h = window.innerHeight;
+                canvas.width = w;
+                canvas.height = h;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class Heart {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * -h - 50; // mulai dari atas
+                    this.size = 22 + Math.random() * 30; // 22-52px
+                    this.speed = 2 + Math.random() * 4;
+                    this.opacity = 0.7 + Math.random() * 0.3;
+                    this.color = `hsla(${340 + Math.random()*25}, 85%, 70%, ${this.opacity})`;
+                }
+                update() {
+                    this.y += this.speed;
+                    if (this.y > h + this.size) {
+                        this.reset();
+                        this.y = -this.size;
                     }
                 }
-            });
-            
-            // Add mouseenter/mouseleave events for autoplay control
-            const swiperContainer = document.querySelector('.swiper');
-            if (swiperContainer) {
-                swiperContainer.addEventListener('mouseenter', function() {
-                    swiper.autoplay.stop();
-                });
-                
-                swiperContainer.addEventListener('mouseleave', function() {
-                    swiper.autoplay.start();
-                });
+                draw() {
+                    ctx.font = `${this.size}px 'Segoe UI', 'Arial Unicode MS', 'Apple Color Emoji', 'Comic Sans MS', sans-serif`;
+                    ctx.fillStyle = this.color;
+                    ctx.fillText('❤️', this.x, this.y);
+                }
             }
-            
-            // Preload semua iframe maps
-            setTimeout(() => {
-                const iframes = document.querySelectorAll('.map-container iframe');
-                iframes.forEach(iframe => {
-                    iframe.setAttribute('loading', 'eager');
-                });
-            }, 1000);
-        }
 
-        // ... (kode JavaScript lainnya tetap sama) ...
+            function initHearts(count = 30) {
+                hearts = [];
+                for (let i = 0; i < count; i++) {
+                    const hh = new Heart();
+                    hh.y = Math.random() * -h - 100;
+                    hh.x = Math.random() * w;
+                    hearts.push(hh);
+                }
+            }
+
+            function drawHearts() {
+                ctx.clearRect(0, 0, w, h);
+                hearts.forEach(h => {
+                    h.update();
+                    h.draw();
+                });
+                animFrame = requestAnimationFrame(drawHearts);
+            }
+
+            function startLoveRain() {
+                canvas.style.display = 'block';
+                initHearts(35);
+                if (animFrame) cancelAnimationFrame(animFrame);
+                animFrame = requestAnimationFrame(drawHearts);
+            }
+
+            function stopLoveRain() {
+                if (animFrame) cancelAnimationFrame(animFrame);
+                ctx.clearRect(0, 0, w, h);
+                canvas.style.display = 'none';
+            }
+
+            // ========== NO BUTTON MENJADI TIDAK BISA DIKLIK ==========
+            // fungsi untuk memindahkan tombol No secara random di dalam wrapper
+            function moveNoButton() {
+                if (!noWrapper || !noBtn) return;
+
+                const wrapperRect = noWrapper.getBoundingClientRect();
+                const btnRect = noBtn.getBoundingClientRect();
+
+                // hitung maksimal pergerakan agar tetap di dalam wrapper
+                let maxX = wrapperRect.width - btnRect.width;
+                let maxY = wrapperRect.height - btnRect.height;
+
+                // kalau nilainya negatif (mungkin wrapper terlalu kecil), set 0
+                maxX = Math.max(0, maxX);
+                maxY = Math.max(0, maxY);
+
+                let newX = Math.random() * maxX;
+                let newY = Math.random() * maxY;
+
+                noBtn.style.left = newX + 'px';
+                noBtn.style.top = newY + 'px';
+            }
+
+            // panggil pertama kali
+            setTimeout(moveNoButton, 20);
+
+            // setiap kali hover atau coba klik, lari
+            noBtn.addEventListener('mouseenter', moveNoButton);
+            noBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                moveNoButton();
+            });
+
+            // tambahan: setiap 300ms bergerak sedikit (biar benar-benar ga bisa)
+            setInterval(moveNoButton, 280);
+
+            // saat resize, atur ulang posisi
+            window.addEventListener('resize', () => setTimeout(moveNoButton, 30));
+
+            // ========== YES BUTTON ==========
+            yesBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // munculkan result panel jika masih hidden
+                if (resultPanel.classList.contains('hidden')) {
+                    resultPanel.classList.remove('hidden');
+
+                    // love rain start
+                    startLoveRain();
+
+                    // reset loading bar
+                    loadingFill.style.width = '0%';
+
+                    // animasi titik-titik (loading dots)
+                    let dotCount = 0;
+                    const dotsInterval = setInterval(() => {
+                        if (!resultPanel.classList.contains('hidden')) {
+                            dotCount = (dotCount + 1) % 7; // 0-6
+                            let dotsString = '';
+                            for (let i = 0; i < dotCount; i++) dotsString += '.';
+                            // padding supaya lebar konsisten
+                            while (dotsString.length < 6) dotsString += ' ';
+                            loadingDots.innerText = dotsString;
+                        } else {
+                            clearInterval(dotsInterval);
+                        }
+                    }, 280);
+
+                    // jalankan loading bar
+                    setTimeout(() => {
+                        loadingFill.style.width = '100%';
+                    }, 100);
+
+                    // ganti emoji setelah beberapa saat
+                    setTimeout(() => {
+                        hugEmoji.innerHTML = '❤️ 🤗 ❤️';
+                    }, 2200);
+
+                    // opsional: teks loading bisa berubah (tetap "loading..." sesuai foto)
+                }
+
+                // no button ikut lari
+                moveNoButton();
+            });
+
+            // inisialisasi loadingDots dengan 6 titik
+            loadingDots.innerText = '......';
+
+            // supaya mirip foto, result panel awalnya hidden, dan saat YES muncul semua elemen
+            // foto ketiga "I guess there's only one answer" sudah ada di panel
+        })();
     </script>
 </body>
 </html>
