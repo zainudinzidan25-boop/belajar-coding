@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will you be my Valentine?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>someone · Valentine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Shadows+Into+Light&family=Gloria+Hallelujah&family=Gochi+Hand&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,17 +16,18 @@
 
         body {
             min-height: 100vh;
-            background: #fbeef0;
-            background-image: radial-gradient(circle at 10% 30%, #ffd9e2 0%, #ffeef2 50%, #fff5f7 100%);
-            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', cursive, sans-serif;
+            background: #fce9ef;
+            background-image: radial-gradient(circle at 0% 40%, #ffdfe8 0%, #fff0f3 70%, #fff9fb 100%);
+            font-family: 'Patrick Hand', 'Shadows Into Light', 'Gloria Hallelujah', 'Comic Sans MS', cursive, sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 12px;
             position: relative;
             overflow-x: hidden;
+            transition: background 0.3s;
         }
 
-        /* Love rain canvas */
         #hearts-canvas {
             position: fixed;
             top: 0;
@@ -31,76 +35,78 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 5;
+            z-index: 15;
             display: none;
         }
 
-        .container {
-            max-width: 650px;
-            width: 90%;
-            background: rgba(255, 250, 245, 0.85);
-            backdrop-filter: blur(8px);
-            border-radius: 70px 70px 50px 50px;
-            box-shadow: 0 20px 30px rgba(255, 120, 160, 0.3), 
-                        0 0 0 8px #ffe2e9, 
-                        0 0 0 12px #ffb6c7;
-            padding: 40px 30px 45px;
-            text-align: center;
-            border: 2px solid white;
+        .slide {
+            max-width: 700px;
+            width: 100%;
+            transition: opacity 0.4s ease, transform 0.3s ease;
             position: relative;
-            z-index: 10;
-            transition: all 0.2s;
+            z-index: 20;
         }
 
-        /* Foto 1 - tampilan awal persis */
+        .slide-1 {
+            background: rgba(255, 250, 245, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 70px 70px 50px 50px;
+            box-shadow: 0 20px 30px rgba(245, 125, 160, 0.25), 
+                        0 0 0 6px #ffe6ed, 
+                        0 0 0 12px #ffc1d0;
+            padding: 35px 25px 40px;
+            text-align: center;
+            border: 2px solid #ffffffaa;
+        }
+
         .header-text {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 7vw, 2.5rem);
             color: #b3445c;
-            text-shadow: 3px 3px 0 #ffc1d0;
-            margin-bottom: 8px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .header-text small {
-            font-size: 1.8rem;
-            color: #a13f55;
+            text-shadow: 2px 2px 0 #ffd1dc;
+            margin-bottom: 12px;
+            font-family: 'Shadows Into Light', cursive;
+            transform: rotate(-0.7deg);
+            word-break: break-word;
         }
 
         .dear-someone {
-            font-size: 2.8rem;
-            font-weight: 800;
+            font-size: clamp(2.2rem, 8vw, 3.2rem);
             color: #8f334c;
             background: #fff3f5;
             display: inline-block;
-            padding: 12px 40px;
-            border-radius: 60px;
-            margin: 15px 0 5px;
-            box-shadow: 0 6px 0 #e08a9f;
-            border: 2px solid white;
+            padding: 12px 35px;
+            border-radius: 100px;
+            margin: 12px 0 10px;
+            box-shadow: 0 7px 0 #e08a9f;
+            border: 3px solid white;
+            font-family: 'Gloria Hallelujah', cursive;
+            transform: rotate(0.8deg);
+            line-height: 1.2;
         }
 
         .question-box {
             background: #ffdee6;
             border-radius: 100px;
-            padding: 15px 20px;
+            padding: 16px 15px;
             margin: 20px 0 25px;
             border: 4px solid #ffb0c2;
-            box-shadow: inset 0 -4px 0 #db8fa0;
+            box-shadow: inset 0 -5px 0 #db8fa0;
         }
 
         .will-you {
-            font-size: 2.2rem;
+            font-size: clamp(1.7rem, 5vw, 2.2rem);
             color: #802b43;
-            font-weight: 600;
+            font-family: 'Patrick Hand', cursive;
         }
 
         .big-question {
-            font-size: 4rem;
-            font-weight: 900;
+            font-size: clamp(3.2rem, 12vw, 4.6rem);
             color: #ac1f45;
             line-height: 1.2;
+            font-family: 'Gochi Hand', cursive;
             letter-spacing: 2px;
+            word-break: break-word;
         }
 
         .yes-no-group {
@@ -108,46 +114,50 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: 40px;
-            margin: 20px 0 15px;
+            gap: 30px 35px;
+            margin: 30px 0 20px;
             position: relative;
+            min-height: 130px;
         }
 
         .yes-button {
             background: #ff4d6d;
             border: none;
             color: white;
-            font-size: 3.5rem;
-            font-weight: bold;
-            padding: 12px 50px;
+            font-size: clamp(3rem, 10vw, 4rem);
+            font-weight: 400;
+            padding: 10px 45px;
             border-radius: 80px;
             box-shadow: 0 12px 0 #9f2b48, 0 10px 25px #ff8da8;
             cursor: pointer;
             transition: 0.07s;
             border: 4px solid #ffeef2;
-            transform: scale(1);
-            min-width: 220px;
+            font-family: 'Gochi Hand', cursive;
+            letter-spacing: 2px;
+            min-width: 200px;
+            flex: 0 1 auto;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .yes-button:active {
             transform: translateY(8px);
-            box-shadow: 0 4px 0 #9f2b48, 0 12px 25px #ffb0c6;
+            box-shadow: 0 4px 0 #9f2b48, 0 15px 25px #ffb0c6;
         }
 
-        /* No button wrapper for absolute positioning inside */
         .no-wrapper {
             position: relative;
-            width: 130px;
-            height: 90px;
+            width: 150px;
+            height: 100px;
             display: inline-block;
+            flex-shrink: 0;
+            touch-action: none;
         }
 
         .no-button {
             background: #3f2a30;
             border: none;
             color: #ffd2d2;
-            font-size: 2.8rem;
-            font-weight: bold;
+            font-size: clamp(2.5rem, 7vw, 3.2rem);
             padding: 8px 25px;
             border-radius: 60px;
             box-shadow: 0 10px 0 #1f1217, 0 8px 15px #5a3e48;
@@ -156,87 +166,101 @@
             position: absolute;
             left: 0;
             top: 0;
-            width: 130px;
+            width: 150px;
             text-align: center;
-            transition: 0.05s;
+            font-family: 'Patrick Hand', cursive;
+            transition: left 0.08s, top 0.08s;
             pointer-events: auto;
-            z-index: 30;
+            z-index: 40;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: none;
+            user-select: none;
+            will-change: left, top;
         }
 
-        .choose-wisely {
-            font-size: 1.6rem;
-            color: #b3546b;
-            background: #ffeef4;
+        .slide-2 {
+            background: rgba(255, 245, 240, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 70px 70px 50px 50px;
+            box-shadow: 0 25px 35px rgba(230, 100, 140, 0.3), 
+                        0 0 0 6px #ffe6ed, 
+                        0 0 0 12px #ffb6c7;
+            padding: 30px 20px 35px;
+            text-align: center;
+            border: 2px solid white;
+        }
+
+        .only-one-answer {
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
+            color: #9f3d57;
+            background: #ffdae3;
+            padding: 12px 30px;
+            border-radius: 60px;
+            margin-bottom: 20px;
+            border: 3px solid #ff99b2;
+            font-family: 'Gloria Hallelujah', cursive;
+            transform: rotate(0.5deg);
             display: inline-block;
-            padding: 5px 30px;
-            border-radius: 40px;
-            margin-top: 5px;
-            border: 2px dashed #ff99b4;
-        }
-
-        /* Result area - foto kedua & ketiga */
-        .result-area {
-            margin-top: 30px;
-            background: #ffe5ec;
-            border-radius: 70px 70px 40px 40px;
-            padding: 25px 20px 30px;
-            border: 6px solid #ffb3c6;
-            box-shadow: 0 12px 0 #e690aa;
-            transition: 0.4s;
         }
 
         .yay-message {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: clamp(2rem, 7vw, 2.8rem);
             color: #b13055;
             background: white;
             display: inline-block;
             padding: 15px 35px;
-            border-radius: 60px;
-            margin-bottom: 20px;
+            border-radius: 70px;
+            margin-bottom: 25px;
             border: 4px solid #ffa5bc;
-            transform: rotate(-0.5deg);
+            transform: rotate(-1deg);
             box-shadow: 0 5px 0 #e07c9a;
+            font-family: 'Gochi Hand', cursive;
         }
 
         .hug-box {
             background: #fff0f3;
-            border-radius: 70px;
-            padding: 25px 20px;
+            border-radius: 80px;
+            padding: 20px 15px;
             border: 6px solid #ffbccd;
             box-shadow: inset 0 -5px 0 #e7a1b4;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .hug-text-line {
-            font-size: 2.2rem;
-            font-weight: 600;
+            font-size: clamp(1.8rem, 6vw, 2.3rem);
             color: #782b45;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 10px;
+            gap: 10px 15px;
+            margin-bottom: 15px;
+            font-family: 'Patrick Hand', cursive;
         }
 
         .dots-loading {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             letter-spacing: 8px;
             color: #bc4e6e;
-            min-width: 100px;
+            min-width: 110px;
             text-align: left;
         }
 
         .loading-bar-container {
-            width: 80%;
-            max-width: 320px;
-            height: 28px;
+            width: 85%;
+            max-width: 340px;
+            height: 26px;
             background: #ffb9cd;
             border-radius: 40px;
             margin: 15px auto 12px;
             border: 4px solid white;
             overflow: hidden;
-            box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+            box-shadow: inset 0 3px 6px #0000001a;
         }
 
         .loading-fill {
@@ -244,57 +268,103 @@
             width: 0%;
             background: linear-gradient(90deg, #ff6687, #ff94b2, #ffb8cc);
             border-radius: 40px;
-            transition: width 2.8s cubic-bezier(0.2, 0.9, 0.3, 1);
+            transition: width 2.5s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+
+        .hug-animation-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            margin: 20px 0;
+            height: 120px;
+            position: relative;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: none;
+        }
+
+        .hug-animation-container.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .person {
+            font-size: 4rem;
+            transition: transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .hug-animation-container.hugging .person-left {
+            transform: translateX(35px) rotate(15deg);
+        }
+
+        .hug-animation-container.hugging .person-right {
+            transform: translateX(-35px) rotate(-15deg);
+        }
+
+        .heart-pop {
+            position: absolute;
+            font-size: 2rem;
+            top: 10px;
+            opacity: 0;
+            transform: translateY(0);
+        }
+
+        .hugging .heart-pop {
+            animation: popUp 1.2s infinite;
+        }
+
+        @keyframes popUp {
+            0% { opacity: 0; transform: translateY(0) scale(0.5); }
+            50% { opacity: 1; transform: translateY(-40px) scale(1.3); }
+            100% { opacity: 0; transform: translateY(-60px) scale(1); }
         }
 
         .hug-emoji-big {
             font-size: 4rem;
-            margin: 10px 0 5px;
+            margin: 12px 0 8px;
             filter: drop-shadow(0 8px 6px #e85c86);
-            animation: pulse 1.5s infinite alternate;
+            animation: pulse 1.4s infinite alternate;
         }
 
         @keyframes pulse {
             0% { transform: scale(1) rotate(-2deg); }
-            100% { transform: scale(1.15) rotate(2deg); }
+            100% { transform: scale(1.12) rotate(2deg); }
         }
 
         .loading-text-below {
-            font-size: 1.9rem;
+            font-size: clamp(1.7rem, 5vw, 2rem);
             color: #9a3f5a;
             background: #ffe2ec;
             display: inline-block;
-            padding: 8px 28px;
-            border-radius: 50px;
+            padding: 8px 35px;
+            border-radius: 60px;
             margin: 12px 0 5px;
             border: 3px solid #ffa0b9;
+            font-family: 'Shadows Into Light', cursive;
         }
 
         .final-line {
-            font-size: 2.2rem;
+            font-size: clamp(2rem, 6vw, 2.5rem);
             color: #c2224b;
-            font-weight: 600;
-            margin-top: 18px;
+            margin-top: 25px;
             background: rgba(255,255,255,0.7);
-            padding: 10px 20px;
-            border-radius: 50px;
+            padding: 12px 25px;
+            border-radius: 60px;
             display: inline-block;
+            font-family: 'Gloria Hallelujah', cursive;
+            transform: rotate(0.5deg);
         }
 
-        .hidden {
+        .hidden-slide {
             display: none !important;
         }
 
-        /* Foto ketiga: ada tambahan "I guess there's only one answer" tapi kita munculkan saat klik yes? 
-           kita bisa tambahkan elemen itu di result area bagian atas */
-        .only-one-answer {
-            font-size: 2rem;
-            color: #9f3d57;
-            background: #ffdae3;
-            padding: 10px 30px;
-            border-radius: 50px;
-            margin-bottom: 15px;
-            border: 3px solid #ff99b2;
+        @media (max-width: 500px) {
+            .no-wrapper { width: 130px; height: 90px; }
+            .no-button { width: 130px; font-size: 2.8rem; padding: 6px 15px; }
+            .yes-button { padding: 10px 30px; min-width: 170px; }
+            .slide-1, .slide-2 { padding: 25px 15px; }
         }
     </style>
 </head>
@@ -302,10 +372,9 @@
 
     <canvas id="hearts-canvas"></canvas>
 
-    <div class="container" id="mainContainer">
-        <!-- AWAL: persis foto pertama -->
+    <div id="slide1" class="slide slide-1">
         <div class="header-text">Why is clicking ‘no’ this hard?</div>
-        <div class="dear-someone">Dear Someone</div>   <!-- Jennifer diganti Someone -->
+        <div class="dear-someone">Dear Someone</div>
         <div class="question-box">
             <div class="will-you">Will you be my Valentine?</div>
             <div class="big-question">YES! 🥰💖</div>
@@ -318,47 +387,48 @@
             </div>
         </div>
         <div class="choose-wisely">(choose wisely)</div>
+    </div>
 
-        <!-- HASIL (foto kedua & ketiga digabung) - hidden mula2 -->
-        <div id="resultPanel" class="result-area hidden">
-            <!-- baris "I guess there's only one answer" (foto ketiga) -->
-            <div class="only-one-answer">💭 I guess there's only one answer</div>
+    <div id="slide2" class="slide slide-2 hidden-slide">
+        <div class="only-one-answer">💭 I guess there's only one answer</div>
+        <div class="yay-message">Yay! I knew you'd say yes!</div>
 
-            <!-- Yay message persis foto kedua & ketiga -->
-            <div class="yay-message">Yay! I knew you'd say yes!</div>
-
-            <!-- Virtual hug dengan loading -->
-            <div class="hug-box">
-                <div class="hug-text-line">
-                    <span>sending virtual hug</span>
-                    <span class="dots-loading" id="loadingDots">......</span>
-                </div>
-                <div class="loading-bar-container">
-                    <div class="loading-fill" id="loadingFill"></div>
-                </div>
-                <div class="hug-emoji-big" id="hugEmoji">🤗</div>
-                <div class="loading-text-below" id="loadingCaption">loading...</div>
+        <div class="hug-box">
+            <div class="hug-text-line">
+                <span id="hugStatusText">sending virtual hug</span>
+                <span class="dots-loading" id="loadingDots">......</span>
+            </div>
+            
+            <div class="loading-bar-container" id="barContainer">
+                <div class="loading-fill" id="loadingFill"></div>
             </div>
 
-            <!-- Baris terakhir "You've made me the happiest❤️" -->
-            <div class="final-line">You've made me the happiest ❤️</div>
+            <div id="hugAnimation" class="hug-animation-container">
+                <div class="person person-left">🧍‍♀️</div>
+                <div class="heart-pop">💖</div>
+                <div class="person person-right">🧍‍♂️</div>
+            </div>
+
+            <div class="hug-emoji-big" id="hugEmoji">🤗</div>
+            <div class="loading-text-below" id="loadingCaption">loading...</div>
         </div>
+
+        <div class="final-line">You've made me the happiest ❤️</div>
     </div>
 
     <script>
         (function() {
-            // Elemen
+            const slide1 = document.getElementById('slide1');
+            const slide2 = document.getElementById('slide2');
             const noBtn = document.getElementById('noBtn');
             const noWrapper = document.getElementById('noWrapper');
             const yesBtn = document.getElementById('yesBtn');
-            const resultPanel = document.getElementById('resultPanel');
             const loadingFill = document.getElementById('loadingFill');
             const loadingDots = document.getElementById('loadingDots');
             const hugEmoji = document.getElementById('hugEmoji');
             const canvas = document.getElementById('hearts-canvas');
             const ctx = canvas.getContext('2d');
 
-            // ========== CANVAS LOVE RAIN ==========
             let hearts = [];
             let animFrame = null;
             let w, h;
@@ -373,154 +443,94 @@
             resizeCanvas();
 
             class Heart {
-                constructor() {
-                    this.reset();
-                }
+                constructor() { this.reset(); }
                 reset() {
                     this.x = Math.random() * w;
-                    this.y = Math.random() * -h - 50; // mulai dari atas
-                    this.size = 22 + Math.random() * 30; // 22-52px
-                    this.speed = 2 + Math.random() * 4;
-                    this.opacity = 0.7 + Math.random() * 0.3;
-                    this.color = `hsla(${340 + Math.random()*25}, 85%, 70%, ${this.opacity})`;
+                    this.y = Math.random() * -h - 60;
+                    this.size = 18 + Math.random() * 28; 
+                    this.speed = 1.8 + Math.random() * 4;
+                    this.opacity = 0.6 + Math.random() * 0.4;
+                    this.color = `hsla(${340 + Math.random()*30}, 85%, 68%, ${this.opacity})`;
                 }
                 update() {
                     this.y += this.speed;
-                    if (this.y > h + this.size) {
-                        this.reset();
-                        this.y = -this.size;
-                    }
+                    if (this.y > h + this.size) { this.reset(); this.y = -this.size; }
                 }
                 draw() {
-                    ctx.font = `${this.size}px 'Segoe UI', 'Arial Unicode MS', 'Apple Color Emoji', 'Comic Sans MS', sans-serif`;
+                    ctx.font = `${this.size}px sans-serif`;
                     ctx.fillStyle = this.color;
                     ctx.fillText('❤️', this.x, this.y);
                 }
             }
 
-            function initHearts(count = 30) {
+            function initHearts(count = 28) {
                 hearts = [];
                 for (let i = 0; i < count; i++) {
                     const hh = new Heart();
-                    hh.y = Math.random() * -h - 100;
-                    hh.x = Math.random() * w;
+                    hh.y = Math.random() * -h - 80;
                     hearts.push(hh);
                 }
             }
 
             function drawHearts() {
                 ctx.clearRect(0, 0, w, h);
-                hearts.forEach(h => {
-                    h.update();
-                    h.draw();
-                });
+                hearts.forEach(h => { h.update(); h.draw(); });
                 animFrame = requestAnimationFrame(drawHearts);
             }
 
             function startLoveRain() {
                 canvas.style.display = 'block';
                 initHearts(35);
-                if (animFrame) cancelAnimationFrame(animFrame);
                 animFrame = requestAnimationFrame(drawHearts);
             }
 
-            function stopLoveRain() {
-                if (animFrame) cancelAnimationFrame(animFrame);
-                ctx.clearRect(0, 0, w, h);
-                canvas.style.display = 'none';
-            }
-
-            // ========== NO BUTTON MENJADI TIDAK BISA DIKLIK ==========
-            // fungsi untuk memindahkan tombol No secara random di dalam wrapper
             function moveNoButton() {
                 if (!noWrapper || !noBtn) return;
-
                 const wrapperRect = noWrapper.getBoundingClientRect();
                 const btnRect = noBtn.getBoundingClientRect();
-
-                // hitung maksimal pergerakan agar tetap di dalam wrapper
-                let maxX = wrapperRect.width - btnRect.width;
-                let maxY = wrapperRect.height - btnRect.height;
-
-                // kalau nilainya negatif (mungkin wrapper terlalu kecil), set 0
-                maxX = Math.max(0, maxX);
-                maxY = Math.max(0, maxY);
-
-                let newX = Math.random() * maxX;
-                let newY = Math.random() * maxY;
-
-                noBtn.style.left = newX + 'px';
-                noBtn.style.top = newY + 'px';
+                let maxX = Math.max(0, wrapperRect.width - btnRect.width);
+                let maxY = Math.max(0, wrapperRect.height - btnRect.height);
+                noBtn.style.left = (Math.random() * maxX) + 'px';
+                noBtn.style.top = (Math.random() * maxY) + 'px';
             }
 
-            // panggil pertama kali
-            setTimeout(moveNoButton, 20);
-
-            // setiap kali hover atau coba klik, lari
+            setInterval(moveNoButton, 300);
             noBtn.addEventListener('mouseenter', moveNoButton);
-            noBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                moveNoButton();
-            });
+            noBtn.addEventListener('touchstart', (e) => { e.preventDefault(); moveNoButton(); }, { passive: false });
 
-            // tambahan: setiap 300ms bergerak sedikit (biar benar-benar ga bisa)
-            setInterval(moveNoButton, 280);
-
-            // saat resize, atur ulang posisi
-            window.addEventListener('resize', () => setTimeout(moveNoButton, 30));
-
-            // ========== YES BUTTON ==========
             yesBtn.addEventListener('click', (e) => {
                 e.preventDefault();
+                slide1.classList.add('hidden-slide');
+                slide2.classList.remove('hidden-slide');
+                startLoveRain();
 
-                // munculkan result panel jika masih hidden
-                if (resultPanel.classList.contains('hidden')) {
-                    resultPanel.classList.remove('hidden');
+                let dotCount = 0;
+                const dotsInterval = setInterval(() => {
+                    dotCount = (dotCount + 1) % 7;
+                    loadingDots.innerText = ".".repeat(dotCount).padEnd(6, ' ');
+                }, 260);
 
-                    // love rain start
-                    startLoveRain();
+                setTimeout(() => {
+                    loadingFill.style.width = '100%';
+                    document.getElementById('loadingCaption').innerText = "prewarming hugs...";
+                }, 100);
 
-                    // reset loading bar
-                    loadingFill.style.width = '0%';
-
-                    // animasi titik-titik (loading dots)
-                    let dotCount = 0;
-                    const dotsInterval = setInterval(() => {
-                        if (!resultPanel.classList.contains('hidden')) {
-                            dotCount = (dotCount + 1) % 7; // 0-6
-                            let dotsString = '';
-                            for (let i = 0; i < dotCount; i++) dotsString += '.';
-                            // padding supaya lebar konsisten
-                            while (dotsString.length < 6) dotsString += ' ';
-                            loadingDots.innerText = dotsString;
-                        } else {
-                            clearInterval(dotsInterval);
-                        }
-                    }, 280);
-
-                    // jalankan loading bar
+                setTimeout(() => {
+                    clearInterval(dotsInterval);
+                    document.getElementById('barContainer').style.display = 'none';
+                    document.getElementById('hugEmoji').style.display = 'none';
+                    document.getElementById('loadingDots').style.display = 'none';
+                    document.getElementById('hugStatusText').innerText = "Hugging time!";
+                    document.getElementById('loadingCaption').innerText = "Sent with love!";
+                    
+                    const hugAnim = document.getElementById('hugAnimation');
+                    hugAnim.classList.add('active');
+                    
                     setTimeout(() => {
-                        loadingFill.style.width = '100%';
+                        hugAnim.classList.add('hugging');
                     }, 100);
-
-                    // ganti emoji setelah beberapa saat
-                    setTimeout(() => {
-                        hugEmoji.innerHTML = '❤️ 🤗 ❤️';
-                    }, 2200);
-
-                    // opsional: teks loading bisa berubah (tetap "loading..." sesuai foto)
-                }
-
-                // no button ikut lari
-                moveNoButton();
+                }, 2800);
             });
-
-            // inisialisasi loadingDots dengan 6 titik
-            loadingDots.innerText = '......';
-
-            // supaya mirip foto, result panel awalnya hidden, dan saat YES muncul semua elemen
-            // foto ketiga "I guess there's only one answer" sudah ada di panel
         })();
     </script>
 </body>
