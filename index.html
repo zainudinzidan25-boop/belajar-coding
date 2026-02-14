@@ -96,39 +96,7 @@
             z-index: 999;
         }
 
-        /* LOADING SCREEN */
-        #loading-screen {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .loading-text {
-            font-family: 'Pacifico', cursive;
-            color: #d63384;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            animation: bounce 1s infinite;
-        }
-
-        .progress-bar {
-            width: 250px;
-            height: 20px;
-            background: #ffccd5;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 3px solid white;
-        }
-
-        .progress-fill {
-            width: 0%;
-            height: 100%;
-            background: #ff4d6d;
-            transition: width 0.1s linear;
-        }
-
-        /* SLIDE 2 */
+        /* SLIDE 2 & KARTU */
         .hidden { display: none !important; }
 
         .top-text {
@@ -150,11 +118,50 @@
         .hug-card {
             background: white;
             width: 280px;
-            height: 350px;
+            min-height: 350px;
             margin: 0 auto;
             border-radius: 30px;
-            padding: 20px;
+            padding: 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* LOADING INTERNAL KARTU */
+        #card-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .loading-label {
+            color: #d63384;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .progress-bar {
+            width: 180px;
+            height: 12px;
+            background: #ffccd5;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: #ff4d6d;
+        }
+
+        /* CONTENT SETELAH LOADING */
+        #card-content {
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -165,6 +172,7 @@
             width: 180px;
             height: auto;
             border-radius: 10px;
+            margin: 15px 0;
         }
 
         .sent-btn {
@@ -172,28 +180,28 @@
             color: #d63384;
             padding: 10px 30px;
             border-radius: 25px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: bold;
-            margin-bottom: 10px;
         }
 
-        /* ANIMASI MERIAH */
+        /* ANIMASI CONFETTI */
         .confetti {
             position: fixed;
             width: 10px;
             height: 10px;
-            background-color: #f00;
             z-index: 100;
             pointer-events: none;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        @keyframes fall {
+            to { transform: translateY(105vh) rotate(720deg); }
         }
 
-        @keyframes fall {
-            to { transform: translateY(100vh) rotate(720deg); }
+        .bottom-text {
+            margin-top: 30px;
+            color: #d63384;
+            font-size: 1.2rem;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -205,15 +213,8 @@
         <div class="dear-someone">Dear Someone</div>
         <h1 class="main-title">Will you be my Valentine?</h1>
         <div class="btn-group">
-            <button class="btn btn-yes" onclick="startLoading()">YES!</button>
+            <button class="btn btn-yes" onclick="handleYes()">YES!</button>
             <button class="btn btn-no" id="noBtn">No</button>
-        </div>
-    </div>
-
-    <div class="container hidden" id="loading-screen">
-        <div class="loading-text">Sending virtual hug...</div>
-        <div class="progress-bar">
-            <div class="progress-fill" id="fill"></div>
         </div>
     </div>
 
@@ -222,25 +223,34 @@
         <h2 class="yay-text">Yay! I knew you'd say yes!</h2>
 
         <div class="hug-card">
-            <h3 style="color: #d63384; font-weight: bold; margin-top: 10px;">Hugging time!</h3>
-            <div style="position: relative;">
-                <div id="heart-burst" style="position: absolute; width: 100%; text-align: center; top: -20px; font-size: 2rem;">💖</div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMEgO7xGzNvwgNJDmSpgAYaBfgE6Z7K_OnSA&s" class="photo-img" alt="hug-photo">
+            
+            <div id="card-loading">
+                <div class="loading-label">sending virtual hug...</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="fill"></div>
+                </div>
             </div>
-            <div class="sent-btn">Sent with love!</div>
+
+            <div id="card-content" class="hidden">
+                <h3 style="color: #d63384; font-weight: bold;">Hugging time!</h3>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMEgO7xGzNvwgNJDmSpgAYaBfgE6Z7K_OnSA&s" class="photo-img" alt="hug-photo">
+                <div class="sent-btn">Sent with love!</div>
+            </div>
+
         </div>
 
-        <div class="bottom-text" style="margin-top: 20px; color: #d63384; font-weight: bold; font-size: 1.2rem;">You've made me the happiest! 💕</div>
+        <div class="bottom-text" id="final-msg" class="hidden">You've made me the happiest! 💕</div>
     </div>
 
     <script>
         const noBtn = document.getElementById('noBtn');
         const slide1 = document.getElementById('slide1');
         const slide2 = document.getElementById('slide2');
-        const loadingScreen = document.getElementById('loading-screen');
         const fill = document.getElementById('fill');
+        const cardLoading = document.getElementById('card-loading');
+        const cardContent = document.getElementById('card-content');
 
-        // Fungsi No Menghindar
+        // Fungsi Tombol No Menghindar
         function moveButton() {
             const maxX = window.innerWidth - noBtn.offsetWidth - 50;
             const maxY = window.innerHeight - noBtn.offsetHeight - 50;
@@ -250,45 +260,46 @@
         noBtn.addEventListener('mouseover', moveButton);
         noBtn.addEventListener('touchstart', (e) => { e.preventDefault(); moveButton(); });
 
-        // Fungsi Loading & Animasi Meriah
-        function startLoading() {
+        // Handler Klik Yes
+        function handleYes() {
             slide1.classList.add('hidden');
-            loadingScreen.style.display = 'flex';
+            slide2.classList.remove('hidden');
             
+            // Animasi progress bar di dalam kartu
             let width = 0;
             const interval = setInterval(() => {
                 if (width >= 100) {
                     clearInterval(interval);
-                    showSlide2();
+                    // Sembunyikan loading, munculkan foto & confetti
+                    cardLoading.classList.add('hidden');
+                    cardContent.classList.remove('hidden');
+                    createConfetti();
                 } else {
-                    width++;
+                    width += 2; // Kecepatan loading
                     fill.style.width = width + '%';
                 }
-            }, 30); // 3 detik loading
+            }, 50); 
         }
 
-        function showSlide2() {
-            loadingScreen.style.display = 'none';
-            slide2.classList.remove('hidden');
-            createConfetti();
-        }
-
+        // Animasi Meriah (Confetti)
         function createConfetti() {
-            const colors = ['#ff4d6d', '#ffccd5', '#ff8fa3', '#c9184a', '#ffb3c1'];
-            for (let i = 0; i < 100; i++) {
+            const colors = ['#ff4d6d', '#ffccd5', '#ff8fa3', '#c9184a', '#ffffff'];
+            for (let i = 0; i < 120; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-10px';
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.width = Math.random() * 8 + 5 + 'px';
                 confetti.style.height = confetti.style.width;
+                confetti.style.borderRadius = '50%';
                 confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
                 document.body.appendChild(confetti);
                 setTimeout(() => confetti.remove(), 5000);
             }
         }
 
-        // Particle Hati Background
+        // Background Hati Berjatuhan (Tetap)
         const canvas = document.getElementById('hearts-canvas');
         const ctx = canvas.getContext('2d');
         let hearts = [];
@@ -302,7 +313,7 @@
             constructor() { this.reset(); }
             reset() {
                 this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
+                this.y = Math.random() * -100;
                 this.size = Math.random() * 10 + 10;
                 this.speed = Math.random() * 1.5 + 0.5;
                 this.opacity = Math.random() * 0.4 + 0.2;
