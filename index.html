@@ -8,31 +8,29 @@
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Montserrat:wght@300;400;500;600&family=Alex+Brush&display=swap');
 
   :root {
-    --cream:      #FBF3E7;
-    --cream-deep: #F3E4CC;
-    --blush:      #F4D9DC;
-    --blush-deep: #E7B9C0;
-    --rose:       #8E3B46;
-    --rose-deep:  #6B2530;
-    --gold:       #C9A66B;
-    --gold-light: #EAD9AC;
-    --gold-deep:  #A9834A;
-    --ink:        #3B2F2A;
-    --navy:       #241E2E;
-    --navy-deep:  #17131D;
-    --gold-glow:  0 0 18px rgba(201,166,107,0.45);
-    --rose-glow:  0 0 18px rgba(142,59,70,0.25);
+    --bg0:        #0A0E16;
+    --bg1:        #121826;
+    --bg2:        #1A2233;
+    --panel:      #1F293B;
+    --line:       #3A465C;
+    --silver:     #CBD3E1;
+    --silver-soft:#8891A3;
+    --white:      #F2F4F8;
+    --steel:      #5C6B85;
+    --steel-deep: #38445A;
+    --glow-silver:0 0 18px rgba(203,211,225,0.35);
+    --glow-steel: 0 0 18px rgba(92,107,133,0.4);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: var(--cream);
+    background: var(--bg0);
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
     height: 100vh;
     width: 100vw;
-    color: var(--ink);
+    color: var(--white);
   }
 
   /* ===== SLIDES ===== */
@@ -69,14 +67,14 @@
     width: 8px; height: 8px;
     border-radius: 50%;
     background: transparent;
-    border: 1.5px solid var(--gold-deep);
+    border: 1.5px solid var(--steel);
     cursor: pointer;
     transition: all 0.35s;
   }
 
   .dot.active {
-    background: var(--gold);
-    box-shadow: var(--gold-glow);
+    background: var(--silver);
+    box-shadow: var(--glow-silver);
     transform: scale(1.3);
   }
 
@@ -85,10 +83,10 @@
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.06);
     backdrop-filter: blur(4px);
-    border: 1px solid var(--gold);
-    color: var(--rose-deep);
+    border: 1px solid var(--steel);
+    color: var(--silver);
     width: 42px; height: 42px;
     border-radius: 50%;
     font-size: 18px;
@@ -99,7 +97,7 @@
     transition: all 0.3s;
   }
 
-  .nav-btn:hover { background: var(--gold); color: #fff; }
+  .nav-btn:hover { background: var(--steel); color: var(--white); }
   .nav-btn.prev { left: 14px; }
   .nav-btn.next { right: 14px; }
   .nav-btn:disabled { opacity: 0.25; cursor: default; }
@@ -109,7 +107,7 @@
     font-size: 11px;
     letter-spacing: 5px;
     text-transform: uppercase;
-    color: var(--gold-deep);
+    color: var(--silver-soft);
     font-weight: 500;
   }
 
@@ -118,7 +116,7 @@
     position: absolute;
     width: clamp(70px, 12vw, 130px);
     height: clamp(70px, 12vw, 130px);
-    opacity: 0.55;
+    opacity: 0.4;
     pointer-events: none;
     z-index: 6;
   }
@@ -130,20 +128,20 @@
   .frame-line {
     position: absolute;
     inset: 22px;
-    border: 1px solid var(--gold);
-    opacity: 0.35;
+    border: 1px solid var(--steel);
+    opacity: 0.3;
     pointer-events: none;
     z-index: 4;
   }
 
   /* ===== SLIDE 1 — COVER ===== */
-  #slide1 { background: radial-gradient(ellipse at 50% 30%, var(--cream-deep) 0%, var(--cream) 65%); }
+  #slide1 { background: radial-gradient(ellipse at 50% 30%, var(--bg2) 0%, var(--bg0) 70%); }
 
   .sparkle-bg { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
 
   .sparkle-dot {
     position: absolute;
-    color: var(--gold);
+    color: var(--silver-soft);
     font-size: 10px;
     animation: sparkleTwinkle 2.6s infinite ease-in-out;
     opacity: 0;
@@ -151,7 +149,7 @@
 
   @keyframes sparkleTwinkle {
     0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
-    50% { opacity: 0.9; transform: scale(1.1) rotate(90deg); }
+    50% { opacity: 0.85; transform: scale(1.1) rotate(90deg); }
   }
 
   .slide1-content {
@@ -166,32 +164,32 @@
     height: clamp(74px, 12vw, 110px);
     margin: 0 auto 18px;
     border-radius: 50%;
-    border: 1px solid var(--gold);
+    border: 1px solid var(--steel);
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #fff, var(--blush) 140%);
-    box-shadow: var(--gold-glow);
+    background: linear-gradient(135deg, var(--panel), var(--bg1) 140%);
+    box-shadow: var(--glow-silver);
     position: relative;
   }
   .monogram::before {
     content: '';
     position: absolute;
     inset: 7px;
-    border: 1px solid var(--gold-light);
+    border: 1px solid var(--line);
     border-radius: 50%;
   }
   .monogram span {
     font-family: 'Alex Brush', cursive;
     font-size: clamp(30px, 4.5vw, 46px);
-    color: var(--rose-deep);
+    color: var(--silver);
   }
 
   .title-name {
     font-family: 'Alex Brush', cursive;
     font-size: clamp(38px, 7.5vw, 78px);
-    color: var(--rose-deep);
-    text-shadow: 0 2px 18px rgba(142,59,70,0.18);
+    color: var(--silver);
+    text-shadow: 0 2px 20px rgba(203,211,225,0.18);
     line-height: 1.15;
     margin: 6px 0 2px;
   }
@@ -201,8 +199,8 @@
     font-style: italic;
     font-weight: 500;
     font-size: clamp(14px, 2.2vw, 20px);
-    color: var(--ink);
-    opacity: 0.75;
+    color: var(--silver-soft);
+    opacity: 0.85;
     margin-bottom: 14px;
   }
 
@@ -214,68 +212,69 @@
     margin: 16px auto;
     width: min(220px, 60vw);
   }
-  .divider .line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-  .divider .mark { color: var(--gold); font-size: 13px; }
+  .divider .line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--steel), transparent); }
+  .divider .mark { color: var(--silver); font-size: 13px; }
 
   .age-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     margin: 14px auto 6px;
-    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
-    border: 1px solid var(--gold-light);
+    background: linear-gradient(135deg, var(--steel-deep), var(--bg2));
+    border: 1px solid var(--line);
     border-radius: 50px;
     padding: 9px 30px;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
     letter-spacing: 1px;
     font-size: clamp(15px, 2.4vw, 22px);
-    color: var(--gold-light);
-    box-shadow: 0 6px 24px rgba(107,37,48,0.35);
+    color: var(--silver);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.5);
   }
 
   .date-text {
-    color: var(--gold-deep);
+    color: var(--silver-soft);
     font-size: 11px;
     letter-spacing: 4px;
     margin-top: 12px;
     font-weight: 500;
   }
 
-  /* ===== PETALS ===== */
+  /* ===== FLOATING LIGHT PARTICLES ===== */
   .petal-container { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 5; }
 
   .petal {
     position: absolute;
-    font-size: 20px;
+    font-size: 16px;
     opacity: 0;
     animation: petalBurst 1s ease-out forwards;
-    color: var(--rose);
+    color: var(--silver-soft);
   }
 
   @keyframes petalBurst {
     0%   { opacity: 0; transform: scale(0) rotate(0deg) translateY(0); }
-    45%  { opacity: 0.9; transform: scale(1.2) rotate(140deg) translateY(-22px); }
-    100% { opacity: 0.6; transform: scale(0.9) rotate(300deg) translateY(var(--ty)); }
+    45%  { opacity: 0.8; transform: scale(1.2) rotate(140deg) translateY(-22px); }
+    100% { opacity: 0.5; transform: scale(0.9) rotate(300deg) translateY(var(--ty)); }
   }
 
   .petal-float {
     position: absolute;
-    font-size: 16px;
+    font-size: 12px;
     animation: floatDown linear infinite;
     pointer-events: none;
-    opacity: 0.7;
+    opacity: 0.55;
+    color: var(--silver-soft);
   }
 
   @keyframes floatDown {
     0%   { transform: translateY(-8vh) translateX(0) rotate(0deg); opacity: 0; }
-    10%  { opacity: 0.75; }
+    10%  { opacity: 0.6; }
     100% { transform: translateY(112vh) translateX(30px) rotate(320deg); opacity: 0; }
   }
 
   /* ===== SLIDE 2 — GAME ===== */
   #slide2 {
-    background: radial-gradient(ellipse at top, var(--cream-deep) 0%, var(--cream) 70%);
+    background: radial-gradient(ellipse at top, var(--bg1) 0%, var(--bg0) 70%);
     flex-direction: column;
   }
 
@@ -283,7 +282,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 600;
-    color: var(--rose-deep);
+    color: var(--silver);
     font-size: clamp(22px, 3.6vw, 38px);
     text-align: center;
     margin-bottom: 6px;
@@ -291,7 +290,7 @@
   }
 
   .game-desc {
-    color: var(--gold-deep);
+    color: var(--silver-soft);
     font-size: 12px;
     letter-spacing: 0.5px;
     text-align: center;
@@ -302,10 +301,10 @@
   #gameArea {
     width: min(460px, 92vw);
     height: min(380px, 52vh);
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
-    border: 1.5px solid var(--gold);
+    background: linear-gradient(160deg, var(--bg2) 0%, var(--bg0) 100%);
+    border: 1.5px solid var(--steel);
     border-radius: 4px;
-    box-shadow: 0 20px 50px rgba(23,19,29,0.35), inset 0 0 40px rgba(201,166,107,0.06);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 40px rgba(92,107,133,0.08);
     position: relative;
     overflow: hidden;
     z-index: 10;
@@ -315,7 +314,7 @@
     content: '';
     position: absolute;
     inset: 8px;
-    border: 1px solid rgba(201,166,107,0.4);
+    border: 1px solid rgba(92,107,133,0.4);
     pointer-events: none;
     z-index: 21;
   }
@@ -329,7 +328,7 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(23,19,29,0.85);
+    background: rgba(10,14,22,0.9);
     backdrop-filter: blur(3px);
     z-index: 9999;
     align-items: center;
@@ -342,60 +341,61 @@
   #winScreen.show { display: flex; }
 
   .win-card {
-    background: var(--cream);
-    border: 1px solid var(--gold);
+    background: var(--panel);
+    border: 1px solid var(--steel);
     padding: clamp(28px, 5vw, 52px) clamp(24px, 6vw, 60px);
     max-width: 560px;
     position: relative;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
   }
   .win-card::before {
     content: '';
     position: absolute;
     inset: 10px;
-    border: 1px solid var(--gold-light);
+    border: 1px solid var(--line);
     pointer-events: none;
   }
 
-  .win-emoji { font-size: 34px; margin-bottom: 6px; }
+  .win-emoji { font-size: 34px; margin-bottom: 6px; color: var(--silver); }
 
   .win-title {
     font-family: 'Alex Brush', cursive;
     font-size: clamp(30px, 5.5vw, 52px);
-    color: var(--rose-deep);
+    color: var(--silver);
     margin: 4px 0 14px;
   }
 
   .win-msg {
-    color: var(--ink);
+    color: var(--white);
     font-size: clamp(13px, 1.9vw, 16px);
     max-width: 600px;
     line-height: 1.85;
     margin-bottom: 22px;
     font-weight: 300;
+    opacity: 0.9;
   }
 
-  .win-msg .hi { color: var(--rose-deep); font-weight: 600; font-family: 'Cormorant Garamond', serif; font-size: 1.15em; }
-  .win-msg .id { color: var(--gold-deep); font-weight: 500; }
+  .win-msg .hi { color: var(--silver); font-weight: 600; font-family: 'Cormorant Garamond', serif; font-size: 1.15em; }
+  .win-msg .id { color: var(--silver-soft); font-weight: 500; }
 
   .win-close {
     background: transparent;
-    border: 1px solid var(--rose-deep);
+    border: 1px solid var(--silver-soft);
     border-radius: 0;
     padding: 11px 34px;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 11px;
-    color: var(--rose-deep);
+    color: var(--silver);
     cursor: pointer;
     transition: all 0.3s;
   }
-  .win-close:hover { background: var(--rose-deep); color: var(--gold-light); }
+  .win-close:hover { background: var(--steel); color: var(--white); border-color: var(--steel); }
 
   /* ===== SLIDE 3 — GALLERY ===== */
   #slide3 {
-    background: radial-gradient(ellipse at bottom, var(--blush) 0%, var(--cream) 70%);
+    background: radial-gradient(ellipse at bottom, var(--bg2) 0%, var(--bg0) 70%);
     flex-direction: column;
   }
 
@@ -403,7 +403,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 600;
-    color: var(--rose-deep);
+    color: var(--silver);
     font-size: clamp(20px, 3vw, 32px);
     text-align: center;
     margin-bottom: 16px;
@@ -421,13 +421,14 @@
 
   .photo-cell {
     aspect-ratio: 4/5;
-    background: #fff;
+    background: var(--panel);
     padding: 6px 6px 16px;
-    box-shadow: 0 8px 24px rgba(107,37,48,0.14);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
     display: flex; align-items: center; justify-content: center;
     position: relative;
     cursor: pointer;
     transition: transform 0.35s ease;
+    border: 1px solid var(--line);
   }
   .photo-cell:hover { transform: translateY(-4px) rotate(-0.5deg); }
   .photo-cell:nth-child(even):hover { transform: translateY(-4px) rotate(0.5deg); }
@@ -435,7 +436,7 @@
   .photo-inner {
     width: 100%; height: calc(100% - 6px);
     overflow: hidden;
-    background: linear-gradient(150deg, var(--cream-deep), var(--blush));
+    background: linear-gradient(150deg, var(--bg2), var(--panel));
   }
 
   .photo-placeholder {
@@ -443,7 +444,7 @@
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     gap: 5px;
-    color: var(--gold-deep);
+    color: var(--silver-soft);
     font-size: 10px;
     text-align: center;
     padding: 6px;
@@ -463,18 +464,18 @@
     align-items: center;
     gap: 10px;
     margin-top: 20px;
-    background: rgba(255,255,255,0.6);
-    border: 1px solid var(--gold);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--steel);
     border-radius: 50px;
     padding: 7px 20px;
     z-index: 10;
   }
 
-  .music-icon { font-size: 14px; color: var(--gold-deep); animation: musicSpin 4s linear infinite; }
+  .music-icon { font-size: 14px; color: var(--silver-soft); animation: musicSpin 4s linear infinite; }
   @keyframes musicSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
   .music-label {
-    color: var(--rose-deep);
+    color: var(--silver);
     font-size: 12px;
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -484,7 +485,7 @@
   .bars-wrapper { display: flex; gap: 3px; align-items: flex-end; height: 14px; }
   .bar {
     width: 3px;
-    background: var(--gold);
+    background: var(--silver-soft);
     border-radius: 1px;
     animation: barDance 0.9s ease-in-out infinite alternate;
   }
@@ -497,7 +498,7 @@
 
   .music-filename {
     font-size: 9.5px;
-    color: var(--gold-deep);
+    color: var(--silver-soft);
     opacity: 0.7;
     margin-top: 6px;
     z-index: 10;
@@ -510,7 +511,7 @@
 
   /* ===== SLIDE 4 — CLOSING ===== */
   #slide4 {
-    background: radial-gradient(ellipse at center, var(--cream-deep) 0%, var(--cream) 70%);
+    background: radial-gradient(ellipse at center, var(--bg1) 0%, var(--bg0) 70%);
     flex-direction: column;
   }
 
@@ -518,7 +519,7 @@
 
   .wreath-row {
     font-size: 20px;
-    color: var(--gold);
+    color: var(--silver);
     margin-bottom: 10px;
     letter-spacing: 6px;
   }
@@ -528,30 +529,31 @@
     font-style: italic;
     font-weight: 500;
     font-size: clamp(16px, 2.6vw, 22px);
-    color: var(--ink);
-    opacity: 0.8;
+    color: var(--silver-soft);
+    opacity: 0.9;
     margin-bottom: 6px;
   }
 
   .yakes-name {
     font-family: 'Alex Brush', cursive;
     font-size: clamp(36px, 7vw, 74px);
-    color: var(--rose-deep);
+    color: var(--silver);
     display: block;
     margin-bottom: 6px;
   }
 
   .closing-msg {
-    color: var(--ink);
+    color: var(--white);
     font-size: clamp(13px, 2vw, 16px);
     max-width: 480px;
     margin: 18px auto 0;
     line-height: 1.9;
     font-weight: 300;
+    opacity: 0.85;
   }
 
   .closing-msg strong {
-    color: var(--rose-deep);
+    color: var(--silver);
     font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
     font-size: 1.08em;
@@ -574,7 +576,7 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(23,19,29,0.92);
+    background: rgba(6,8,13,0.95);
     z-index: 8000;
     align-items: center;
     justify-content: center;
@@ -585,15 +587,15 @@
   #lightbox img {
     max-width: 88vw;
     max-height: 82vh;
-    border: 6px solid #fff;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    border: 6px solid var(--panel);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7);
   }
 
   #lightbox .lb-close {
     position: fixed;
     top: 22px; right: 24px;
     font-size: 26px;
-    color: var(--gold-light);
+    color: var(--silver);
     cursor: pointer;
     background: none; border: none;
     z-index: 8001;
@@ -605,7 +607,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
     font-size: 16px;
-    color: var(--gold-light);
+    color: var(--silver);
     z-index: 20;
     pointer-events: none;
     letter-spacing: 1px;
@@ -617,7 +619,7 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 10.5px;
     letter-spacing: 0.5px;
-    color: rgba(234,217,172,0.7);
+    color: rgba(203,211,225,0.6);
     z-index: 20;
     pointer-events: none;
   }
@@ -641,10 +643,10 @@
   <!-- SLIDE 1 -->
   <div class="slide" id="slide1">
     <div class="frame-line"></div>
-    <svg class="corner-ornament tl" viewBox="0 0 120 120" fill="none"><path d="M4 4C4 4 40 2 55 20C70 38 60 55 45 50C30 45 38 30 50 32C65 35 68 60 55 70" stroke="#C9A66B" stroke-width="1.2"/><circle cx="55" cy="20" r="2.5" fill="#8E3B46"/><circle cx="45" cy="50" r="2" fill="#C9A66B"/></svg>
-    <svg class="corner-ornament tr" viewBox="0 0 120 120" fill="none"><path d="M4 4C4 4 40 2 55 20C70 38 60 55 45 50C30 45 38 30 50 32C65 35 68 60 55 70" stroke="#C9A66B" stroke-width="1.2"/><circle cx="55" cy="20" r="2.5" fill="#8E3B46"/><circle cx="45" cy="50" r="2" fill="#C9A66B"/></svg>
-    <svg class="corner-ornament bl" viewBox="0 0 120 120" fill="none"><path d="M4 4C4 4 40 2 55 20C70 38 60 55 45 50C30 45 38 30 50 32C65 35 68 60 55 70" stroke="#C9A66B" stroke-width="1.2"/><circle cx="55" cy="20" r="2.5" fill="#8E3B46"/><circle cx="45" cy="50" r="2" fill="#C9A66B"/></svg>
-    <svg class="corner-ornament br" viewBox="0 0 120 120" fill="none"><path d="M4 4C4 4 40 2 55 20C70 38 60 55 45 50C30 45 38 30 50 32C65 35 68 60 55 70" stroke="#C9A66B" stroke-width="1.2"/><circle cx="55" cy="20" r="2.5" fill="#8E3B46"/><circle cx="45" cy="50" r="2" fill="#C9A66B"/></svg>
+    <svg class="corner-ornament tl" viewBox="0 0 120 120" fill="none"><path d="M4 4C4 4 40 2 55 20C70 38 60 55 45 50C30 45 38 30 50 32C65 35 68 60 55 70" stroke="#5C6B85" stroke-width="1.2"/><circle cx="55" cy="20" r="2.5" fill="#CBD3E1"/><circle cx="45" cy="50" r="2" fill="#5C6B85"/></svg>
+    <svg class="corner-ornament tr" viewBox="0 0 120 120" fill="none"><path d="M4 4C4 4 40 2 55 20C70 38 60 55 45 50C30 45 38 30 50 32C65 35 68 60 55 70" stroke="#5C6B85" stroke-width="1.2"/><circle cx="55" cy="20" r="2.5" fill="#CBD3E1"/><circle cx="45" cy="50" r="2" fill="#5C6B85"/></svg>
+    <svg class="corner-ornament bl" viewBox="0 0 120 120" fill="none"><path d="M4 4C4 4 40 2 55 20C70 38 60 55 45 50C30 45 38 30 50 32C65 35 68 60 55 70" stroke="#5C6B85" stroke-width="1.2"/><circle cx="55" cy="20" r="2.5" fill="#CBD3E1"/><circle cx="45" cy="50" r="2" fill="#5C6B85"/></svg>
+    <svg class="corner-ornament br" viewBox="0 0 120 120" fill="none"><path d="M4 4C4 4 40 2 55 20C70 38 60 55 45 50C30 45 38 30 50 32C65 35 68 60 55 70" stroke="#5C6B85" stroke-width="1.2"/><circle cx="55" cy="20" r="2.5" fill="#CBD3E1"/><circle cx="45" cy="50" r="2" fill="#5C6B85"/></svg>
     <div class="sparkle-bg" id="sparkleBg"></div>
     <div class="petal-container" id="petalContainer"></div>
     <div class="slide1-content">
@@ -675,14 +677,14 @@
     <div class="photo-grid" id="photoGrid"></div>
     <div class="music-bar" id="musicBar">
       <span class="music-icon">✦</span>
-      <span class="music-label" id="musicTitleLabel">My Love — Westlife</span>
+      <span class="music-label" id="musicTitleLabel">Dear God</span>
       <div class="bars-wrapper">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
       </div>
-      <button onclick="toggleMusic()" id="musicToggleBtn" style="background:none;border:none;color:var(--rose-deep);font-size:13px;cursor:pointer;margin-left:4px;">▶</button>
+      <button onclick="toggleMusic()" id="musicToggleBtn" style="background:none;border:none;color:var(--silver);font-size:13px;cursor:pointer;margin-left:4px;">▶</button>
     </div>
     <div class="music-filename" id="musicFilename">Putar Lagu</div>
   </div>
@@ -740,15 +742,15 @@
 // =========================================================
 
 // 1. UBAH NAMA FILE LAGU DISINI
-const SONG_FILE_PATH = "my-love.mp3"; 
-const SONG_TITLE_DISPLAY = "My Love — Westlife";
+const SONG_FILE_PATH = "deargod.mpeg";
+const SONG_TITLE_DISPLAY = "Dear God";
 
 // 2. UBAH NAMA FILE FOTO DISINI (Pastikan nama file pas dengan yang diunggah ke GitHub)
 const photoSources = [
-  "9078.jpeg", // Slot foto 1
-  "foto2.jpg", // Slot foto 2
-  "foto3.jpg", // Slot foto 3
-  "foto4.jpg", // Slot foto 4
+  "aqis1.jpeg", // Slot foto 1
+  "aqis2.jpeg", // Slot foto 2
+  "aqis3.jpeg", // Slot foto 3
+  "aqis4.jpeg", // Slot foto 4
   "foto5.jpg", // Slot foto 5
   "foto6.jpg"  // Slot foto 6
 ];
@@ -807,8 +809,8 @@ document.addEventListener('touchend', e => {
   }
 })();
 
-// ==================== PETALS ====================
-const PETALS = ['❀','✿','❁','❋','✾'];
+// ==================== FLOATING LIGHT PARTICLES ====================
+const PETALS = ['✧','⋆','✦','·','∘'];
 
 function triggerPetals() {
   const c = document.getElementById('petalContainer');
@@ -819,7 +821,7 @@ function triggerPetals() {
     f.textContent = PETALS[Math.floor(Math.random() * PETALS.length)];
     f.style.left = (Math.random() * 100) + '%';
     f.style.top  = (Math.random() * 100) + '%';
-    f.style.fontSize = (14 + Math.random() * 16) + 'px';
+    f.style.fontSize = (12 + Math.random() * 14) + 'px';
     f.style.animationDelay = (Math.random() * 0.8) + 's';
     f.style.animationDuration = (0.7 + Math.random() * 0.6) + 's';
     f.style.setProperty('--ty', (-60 - Math.random() * 100) + 'px');
@@ -835,7 +837,7 @@ function spawnFloatingPetal(c) {
   f.style.left = Math.random() * 100 + '%';
   f.style.animationDuration = (7 + Math.random() * 8) + 's';
   f.style.animationDelay    = (Math.random() * 8) + 's';
-  f.style.fontSize = (12 + Math.random() * 14) + 'px';
+  f.style.fontSize = (10 + Math.random() * 12) + 'px';
   c.appendChild(f);
 }
 
@@ -845,7 +847,7 @@ triggerPetals();
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 let stars = [], score = 0, gameActive = false, animFrame;
-const STAR_COLORS = ['#EAD9AC','#C9A66B','#F4D9DC','#fff'];
+const STAR_COLORS = ['#F2F4F8','#CBD3E1','#8891A3','#5C6B85'];
 
 function resizeCanvas() {
   const area = document.getElementById('gameArea');
@@ -898,7 +900,7 @@ function drawStar(cx, cy, r, spikes, color, glow) {
 function gameLoop() {
   if (!gameActive) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.strokeStyle = 'rgba(201,166,107,0.05)';
+  ctx.strokeStyle = 'rgba(92,107,133,0.08)';
   ctx.lineWidth = 1;
   for (let x = 0; x < canvas.width; x += 34) {
     ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,canvas.height); ctx.stroke();
@@ -944,11 +946,11 @@ canvas.addEventListener('touchstart', e => {
   handleGameClick(e.touches[0]);
 }, {passive:false});
 
-ctx.fillStyle = 'rgba(234,217,172,0.5)';
+ctx.fillStyle = 'rgba(203,211,225,0.4)';
 ctx.font = 'italic 15px Georgia';
 ctx.textAlign = 'center';
 ctx.fillText('Sentuh untuk mulai', canvas.width/2, canvas.height/2);
-drawStar(canvas.width/2, canvas.height/2 - 46, 24, 5, '#EAD9AC', true);
+drawStar(canvas.width/2, canvas.height/2 - 46, 24, 5, '#CBD3E1', true);
 
 function showWin() { document.getElementById('winScreen').classList.add('show'); }
 function closeWin() { document.getElementById('winScreen').classList.remove('show'); initGame(); }
@@ -962,17 +964,17 @@ photoSources.forEach((src, i) => {
   cell.className = 'photo-cell';
   const inner = document.createElement('div');
   inner.className = 'photo-inner';
-  
+
   if (src) {
     const img = document.createElement('img');
-    img.src = src; 
+    img.src = src;
     img.alt = `Foto ${i+1}`;
-    
+
     // Jika foto gagal dibaca/belum diunggah ke GitHub, tampilkan placeholder
     img.onerror = function() {
       inner.innerHTML = `<div class="photo-placeholder"><span class="ph-icon">✦</span><span>${photoLabels[i]}</span><span>Unggah ${src} ke GitHub</span></div>`;
     };
-    
+
     img.addEventListener('click', () => openLightbox(src));
     inner.appendChild(img);
   } else {
@@ -981,7 +983,7 @@ photoSources.forEach((src, i) => {
     ph.innerHTML = `<span class="ph-icon">✦</span><span>${photoLabels[i]}</span><span>File tidak ditemukan</span>`;
     inner.appendChild(ph);
   }
-  
+
   cell.appendChild(inner);
   photoGrid.appendChild(cell);
 });
@@ -1026,7 +1028,7 @@ function toggleMusic() {
 }
 
 // ==================== CONFETTI ====================
-const CONFETTI_COLORS = ['#C9A66B','#F4D9DC','#8E3B46','#FBF3E7','#EAD9AC'];
+const CONFETTI_COLORS = ['#CBD3E1','#8891A3','#5C6B85','#3A465C','#F2F4F8'];
 
 function spawnConfetti(containerId, active) {
   const c = document.getElementById(containerId);
