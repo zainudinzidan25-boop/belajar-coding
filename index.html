@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Happy Birthday, Ratu Balqis ✦</title>
   <style>
-    /* ===== RESET & FONTS ===== */
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Poppins:wght@300;400;500;600;700;800&family=Alex+Brush&display=swap');
 
     * {
@@ -37,15 +36,6 @@
       color: var(--white);
       user-select: none;
       -webkit-user-select: none;
-    }
-
-    #snowCanvas {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 1200;
-      pointer-events: none;
     }
 
     .checker-strip {
@@ -182,25 +172,6 @@
 
     #slide1 {
       background: radial-gradient(ellipse at 50% 30%, var(--navy-light) 0%, var(--navy-deep) 80%);
-    }
-
-    .sparkle-bg {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 3;
-    }
-    .sparkle-dot {
-      position: absolute;
-      color: var(--accent2);
-      font-size: 12px;
-      animation: sparkleTwinkle 3s infinite ease-in-out;
-      opacity: 0;
-      cursor: default;
-    }
-    @keyframes sparkleTwinkle {
-      0%, 100% { opacity: 0; transform: scale(0.6) rotate(0deg); }
-      50% { opacity: 0.95; transform: scale(1.3) rotate(60deg); }
     }
 
     .slide1-content {
@@ -350,19 +321,6 @@
       50% { opacity: 1; }
     }
 
-    .petal-container { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 5; }
-    .petal {
-      position: absolute;
-      font-size: 18px;
-      opacity: 0;
-      animation: petalBurst 1.2s ease-out forwards;
-      color: var(--accent2);
-    }
-    @keyframes petalBurst {
-      0% { opacity: 0; transform: scale(0) rotate(0deg) translateY(0); }
-      40% { opacity: 0.9; transform: scale(1.3) rotate(180deg) translateY(-30px); }
-      100% { opacity: 0.5; transform: scale(0.9) rotate(340deg) translateY(var(--ty)); }
-    }
     #slide2 {
       background: radial-gradient(ellipse at top, var(--navy-light) 0%, var(--navy-deep) 75%);
       flex-direction: column;
@@ -848,7 +806,6 @@
       transition: opacity 0.9s ease, visibility 0.9s ease;
     }
     #introOverlay.closing { opacity: 0; visibility: hidden; pointer-events: none; }
-    .intro-stars { position: absolute; inset: 0; z-index: 1; }
     .intro-skip {
       position: fixed;
       top: 20px;
@@ -869,8 +826,8 @@
 
     .intro-butterfly {
       position: absolute;
-      width: 64px;
-      height: 52px;
+      width: var(--bw, 64px);
+      height: calc(var(--bw, 64px) * 0.8125);
       left: -100px;
       top: 60%;
       z-index: 5;
@@ -884,8 +841,8 @@
       25%  { left: 22%; top: 30%; transform: rotate(4deg) scale(1); }
       50%  { left: 45%; top: 48%; transform: rotate(-4deg) scale(1.05); }
       75%  { left: 60%; top: 34%; transform: rotate(3deg) scale(1); }
-      92%  { left: calc(50% - 32px); top: calc(50% - 90px); transform: rotate(0deg) scale(0.95); opacity: 1; }
-      100% { left: calc(50% - 32px); top: calc(50% - 78px); transform: rotate(0deg) scale(0.8); opacity: 0; }
+      92%  { left: calc(50% - var(--bw, 64px) / 2); top: calc(50% - 90px); transform: rotate(0deg) scale(0.95); opacity: 1; }
+      100% { left: calc(50% - var(--bw, 64px) / 2); top: calc(50% - 78px); transform: rotate(0deg) scale(0.8); opacity: 0; }
     }
     .wing-flutter .wing-left { animation: flutterLeft 0.28s ease-in-out infinite; transform-origin: right center; }
     .wing-flutter .wing-right { animation: flutterRight 0.28s ease-in-out infinite; transform-origin: left center; }
@@ -898,13 +855,18 @@
       opacity: 0;
       transform: translateY(20px) scale(0.85);
       transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --bw: clamp(44px, 13vw, 64px);
+      --ew: clamp(148px, 54vw, 220px);
+      --eh: calc(var(--ew) * 0.682);
+      padding: 0 16px;
     }
     .envelope-wrap.show { opacity: 1; transform: translateY(0) scale(1); }
     .envelope {
       position: relative;
-      width: 220px;
-      height: 150px;
+      width: var(--ew, 220px);
+      height: var(--eh, 150px);
       cursor: pointer;
+      touch-action: none;
     }
     .envelope-back {
       position: absolute;
@@ -919,9 +881,9 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 0;
-      border-left: 110px solid transparent;
-      border-right: 110px solid transparent;
-      border-top: 78px solid var(--steel);
+      border-left: calc(var(--ew, 220px) / 2) solid transparent;
+      border-right: calc(var(--ew, 220px) / 2) solid transparent;
+      border-top: calc(var(--eh, 150px) * 0.52) solid var(--steel);
       transform-origin: top center;
       transition: transform 0.7s cubic-bezier(0.68, -0.4, 0.32, 1.4);
       z-index: 3;
@@ -930,10 +892,10 @@
     .envelope-flap.open { transform: rotateX(180deg); }
     .letter-paper {
       position: absolute;
-      left: 12px;
-      right: 12px;
-      top: 14px;
-      bottom: 14px;
+      left: calc(var(--ew, 220px) * 0.055);
+      right: calc(var(--ew, 220px) * 0.055);
+      top: calc(var(--eh, 150px) * 0.093);
+      bottom: calc(var(--eh, 150px) * 0.093);
       background: linear-gradient(180deg, #f4f8ff, #dcebff);
       border-radius: 6px;
       z-index: 2;
@@ -942,16 +904,85 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 10px;
+      padding: 6% 8%;
       text-align: center;
       transform: translateY(0);
       transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
       box-shadow: 0 -4px 14px rgba(0,0,0,0.15);
     }
-    .letter-paper.rise { transform: translateY(-92px); z-index: 6; }
-    .letter-mark { color: var(--steel); font-size: 18px; }
-    .letter-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; color: #0e2454; font-size: 16px; }
-    .letter-line.small { font-family: 'Poppins', sans-serif; font-style: normal; font-weight: 400; font-size: 10px; letter-spacing: 1px; color: #43567d; text-transform: uppercase; }
+    .letter-paper.rise { transform: translateY(calc(-1 * var(--eh, 150px) * 0.61)); z-index: 6; }
+    .letter-mark { color: var(--steel); font-size: clamp(14px, 4vw, 18px); }
+    .letter-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; color: #0e2454; font-size: clamp(13px, 4vw, 16px); }
+    .letter-line.small { font-family: 'Poppins', sans-serif; font-style: normal; font-weight: 400; font-size: clamp(8px, 2.4vw, 10px); letter-spacing: 1px; color: #43567d; text-transform: uppercase; }
+
+    .letter-typewriter {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(10px, 3vw, 12px);
+      color: #2f6fd6;
+      min-height: 16px;
+      letter-spacing: 0.3px;
+    }
+    .letter-continue {
+      margin-top: 4px;
+      background: linear-gradient(120deg, #2f6fd6, #3aa0ff);
+      border: none;
+      border-radius: 30px;
+      padding: clamp(5px, 1.6vw, 6px) clamp(14px, 4vw, 18px);
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(9px, 2.6vw, 10px);
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #eaf5ff;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(6px) scale(0.9);
+      pointer-events: none;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 4px 16px rgba(58,160,255,0.4);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .letter-continue.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    .letter-continue:hover { transform: scale(1.06); box-shadow: 0 6px 22px rgba(58,160,255,0.6); }
+    .letter-continue:active { transform: scale(0.94); }
+
+    .drag-hint {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--accent2);
+      font-size: 18px;
+      z-index: 4;
+      animation: dragHintBounce 1.4s ease-in-out infinite;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    @keyframes dragHintBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
+      50% { transform: translateX(-50%) translateY(-8px); opacity: 1; }
+    }
+
+    .intro-burst { position: absolute; inset: 0; z-index: 7; pointer-events: none; }
+    .burst-spark {
+      position: absolute;
+      color: var(--accent2);
+      font-size: 14px;
+      transform: translate(-50%, -50%);
+      animation: burstOut 0.85s ease-out forwards;
+    }
+    @keyframes burstOut {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(0.6); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--bx)), calc(-50% + var(--by))) scale(1.3); }
+    }
+
+    .intro-butterfly.boost { animation: butterflyPulse 0.4s ease-in-out; }
+    @keyframes butterflyPulse {
+      0%, 100% { filter: none; }
+      50% { filter: drop-shadow(0 0 14px rgba(126,224,255,0.9)); transform: scale(1.15); }
+    }
 
     .dog-transition {
       position: fixed;
@@ -991,7 +1022,7 @@
       .photo-wing { width: 20px; height: 42px; }
       .photo-wing.left { left: -12px; }
       .photo-wing.right { right: -12px; }
-      .envelope { width: 180px; height: 122px; }
+      .intro-skip { top: 14px; right: 14px; padding: 6px 12px; font-size: 10px; }
       .photo-cell:hover {
         transform: translateY(-5px) rotate(-0.5deg) scale(1.02);
       }
@@ -1003,17 +1034,19 @@
       .photo-grid { gap: 18px 8px; }
       .nav-btn { width: 32px; height: 32px; font-size: 14px; }
       .photo-cell { padding: 6px; }
+      .drag-hint { top: -24px; font-size: 15px; }
+    }
+    @media (max-height: 640px) {
+      .envelope-wrap { --ew: clamp(130px, 42vh, 200px); }
     }
   </style>
 </head>
 <body>
 
 <div class="checker-strip"></div>
-<canvas id="snowCanvas"></canvas>
 
-<!-- INTRO: BUTTERFLY CARRYING A LETTER -->
 <div id="introOverlay">
-  <div class="intro-stars" id="introStars"></div>
+  <div class="intro-burst" id="introBurst"></div>
   <div class="intro-skip" id="introSkip">Lewati ✦</div>
 
   <svg class="intro-butterfly wing-flutter" id="introButterfly" viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
@@ -1030,19 +1063,21 @@
   </svg>
 
   <div class="envelope-wrap" id="envelopeWrap">
-    <div class="envelope" id="envelope" onclick="openEnvelope()">
+    <div class="envelope" id="envelope">
       <div class="envelope-back"></div>
+      <div class="drag-hint" id="dragHint">↑</div>
       <div class="letter-paper" id="letterPaper">
         <div class="letter-mark">✦</div>
         <div class="letter-line">Untuk Ratu Balqis</div>
-        <div class="letter-line small" id="letterHint">ketuk untuk membuka</div>
+        <div class="letter-typewriter" id="letterTypewriter"></div>
+        <div class="letter-line small" id="letterHint">tarik ke atas ✦ atau ketuk</div>
+        <button class="letter-continue" id="letterContinue">Lanjut ✦</button>
       </div>
       <div class="envelope-flap" id="envelopeFlap"></div>
     </div>
   </div>
 </div>
 
-<!-- DOG MASCOT FOR SLIDE TRANSITIONS -->
 <div class="dog-transition" id="dogTransition">
   <svg viewBox="0 0 90 60" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="42" cy="34" rx="24" ry="14" fill="#eef6ff" stroke="#8ecbff" stroke-width="1.5"/>
@@ -1056,7 +1091,6 @@
   </svg>
 </div>
 
-<!-- NAV -->
 <button class="nav-btn prev" id="prevBtn" onclick="changeSlide(-1)" disabled>‹</button>
 <button class="nav-btn next" id="nextBtn" onclick="changeSlide(1)">›</button>
 <div class="nav-dots">
@@ -1066,18 +1100,14 @@
   <div class="dot" onclick="goSlide(3)"></div>
 </div>
 
-<!-- SLIDES -->
 <div class="slides-wrapper" id="slidesWrapper">
 
-  <!-- SLIDE 1 -->
   <div class="slide" id="slide1">
     <div class="frame-line"></div>
     <svg class="corner-ornament tl" viewBox="0 0 100 100" fill="none"><path d="M6 40 L6 6 L40 6" stroke="#3aa0ff" stroke-width="2.4" stroke-linecap="round"/><circle cx="6" cy="6" r="3" fill="#8ecbff"/></svg>
     <svg class="corner-ornament tr" viewBox="0 0 100 100" fill="none"><path d="M6 40 L6 6 L40 6" stroke="#3aa0ff" stroke-width="2.4" stroke-linecap="round"/><circle cx="6" cy="6" r="3" fill="#8ecbff"/></svg>
     <svg class="corner-ornament bl" viewBox="0 0 100 100" fill="none"><path d="M6 40 L6 6 L40 6" stroke="#3aa0ff" stroke-width="2.4" stroke-linecap="round"/><circle cx="6" cy="6" r="3" fill="#8ecbff"/></svg>
     <svg class="corner-ornament br" viewBox="0 0 100 100" fill="none"><path d="M6 40 L6 6 L40 6" stroke="#3aa0ff" stroke-width="2.4" stroke-linecap="round"/><circle cx="6" cy="6" r="3" fill="#8ecbff"/></svg>
-    <div class="sparkle-bg" id="sparkleBg"></div>
-    <div class="petal-container" id="petalContainer"></div>
     <div class="slide1-content">
       <div class="eyebrow-pill">Cie Ultah</div>
       <div class="monogram"><span>R</span></div>
@@ -1089,7 +1119,6 @@
     </div>
   </div>
 
-  <!-- SLIDE 2 -->
   <div class="slide" id="slide2">
     <div class="game-header">Tangkap bintangnya ✦</div>
     <div class="game-desc">Sentuh setiap bintang — kumpulkan 16 untuk hadiah</div>
@@ -1100,7 +1129,6 @@
     </div>
   </div>
 
-  <!-- SLIDE 3 -->
   <div class="slide" id="slide3">
     <div class="gallery-header">Manusia Keren  ✦</div>
     <div class="photo-grid" id="photoGrid"></div>
@@ -1113,7 +1141,6 @@
     <div class="music-filename" id="musicFilename">🎵 putar lagu</div>
   </div>
 
-  <!-- SLIDE 4 -->
   <div class="slide" id="slide4">
     <div class="confetti-wrapper" id="confettiWrapper"></div>
     <div class="closing-content">
@@ -1130,7 +1157,6 @@
   </div>
 </div>
 
-<!-- WIN SCREEN -->
 <div id="winScreen">
   <div class="win-card">
     <div class="win-emoji">✦</div>
@@ -1150,19 +1176,14 @@
   </div>
 </div>
 
-<!-- LIGHTBOX -->
 <div id="lightbox">
   <button class="lb-close" onclick="closeLightbox()">✕</button>
   <img id="lightboxImg" src="" alt="">
 </div>
 
-<!-- AUDIO -->
 <audio id="bgMusic" loop preload="auto"></audio>
 
 <script>
-// =========================================================
-// ⚙️ KONFIGURASI FILE (tidak diubah)
-// =========================================================
 const SONG_FILE_PATH = "deargod.mpeg";
 const SONG_TITLE_DISPLAY = "Dear God";
 
@@ -1174,47 +1195,127 @@ const photoSources = [
   "aqis5.jpeg",
   "aqis6.jpeg"
 ];
-// =========================================================
-
-// ==================== INTRO: BUTTERFLY + LETTER ====================
-(function() {
-  const introStars = document.getElementById('introStars');
-  const marks = ['✦','✧','⋆'];
-  for (let i = 0; i < 30; i++) {
-    const d = document.createElement('div');
-    d.className = 'sparkle-dot';
-    d.style.position = 'absolute';
-    d.textContent = marks[Math.floor(Math.random()*marks.length)];
-    d.style.left = Math.random() * 100 + '%';
-    d.style.top = Math.random() * 100 + '%';
-    d.style.animationDelay = Math.random() * 3.5 + 's';
-    d.style.animationDuration = (2.2 + Math.random() * 2.5) + 's';
-    introStars.appendChild(d);
-  }
-})();
 
 let introDone = false;
+let envelopeOpened = false;
+
+function spawnBurst(x, y) {
+  const c = document.getElementById('introBurst');
+  const marks = ['✦','✧','⋆'];
+  for (let i = 0; i < 8; i++) {
+    const s = document.createElement('div');
+    s.className = 'burst-spark';
+    s.textContent = marks[Math.floor(Math.random() * marks.length)];
+    const angle = (Math.PI * 2 * i) / 8 + Math.random() * 0.4;
+    const dist = 30 + Math.random() * 40;
+    s.style.left = x + 'px';
+    s.style.top = y + 'px';
+    s.style.setProperty('--bx', Math.cos(angle) * dist + 'px');
+    s.style.setProperty('--by', Math.sin(angle) * dist + 'px');
+    s.style.animationDelay = (Math.random() * 0.1) + 's';
+    c.appendChild(s);
+    setTimeout(() => s.remove(), 900);
+  }
+}
 
 function startIntro() {
   const butterfly = document.getElementById('introButterfly');
   const envelopeWrap = document.getElementById('envelopeWrap');
   butterfly.classList.add('fly');
+
+  function onButterflyTouch(e) {
+    const rect = butterfly.getBoundingClientRect();
+    spawnBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+    butterfly.classList.add('boost');
+    setTimeout(() => butterfly.classList.remove('boost'), 400);
+  }
+  butterfly.addEventListener('click', onButterflyTouch);
+  butterfly.addEventListener('touchstart', (e) => { e.preventDefault(); onButterflyTouch(e); }, { passive: false });
+
   setTimeout(() => {
     envelopeWrap.classList.add('show');
+    setupEnvelopeDrag();
   }, 1900);
   window._introAutoTimer = setTimeout(() => {
-    if (!introDone) openEnvelope();
-  }, 6500);
+    if (!envelopeOpened) openEnvelope();
+  }, 7500);
 }
 
 function openEnvelope() {
+  if (envelopeOpened) return;
+  envelopeOpened = true;
+  clearTimeout(window._introAutoTimer);
   const flap = document.getElementById('envelopeFlap');
   const letter = document.getElementById('letterPaper');
   const hint = document.getElementById('letterHint');
-  if (flap.classList.contains('open')) { closeIntro(); return; }
+  const dragHint = document.getElementById('dragHint');
+  const envelope = document.getElementById('envelope');
+  const rect = envelope.getBoundingClientRect();
+  spawnBurst(rect.left + rect.width / 2, rect.top);
   flap.classList.add('open');
-  hint.textContent = 'ketuk lagi untuk lanjut ✦';
-  setTimeout(() => { letter.classList.add('rise'); }, 250);
+  dragHint.style.opacity = '0';
+  hint.textContent = '';
+  setTimeout(() => {
+    letter.classList.add('rise');
+    typewriterMessage();
+  }, 250);
+}
+
+function typewriterMessage() {
+  const el = document.getElementById('letterTypewriter');
+  const btn = document.getElementById('letterContinue');
+  const hint = document.getElementById('letterHint');
+  const msg = 'Ada sesuatu untukmu di dalam...';
+  let i = 0;
+  el.textContent = '';
+  const timer = setInterval(() => {
+    el.textContent += msg[i];
+    i++;
+    if (i >= msg.length) {
+      clearInterval(timer);
+      setTimeout(() => {
+        btn.classList.add('show');
+        hint.textContent = 'ketuk tombol untuk lanjut';
+      }, 300);
+    }
+  }, 45);
+}
+
+function setupEnvelopeDrag() {
+  const envelope = document.getElementById('envelope');
+  let startY = 0, dragging = false, moved = false;
+
+  function onStart(e) {
+    if (envelopeOpened) return;
+    dragging = true;
+    moved = false;
+    startY = (e.touches ? e.touches[0].clientY : e.clientY);
+  }
+  function onMove(e) {
+    if (!dragging || envelopeOpened) return;
+    const y = (e.touches ? e.touches[0].clientY : e.clientY);
+    const dy = startY - y;
+    if (Math.abs(dy) > 6) moved = true;
+    if (dy > 10) {
+      const progress = Math.min(1, dy / 70);
+      document.getElementById('envelopeFlap').style.transform = `rotateX(${progress * 180}deg)`;
+      if (progress >= 1) { onEnd(); openEnvelope(); }
+    }
+  }
+  function onEnd() {
+    dragging = false;
+    if (!envelopeOpened) {
+      document.getElementById('envelopeFlap').style.transform = '';
+      if (!moved) openEnvelope();
+    }
+  }
+
+  envelope.addEventListener('mousedown', onStart);
+  window.addEventListener('mousemove', onMove);
+  window.addEventListener('mouseup', onEnd);
+  envelope.addEventListener('touchstart', onStart, { passive: true });
+  envelope.addEventListener('touchmove', onMove, { passive: true });
+  envelope.addEventListener('touchend', onEnd);
 }
 
 function closeIntro() {
@@ -1225,16 +1326,15 @@ function closeIntro() {
   overlay.classList.add('closing');
   setTimeout(() => {
     overlay.style.display = 'none';
-    triggerPetals();
   }, 950);
 }
 
 document.getElementById('introSkip').addEventListener('click', closeIntro);
+document.getElementById('letterContinue').addEventListener('click', closeIntro);
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(startIntro, 400);
 });
 
-// ==================== SLIDE SYSTEM ====================
 let currentSlide = 0;
 const totalSlides = 4;
 const wrapper = document.getElementById('slidesWrapper');
@@ -1257,7 +1357,6 @@ function goSlide(idx) {
   dots.forEach((d, i) => d.classList.toggle('active', i === idx));
   prevBtn.disabled = idx === 0;
   nextBtn.disabled = idx === totalSlides - 1;
-  if (idx === 0) triggerPetals();
   if (idx === 2) { startMusic(); }
   else { stopMusic(); }
   if (idx === 3) spawnConfetti('confettiWrapper', true);
@@ -1270,7 +1369,6 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft') changeSlide(-1);
 });
 
-// Drag untuk slide
 let touchStartX = 0;
 let touchStartY = 0;
 let isDragging = false;
@@ -1297,143 +1395,6 @@ document.addEventListener('touchend', e => {
   }
 }, {passive:true});
 
-// ==================== SPARKLES ====================
-(function() {
-  const bg = document.getElementById('sparkleBg');
-  const marks = ['✦','✧','⋆'];
-  for (let i = 0; i < 38; i++) {
-    const d = document.createElement('div');
-    d.className = 'sparkle-dot';
-    d.textContent = marks[Math.floor(Math.random()*marks.length)];
-    d.style.left = Math.random() * 100 + '%';
-    d.style.top = Math.random() * 100 + '%';
-    d.style.animationDelay = Math.random() * 3.5 + 's';
-    d.style.animationDuration = (2.2 + Math.random() * 2.5) + 's';
-    bg.appendChild(d);
-  }
-})();
-
-// ==================== FLOATING PARTICLES ====================
-const PETALS = ['✧','⋆','✦','·','∘'];
-
-function triggerPetals() {
-  const c = document.getElementById('petalContainer');
-  c.innerHTML = '';
-  for (let i = 0; i < 24; i++) {
-    const f = document.createElement('div');
-    f.className = 'petal';
-    f.textContent = PETALS[Math.floor(Math.random() * PETALS.length)];
-    f.style.left = (Math.random() * 100) + '%';
-    f.style.top = (Math.random() * 100) + '%';
-    f.style.fontSize = (13 + Math.random() * 16) + 'px';
-    f.style.animationDelay = (Math.random() * 0.9) + 's';
-    f.style.animationDuration = (0.8 + Math.random() * 0.7) + 's';
-    f.style.setProperty('--ty', (-70 - Math.random() * 120) + 'px');
-    c.appendChild(f);
-  }
-}
-
-// ==================== CURSOR-REACTIVE SNOW (canvas, all slides) ====================
-(function() {
-  const canvas = document.getElementById('snowCanvas');
-  const sctx = canvas.getContext('2d');
-  let W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2);
-
-  function resizeSnow() {
-    W = window.innerWidth;
-    H = window.innerHeight;
-    canvas.width = W * DPR;
-    canvas.height = H * DPR;
-    canvas.style.width = W + 'px';
-    canvas.style.height = H + 'px';
-    sctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-  }
-  resizeSnow();
-  window.addEventListener('resize', resizeSnow);
-  window.addEventListener('orientationchange', resizeSnow);
-
-  let pointerX = W / 2, pointerY = H * 0.2, pointerActive = false, pointerFadeTimer = null;
-  function setPointer(x, y) {
-    pointerX = x; pointerY = y; pointerActive = true;
-    clearTimeout(pointerFadeTimer);
-    pointerFadeTimer = setTimeout(() => { pointerActive = false; }, 2200);
-  }
-  window.addEventListener('mousemove', e => setPointer(e.clientX, e.clientY), { passive: true });
-  window.addEventListener('touchmove', e => {
-    if (e.touches && e.touches[0]) setPointer(e.touches[0].clientX, e.touches[0].clientY);
-  }, { passive: true });
-  window.addEventListener('touchstart', e => {
-    if (e.touches && e.touches[0]) setPointer(e.touches[0].clientX, e.touches[0].clientY);
-  }, { passive: true });
-
-  function flakeCount() {
-    if (W < 420) return 30;
-    if (W < 768) return 45;
-    return 75;
-  }
-
-  function createFlake(spawnAtTop = true) {
-    return {
-      x: Math.random() * W,
-      y: spawnAtTop ? -Math.random() * H : Math.random() * H,
-      r: 1.4 + Math.random() * 2.6,
-      speedY: 0.35 + Math.random() * 0.9,
-      sway: Math.random() * Math.PI * 2,
-      swaySpeed: 0.008 + Math.random() * 0.018,
-      swayAmp: 0.3 + Math.random() * 0.6,
-      opacity: 0.25 + Math.random() * 0.55
-    };
-  }
-
-  let flakes = [];
-  function ensureFlakeCount() {
-    const target = flakeCount();
-    while (flakes.length < target) flakes.push(createFlake(false));
-    if (flakes.length > target) flakes.length = target;
-  }
-  ensureFlakeCount();
-  window.addEventListener('resize', ensureFlakeCount);
-
-  const INFLUENCE_RADIUS = 160;
-
-  function animateSnow() {
-    sctx.clearRect(0, 0, W, H);
-    for (let i = 0; i < flakes.length; i++) {
-      const f = flakes[i];
-      f.sway += f.swaySpeed;
-
-      let pullX = 0, pullY = 0;
-      if (pointerActive) {
-        const dx = pointerX - f.x;
-        const dy = pointerY - f.y;
-        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-        if (dist < INFLUENCE_RADIUS) {
-          const force = (1 - dist / INFLUENCE_RADIUS) * 0.5;
-          pullX = (dx / dist) * force;
-          pullY = (dy / dist) * force * 0.35;
-        }
-      }
-
-      f.x += Math.sin(f.sway) * f.swayAmp + pullX;
-      f.y += f.speedY + pullY;
-
-      if (f.y > H + 8 || f.x < -20 || f.x > W + 20) {
-        Object.assign(f, createFlake(true), { y: -8 });
-      }
-
-      sctx.beginPath();
-      sctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-      sctx.fillStyle = `rgba(234,245,255,${f.opacity})`;
-      sctx.shadowColor = 'rgba(142,203,255,0.8)';
-      sctx.shadowBlur = 5;
-      sctx.fill();
-    }
-    requestAnimationFrame(animateSnow);
-  }
-  animateSnow();
-})();
-
-// ==================== GAME ====================
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 let stars = [], score = 0, gameActive = false, animFrame;
@@ -1544,7 +1505,6 @@ drawStar(canvas.width/2, canvas.height/2 - 40, 28, 5, '#8ecbff', true);
 function showWin() { document.getElementById('winScreen').classList.add('show'); }
 function closeWin() { document.getElementById('winScreen').classList.remove('show'); initGame(); }
 
-// ==================== GALLERY DRAG & DROP ====================
 const photoGrid = document.getElementById('photoGrid');
 const photoLabels = ['kenangan 1','kenangan 2','kenangan 3','kenangan 4','kenangan 5','kenangan 6'];
 
@@ -1739,7 +1699,6 @@ function openLightbox(src) {
 }
 function closeLightbox() { document.getElementById('lightbox').classList.remove('show'); }
 
-// ==================== MUSIC ====================
 const audio = document.getElementById('bgMusic');
 const musicFilename = document.getElementById('musicFilename');
 const musicTitleLabel = document.getElementById('musicTitleLabel');
@@ -1768,7 +1727,6 @@ function toggleMusic() {
   else startMusic();
 }
 
-// ==================== CONFETTI ====================
 const CONFETTI_COLORS = ['#eaf5ff','#8ecbff','#3aa0ff','#7fe0ff','#2f6fd6','#ffffff'];
 
 function spawnConfetti(containerId, active) {
@@ -1791,7 +1749,6 @@ function spawnConfetti(containerId, active) {
   }
 }
 
-// auto-start game on slide 2
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => { initGame(); }, 400);
 });
